@@ -1,17 +1,129 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Codex Fragment – Elemental Movement Arts</title>
-<link href="../../style.css" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elemental Arts</title>
+  <style>
+/* === Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* === Codex Container === */
+.codex-container {
+  background-color: #1b1b1b;
+  border: 1px solid #444;
+  padding: 50px 60px;
+  max-width: 850px;
+  width: 100%;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.05);
+  border-radius: 8px;
+  color: #cccccc;
+}
+
+/* === Headings === */
+.codex-title {
+  font-size: 1.6rem;
+  color: #00ffe7;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* === Body Paragraphs === */
+.codex-body p {
+  margin-bottom: 1.2em;
+  font-size: 1rem;
+}
+
+/* === Blockquotes === */
+blockquote {
+  background-color: #1a1a1a;
+  border-left: 4px solid #00aabb;
+  margin: 20px 0;
+  padding: 15px 20px;
+  font-style: italic;
+  color: #aaddff;
+}
+
+/* === Navigation Buttons === */
+.navigation {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.nav-button {
+  font-family: 'Courier New', monospace;
+  background-color: transparent;
+  color: #00ffe7;
+  border: 1px solid #00ffe7;
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #00ffe7;
+  color: #121212;
+}
+
+/* === Subheaders (e.g. section titles) === */
+h3 {
+  color: #00d0ff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* === Optional Text Effects === */
+.redacted {
+  background-color: #444;
+  color: #444;
+  border-radius: 3px;
+  padding: 0 4px;
+  letter-spacing: 0.15em;
+}
+
+.hex-hint {
+  color: #888;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: -10px;
+}
+
+/* === Terminal-style effect for password hints === */
+.terminal-glow {
+  color: #00ffe7;
+  text-shadow: 0 0 8px #00ffe7;
+}
+
+
+
+  </style>
 </head>
 <body>
-<h1 class="codex-title">Codex Fragment – Elemental Movement Arts</h1>
-<div class="codex-body">
+  <div class="codex-container">
+    <h1 class="codex-title">Elemental Arts</h1>
+    <div class="codex-body">
+
 <div class="codex-container">
-<h1 class="codex-title">Codex Fragment – Elemental Movement Arts</h1>
+<h2 class="codex-title">Codex Fragment – Elemental Movement Arts</h2>
 <div class="codex-body">
 <p><strong>Classification:</strong> Controlled Combat Applications</p>
 <p><strong>Clearance:</strong> Class C (Restricted to Voidwalker Personnel)</p>
@@ -22,57 +134,63 @@
 <p>As such, they are classified as non-essential augmentations and are not a requirement for standard D.S.O. field operations.</p>
 <p><em>Note:</em> Improper execution of any Art may result in severe muscle tissue atrophy (degradation).</p>
 <hr/>
-<h2>Thunder Arts</h2>
+<h3>Thunder Arts</h3>
 <p><em>Lightning, through muscle.</em></p>
 <ul>
-<li>Enables sharp bursts of speed and violent directional shifts via VX-pathways.</li>
-<li>Appears as teleportation to untrained eyes.</li>
-<li>Used for evasion or close-quarter assault.</li>
-<li>Side effects: blurred vision, blood vessel rupture, disorientation.</li>
-<li><strong>Master Form:</strong> <span class="redacted">REDACTED</span></li>
+<li>Void Walkers channel nerve current through VX-pathways, enabling sharp bursts of speed and violent directional shifts.</li>
+<li>Appears as teleportation to untrained eyes</li>
+<li>Commonly used for evasion or close-quarter closing</li>
+<li>Side effects: blurred vision, blood vessel rupture, spatial disorientation</li>
+<li><strong>Master Form:</strong> <span class="redacted">REDACTED</span> (Classified Tier)</li>
 </ul>
-<h2>Water Arts</h2>
+<h3>Water Arts</h3>
 <p><em>Flow, not force.</em></p>
 <ul>
-<li>Mimics water currents — adaptive, redirectional, and patient.</li>
-<li>Disrupts rhythm through feints and missteps.</li>
-<li>Ideal for counter-based or attrition strategies.</li>
-<li>Rarely lethal, but enhances survivability.</li>
+<li>Movements mimic water currents — adaptive, redirectional, and patient.</li>
+<li>Disrupts enemy rhythm through feints and missteps</li>
+<li>Rarely lethal, but noted for long-term survivability</li>
+<li>Ideal for counter-based or attrition strategies</li>
 <li>Only one offensive user recorded in D.S.O. history.</li>
 </ul>
-<h2>Sound Arts</h2>
+<h3>Sound Arts</h3>
 <p><em>Every step is an echo.</em></p>
 <ul>
-<li>Manipulates vibrations and rhythm to distort perception and focus.</li>
-<li>Functions as soft crowd control.</li>
-<li>Can operate without visible movement when mastered.</li>
-<li>Requires deep internal silence.</li>
+<li>By manipulating vibrations and step rhythm, users distort perception, balance, and focus.</li>
+<li>Functions as soft crowd control</li>
+<li>Can be deployed without physical motion when mastered</li>
+<li>Requires heightened bodily awareness and internal silence</li>
 </ul>
-<h2>Music Arts <span class="tag composer">Restricted Class: Composer Type</span></h2>
+<h3>Music Arts <span class="subclass composer">(Restricted Class: Composer Type)</span></h3>
 <p><em>An evolution of Sound Arts.</em></p>
 <ul>
-<li>Generates harmonic loops that warp time and local reality.</li>
-<li>Only two confirmed users in D.S.O. history.</li>
-<li>Synchronizes with VX-fields to alter battlefield behavior.</li>
-<li>Not viable until full resonance is achieved.</li>
+<li>Movements generate harmonic loops that distort perceived time, rhythm, and reality in local space.</li>
+<li>Extremely rare; only two confirmed users in D.S.O. history</li>
+<li>Alters reality behaviour by syncing with ambient VX-fields</li>
+<li>Not viable for combat until full resonance is achieved</li>
 </ul>
-<h2>Strength Arts</h2>
+<h3>Strength Arts</h3>
 <p><span class="redacted">REDACTED</span></p>
-<h2>Flame Arts</h2>
+<h3>Flame Arts</h3>
 <p><span class="redacted">REDACTED</span></p>
-<h2>Advanced Flame Arts <span class="tag restricted">Restricted Class: <span class="redacted">REDACTED</span></span></h2>
+<h3>Advanced Flame Arts <span class="subclass restricted">(Restricted Class: <span class="redacted">REDACTED</span>)</span></h3>
 <p><span class="redacted">REDACTED</span></p>
 <hr/>
-<h3>Doctrine Reminder:</h3>
+<h4 class="doctrine-header">Doctrine Reminder:</h4>
 <p>The D.S.O. values <strong>control</strong> over spectacle.</p>
 <p>An Art user without training is a <strong>liability</strong>.</p>
 <p>A sword user with <strong>discipline</strong> is a weapon.</p>
 </div>
-<div class="navigation"><a class="nav-button" href="/Original-Codex/Pages/dso.html">← Previous</a>
-<a class="nav-button" href="/Original-Codex/Pages/holy-wall.html">Next Fragment →</a></div>
+<div class="navigation">
+<a class="nav-button" href="/Original-Codex/Pages/dso.html">← Previous</a>
+<a class="nav-button" href="/Original-Codex/Pages/holy-wall.html">Next Fragment →</a>
 </div>
 </div>
 
-
+    </div>
+    <div class="navigation">
+      <a href="dso.html" class="nav-button">← Previous</a>
+      <a href="emphetripia.html" class="nav-button">Next Fragment →</a>
+    </div>
+  </div>
 </body>
 </html>
