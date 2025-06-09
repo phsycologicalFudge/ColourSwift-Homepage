@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Codex Access</title>
-    <link rel="stylesheet" href="/Original-Codex/style.css">
+  <link rel="stylesheet" href="/Original-Codex/style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>ENTER CODEX ACCESS KEY</h1>
-    <input type="password" id="password" placeholder="Enter password">
+  <div class="codex-container">
+    <h1 class="codex-title">ENTER CODEX ACCESS KEY</h1>
+
+    <input type="password" id="password" placeholder="Enter password" />
     <button onclick="checkPassword()">Unlock</button>
     <p id="error" style="color: red;"></p>
   </div>
@@ -17,10 +18,11 @@
   <script>
     function checkPassword() {
       const input = document.getElementById("password").value;
-      const correctPassword = "voidwalker"; // ← CHANGE THIS
+      const correctPassword = "voidwalker";
 
       if (input === correctPassword) {
-        window.location.href = "codex.html";
+        // Make sure the file path is correct!
+        window.location.href = "/Original-Codex/Pages/codex.html";
       } else {
         document.getElementById("error").textContent = "Access Denied.";
       }
