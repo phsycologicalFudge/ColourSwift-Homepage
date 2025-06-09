@@ -1,50 +1,58 @@
-
 body {
-  background-color: #0d0d0d;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
+  background-color: #121212;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
 }
 
-.container {
+.codex-container {
+  background: #fdfaf5;
+  color: #1a1a1a;
+  max-width: 800px;
+  padding: 50px 60px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  line-height: 1.8;
+  position: relative;
+  font-size: 1rem;
+}
+
+.codex-title {
+  font-family: 'Courier New', monospace;
+  color: #004f5a;
   text-align: center;
-}
-
-input {
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 15px;
-  background-color: #1a1a1a;
-  color: white;
-  border: 1px solid #444;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #444;
-  color: white;
-  border: none;
-  cursor: pointer;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
 }
 
 .navigation {
+  margin-top: 60px;
   text-align: center;
-  margin-top: 40px;
 }
+
 .nav-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 0 10px;
-  background: #222;
-  color: #fff;
+  font-family: 'Courier New', monospace;
+  color: #004f5a;
   text-decoration: none;
-  border-radius: 5px;
+  border: 1px solid #004f5a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin: 0 10px;
+  transition: background-color 0.2s ease;
 }
+
 .nav-button:hover {
-  background: #444;
+  background-color: #004f5a;
+  color: #fff;
 }
+
+blockquote {
+  background-color: #f1ede5;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border-left: 4px solid #999;
+  font-style: italic;
+}
+
