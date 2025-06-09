@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Access Gateway</title>
+<style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px #ffffff;
+    }
+    input[type="password"] {
+      padding: 10px;
+      background-color: #1e1e1e;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      width: 220px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #ffffff;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+}
+
+/* === Flicker Animation === */
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+
+/* === Apply Flicker to Key Elements === */
+.terminal-glow,
+.codex-title,
+h1, h2, h3 {
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
+  animation: flicker 3s infinite;
+}
+
+
+@keyframes flicker {
+  0%   { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #00ff00; }
+  20%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #00ff00; }
+  50%  { text-shadow: 0 0 6px #00ff00, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #00ff00; }
+  70%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #00ff00; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #00ff00; }
+  100% { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+}
+.terminal-glow {
+  color: #00ff00;
+  animation: flicker 3s infinite;
+}
+</style>
+</head>
+<body>
+<h1 class="">Enter Access Code</h1>
+<input id="password" placeholder="••••••••••••" type="password"/>
+<button onclick="checkPassword()">Enter</button>
+<div class="error" id="errorMsg">Access Denied</div>
+<script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if (input === "voidwalker") {
+        window.location.href = "codex.html";
+      } else {
+        document.getElementById('errorMsg').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

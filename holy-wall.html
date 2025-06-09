@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Holy Wall</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Holy Wall</title>
+<style>
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -39,7 +40,7 @@ html, body {
 /* === Headings === */
 .codex-title {
   font-size: 1.6rem;
-  color: #00ffe7;
+  color: #ffffff;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 30px;
@@ -70,8 +71,8 @@ blockquote {
 .nav-button {
   font-family: 'Courier New', monospace;
   background-color: transparent;
-  color: #00ffe7;
-  border: 1px solid #00ffe7;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   padding: 10px 20px;
   border-radius: 6px;
   margin: 0 10px;
@@ -80,7 +81,7 @@ blockquote {
 }
 
 .nav-button:hover {
-  background-color: #00ffe7;
+  background-color: #ffffff;
   color: #121212;
 }
 
@@ -108,20 +109,78 @@ h3 {
 }
 
 /* === Terminal-style effect for password hints === */
-.terminal-glow {
-  color: #00ffe7;
-  text-shadow: 0 0 8px #00ffe7;
+
+
+
+
+  
+
+  50%  { text-shadow: 0 0 4px #007700, 0 0 8px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 10px #ffffff; }
 }
 
 
 
-  </style>
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+}
+
+/* === Flicker Animation === */
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+
+/* === Apply Flicker to Key Elements === */
+.terminal-glow,
+.codex-title,
+h1, h2, h3 {
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
+  animation: flicker 3s infinite;
+}
+
+
+@keyframes flicker {
+  0%   { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #00ff00; }
+  20%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #00ff00; }
+  50%  { text-shadow: 0 0 6px #00ff00, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #00ff00; }
+  70%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #00ff00; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #00ff00; }
+  100% { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+}
+.terminal-glow {
+  color: #00ff00;
+  animation: flicker 3s infinite;
+}
+</style>
 </head>
 <body>
-  <div class="codex-container">
-    <h1 class="codex-title">Holy Wall</h1>
-    <div class="codex-body">
-
+<div class="codex-container">
+<h1 class="codex-title">Holy Wall</h1>
+<div class="codex-body">
 <div class="codex-container">
 <h2 class="codex-title"><strong>[Codex Fragment: The Holy Wall of St. Catherine &amp; The Last Gate of Michael]</strong></h2>
 <div class="codex-body">
@@ -151,16 +210,7 @@ h3 {
   </p>
 </div>
 <div class="navigation">
-<a class="nav-button" href="/Pages/elemental-arts.html">← Previous</a>
-<a class="nav-button" href="/Pages/exam.html">Next Fragment →</a>
+<a class="nav-button" href="elemental-arts.html">← Previous</a>
+<a class="nav-button" href="exam.html">Next →</a>
 </div>
-</div>
-
-    </div>
-    <div class="navigation">
-      <a href="formation-0023.html" class="nav-button">← Previous</a>
-      <a href="index.html" class="nav-button">Next Fragment →</a>
-    </div>
-  </div>
-</body>
-</html>
+</div></div></div></body></html>

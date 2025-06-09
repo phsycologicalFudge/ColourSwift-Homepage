@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Initializing Codex...</title>
+<style>
+    body {
+      background-color: #000;
+      color: #ffffff;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      font-size: 1.1rem;
+    }
+    #terminal {
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #ffffff;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { background-color: transparent; }
+    }
+  
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+}
+
+/* === Flicker Animation === */
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+
+/* === Apply Flicker to Key Elements === */
+.terminal-glow,
+.codex-title,
+h1, h2, h3 {
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
+  animation: flicker 3s infinite;
+}
+
+
+@keyframes flicker {
+  0%   { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #00ff00; }
+  20%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #00ff00; }
+  50%  { text-shadow: 0 0 6px #00ff00, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #00ff00; }
+  70%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #00ff00; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #00ff00; }
+  100% { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+}
+.terminal-glow {
+  color: #00ff00;
+  animation: flicker 3s infinite;
+}
+</style>
+</head>
+<body>
+<div id="terminal"></div>
+<script>
+    const lines = [
+      "> Initializing Voidwalk Interface [OK]",
+      "> Authenticating access...",
+      "> Cipher accepted — Welcome, REDACTED",
+      "> Compiling Codex fragments...",
+      "> Launching emphetripia.html"
+    ];
+    let i = 0;
+    const term = document.getElementById('terminal');
+
+    function typeLine(lineIndex) {
+      if (lineIndex >= lines.length) {
+        window.location.href = "emphetripia.html";
+        return;
+      }
+      let line = lines[lineIndex];
+      let charIndex = 0;
+      let span = document.createElement("span");
+
+      function typeChar() {
+        if (charIndex < line.length) {
+          span.textContent += line[charIndex++];
+          setTimeout(typeChar, 30);
+        } else {
+          term.appendChild(span);
+          term.appendChild(document.createElement("br"));
+          typeLine(lineIndex + 1);
+        }
+      }
+
+      term.appendChild(span);
+      typeChar();
+    }
+
+    typeLine(0);
+  </script>
+</body>
+</html>

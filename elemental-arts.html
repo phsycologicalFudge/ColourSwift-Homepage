@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elemental Arts</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Elemental Arts</title>
+<style>
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -39,7 +40,7 @@ html, body {
 /* === Headings === */
 .codex-title {
   font-size: 1.6rem;
-  color: #00ffe7;
+  color: #ffffff;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 30px;
@@ -70,8 +71,8 @@ blockquote {
 .nav-button {
   font-family: 'Courier New', monospace;
   background-color: transparent;
-  color: #00ffe7;
-  border: 1px solid #00ffe7;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   padding: 10px 20px;
   border-radius: 6px;
   margin: 0 10px;
@@ -80,7 +81,7 @@ blockquote {
 }
 
 .nav-button:hover {
-  background-color: #00ffe7;
+  background-color: #ffffff;
   color: #121212;
 }
 
@@ -108,20 +109,78 @@ h3 {
 }
 
 /* === Terminal-style effect for password hints === */
-.terminal-glow {
-  color: #00ffe7;
-  text-shadow: 0 0 8px #00ffe7;
+
+
+
+
+  
+
+  50%  { text-shadow: 0 0 4px #007700, 0 0 8px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 10px #ffffff; }
 }
 
 
 
-  </style>
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+}
+
+/* === Flicker Animation === */
+
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #ffffff; }
+  20%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #ffffff; }
+  50%  { text-shadow: 0 0 6px #ffffff, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #ffffff; }
+  70%  { text-shadow: 0 0 5px #ffffff, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #ffffff, 0 0 10px #ffffff; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #ffffff; }
+  100% { text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff; }
+}
+
+/* === Apply Flicker to Key Elements === */
+.terminal-glow,
+.codex-title,
+h1, h2, h3 {
+  color: #ffffff;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #ffffff;
+  animation: flicker 3s infinite;
+}
+
+
+@keyframes flicker {
+  0%   { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+  10%  { text-shadow: 0 0 3px #007700, 0 0 6px #00ff00; }
+  20%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  30%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #005500; }
+  40%  { text-shadow: 0 0 4px #00cc00, 0 0 9px #00ff00; }
+  50%  { text-shadow: 0 0 6px #00ff00, 0 0 11px #00cc00; }
+  60%  { text-shadow: 0 0 2px #009900, 0 0 6px #00ff00; }
+  70%  { text-shadow: 0 0 5px #00ff00, 0 0 8px #00aa00; }
+  80%  { text-shadow: 0 0 3px #00ff00, 0 0 10px #00ff00; }
+  90%  { text-shadow: 0 0 4px #007700, 0 0 7px #00ff00; }
+  100% { text-shadow: 0 0 2px #00ff00, 0 0 4px #00ff00; }
+}
+.terminal-glow {
+  color: #00ff00;
+  animation: flicker 3s infinite;
+}
+</style>
 </head>
 <body>
-  <div class="codex-container">
-    <h1 class="codex-title">Elemental Arts</h1>
-    <div class="codex-body">
-
+<div class="codex-container">
+<h1 class="codex-title">Elemental Arts</h1>
+<div class="codex-body">
 <div class="codex-container">
 <h2 class="codex-title">Codex Fragment – Elemental Movement Arts</h2>
 <div class="codex-body">
@@ -134,7 +193,7 @@ h3 {
 <p>As such, they are classified as non-essential augmentations and are not a requirement for standard D.S.O. field operations.</p>
 <p><em>Note:</em> Improper execution of any Art may result in severe muscle tissue atrophy (degradation).</p>
 <hr/>
-<h3>Thunder Arts</h3>
+<h3 class="">Thunder Arts</h3>
 <p><em>Lightning, through muscle.</em></p>
 <ul>
 <li>Void Walkers channel nerve current through VX-pathways, enabling sharp bursts of speed and violent directional shifts.</li>
@@ -143,7 +202,7 @@ h3 {
 <li>Side effects: blurred vision, blood vessel rupture, spatial disorientation</li>
 <li><strong>Master Form:</strong> <span class="redacted">REDACTED</span> (Classified Tier)</li>
 </ul>
-<h3>Water Arts</h3>
+<h3 class="">Water Arts</h3>
 <p><em>Flow, not force.</em></p>
 <ul>
 <li>Movements mimic water currents — adaptive, redirectional, and patient.</li>
@@ -152,7 +211,7 @@ h3 {
 <li>Ideal for counter-based or attrition strategies</li>
 <li>Only one offensive user recorded in D.S.O. history.</li>
 </ul>
-<h3>Sound Arts</h3>
+<h3 class="">Sound Arts</h3>
 <p><em>Every step is an echo.</em></p>
 <ul>
 <li>By manipulating vibrations and step rhythm, users distort perception, balance, and focus.</li>
@@ -160,7 +219,7 @@ h3 {
 <li>Can be deployed without physical motion when mastered</li>
 <li>Requires heightened bodily awareness and internal silence</li>
 </ul>
-<h3>Music Arts <span class="subclass composer">(Restricted Class: Composer Type)</span></h3>
+<h3 class="">Music Arts <span class="subclass composer">(Restricted Class: Composer Type)</span></h3>
 <p><em>An evolution of Sound Arts.</em></p>
 <ul>
 <li>Movements generate harmonic loops that distort perceived time, rhythm, and reality in local space.</li>
@@ -168,11 +227,11 @@ h3 {
 <li>Alters reality behaviour by syncing with ambient VX-fields</li>
 <li>Not viable for combat until full resonance is achieved</li>
 </ul>
-<h3>Strength Arts</h3>
+<h3 class="">Strength Arts</h3>
 <p><span class="redacted">REDACTED</span></p>
-<h3>Flame Arts</h3>
+<h3 class="">Flame Arts</h3>
 <p><span class="redacted">REDACTED</span></p>
-<h3>Advanced Flame Arts <span class="subclass restricted">(Restricted Class: <span class="redacted">REDACTED</span>)</span></h3>
+<h3 class="">Advanced Flame Arts <span class="subclass restricted">(Restricted Class: <span class="redacted">REDACTED</span>)</span></h3>
 <p><span class="redacted">REDACTED</span></p>
 <hr/>
 <h4 class="doctrine-header">Doctrine Reminder:</h4>
@@ -181,16 +240,7 @@ h3 {
 <p>A sword user with <strong>discipline</strong> is a weapon.</p>
 </div>
 <div class="navigation">
-<a class="nav-button" href="/Original-Codex/Pages/dso.html">← Previous</a>
-<a class="nav-button" href="/Original-Codex/Pages/holy-wall.html">Next Fragment →</a>
+<a class="nav-button" href="dso.html">← Previous</a>
+<a class="nav-button" href="holy-wall.html">Next →</a>
 </div>
-</div>
-
-    </div>
-    <div class="navigation">
-      <a href="dso.html" class="nav-button">← Previous</a>
-      <a href="emphetripia.html" class="nav-button">Next Fragment →</a>
-    </div>
-  </div>
-</body>
-</html>
+</div></div></div></body></html>
