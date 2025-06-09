@@ -6,6 +6,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Final Entry</title>
 <style>
+html, body {
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -175,6 +188,105 @@ h1, h2, h3 {
   color: #00ff00;
   animation: flicker 3s infinite;
 }
+
+
+ {
+  0%   { filter: brightness(1) contrast(1); transform: none; }
+  5%   { filter: brightness(1.05) contrast(1.1); transform: translateY(-1px); }
+  10%  { filter: brightness(0.95) contrast(0.95); transform: translateX(1px); }
+  15%  { filter: brightness(1.02) contrast(1); transform: translateX(-1px); }
+  20%  { filter: brightness(0.98) contrast(1.05); transform: none; }
+  25%  { filter: brightness(1.03) contrast(0.9); }
+  30%, 100% { filter: brightness(1) contrast(1); transform: none; }
+}
+
+.codex-container {
+  
+}
+
+
+
+.glitch::before,
+
+
+
+
+
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(-1px, -1px); }
+  60%  { transform: translate(1px, 1px); }
+  80%  { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+  20%  { transform: translate(1px, -1px); }
+  40%  { transform: translate(1px, 1px); }
+  60%  { transform: translate(-1px, -1px); }
+  80%  { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -183,7 +295,7 @@ h1, h2, h3 {
 <div class="codex-body">
 <div class="codex-container">
 <div class="codex-body" style="font-family: 'Courier New', monospace; background-color: #111; color: #c0c0c0; padding: 30px; border-left: 4px solid #555; line-height: 1.7; box-shadow: inset 0 0 20px #000;">
-<p style="color: #88ffff;"><em>“The Void does not choose the strongest. It chooses the one who is most prepared to disappear.”</em></p>
+<p style="color: #88ffff;">“The <span><span>Void</span></span> does not choose the strongest. It chooses the one who is most prepared to disappear.” </p>
 <br/>
 <p>I'm tired.<br/>
   Was it worth it?<br/>

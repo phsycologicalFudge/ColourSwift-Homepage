@@ -6,6 +6,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Exam</title>
 <style>
+html, body {
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -175,6 +188,105 @@ h1, h2, h3 {
   color: #00ff00;
   animation: flicker 3s infinite;
 }
+
+
+ {
+  0%   { filter: brightness(1) contrast(1); transform: none; }
+  5%   { filter: brightness(1.05) contrast(1.1); transform: translateY(-1px); }
+  10%  { filter: brightness(0.95) contrast(0.95); transform: translateX(1px); }
+  15%  { filter: brightness(1.02) contrast(1); transform: translateX(-1px); }
+  20%  { filter: brightness(0.98) contrast(1.05); transform: none; }
+  25%  { filter: brightness(1.03) contrast(0.9); }
+  30%, 100% { filter: brightness(1) contrast(1); transform: none; }
+}
+
+.codex-container {
+  
+}
+
+
+
+.glitch::before,
+
+
+
+
+
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(-1px, -1px); }
+  60%  { transform: translate(1px, 1px); }
+  80%  { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+  20%  { transform: translate(1px, -1px); }
+  40%  { transform: translate(1px, 1px); }
+  60%  { transform: translate(-1px, -1px); }
+  80%  { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -182,14 +294,10 @@ h1, h2, h3 {
 <h1 class="codex-title">Exam</h1>
 <div class="codex-body">
 <div class="codex-container">
-<h2 class="codex-title"><strong>[Codex Fragment: The D.S.O. Entrance Exam]</strong></h2>
+<h2 class="codex-title"><strong class="">[Codex Fragment: The D.S.O. Entrance Exam]</strong></h2>
 <div class="codex-body">
-<p>
-    The <strong>Demonic Surveillance Organization (D.S.O.)</strong> requires all potential agents to undergo a three-stage qualification process designed to filter, forge, and finalize the warriors of humanity’s last line of defense.
-  </p>
-<p>
-    Those who pass the exam are officially recognized as <strong>Voidguards</strong> or <strong>D.S.O. Agents</strong>, and are granted a rank reflective of their performance—ranging from D to S.
-  </p>
+<p>The Demonic Surveillance Organization (D.S.O.) requires all potential agents to undergo a three-stage qualification process designed to filter, forge, and finalize the warriors of humanity’s last line of defense. </p>
+<p>Those who pass the exam are officially recognized as <span>Void</span>guards or D.S.O. Agents, and are granted a rank reflective of their performance—ranging from D to S. </p>
 </div>
 <div class="navigation">
 <a class="nav-button" href="holy-wall.html">← Previous</a>

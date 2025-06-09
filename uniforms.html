@@ -6,6 +6,19 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Uniforms</title>
 <style>
+html, body {
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.8;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -175,6 +188,105 @@ h1, h2, h3 {
   color: #00ff00;
   animation: flicker 3s infinite;
 }
+
+
+ {
+  0%   { filter: brightness(1) contrast(1); transform: none; }
+  5%   { filter: brightness(1.05) contrast(1.1); transform: translateY(-1px); }
+  10%  { filter: brightness(0.95) contrast(0.95); transform: translateX(1px); }
+  15%  { filter: brightness(1.02) contrast(1); transform: translateX(-1px); }
+  20%  { filter: brightness(0.98) contrast(1.05); transform: none; }
+  25%  { filter: brightness(1.03) contrast(0.9); }
+  30%, 100% { filter: brightness(1) contrast(1); transform: none; }
+}
+
+.codex-container {
+  
+}
+
+
+
+.glitch::before,
+
+
+
+
+
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(-1px, -1px); }
+  60%  { transform: translate(1px, 1px); }
+  80%  { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+  20%  { transform: translate(1px, -1px); }
+  40%  { transform: translate(1px, 1px); }
+  60%  { transform: translate(-1px, -1px); }
+  80%  { transform: translate(-1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+.glitch::before,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -192,23 +304,19 @@ h1, h2, h3 {
 <p>
     Trainees are issued a plain black military set—pressed jacket and slacks, minimalist in design, resembling formalwear.
   </p>
-<p>
-    Each uniform is embedded with a low-grade <strong>Sigil of Protection</strong>, offering baseline Void resistance and environmental shielding.
-  </p>
+<p>Each uniform is embedded with a low-grade Sigil of Protection, offering baseline <span><span>Void</span></span> resistance and environmental shielding. </p>
 <p><strong>Agents</strong> (B to A-Rank)</p>
 <p>
-    Field-ready personnel are granted a revised set: black military attire with a <strong>short leather coat</strong>, worn draped over the shoulders in cloak-like fashion.
+    Field-ready personnel are granted a revised set: black military attire with a <strong class="">short leather coat</strong>, worn draped over the shoulders in cloak-like fashion.
   </p>
 <p>
     This design prioritizes mobility and symbolic presence.
   </p>
-<p><strong>Elite Operatives</strong> (S-Rank and above)</p>
+<p><strong class="">Elite Operatives</strong> (S-Rank and above)</p>
 <p>
-    Those who stand at the apex of the agency receive the Helm <strong>of Authority</strong>—a high-ranking insignia signifying command status and operational sovereignty.
+    Those who stand at the apex of the agency receive the Helm <strong class="">of Authority</strong>—a high-ranking insignia signifying command status and operational sovereignty.
   </p>
-<p>
-    It is the <strong>second-highest honor</strong> bestowed within the D.S.O.
-  </p>
+<p>It is the second-highest honor bestowed within the D.S.O. </p>
 <blockquote>
 <p><em>Note:</em> Uniform adaptations may vary under special assignment or regional command.</p>
 </blockquote>
