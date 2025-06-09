@@ -1,3 +1,4 @@
+
 /* === Reset & Base Styles === */
 * {
   margin: 0;
@@ -56,54 +57,63 @@ blockquote {
 
 /* === Navigation Buttons === */
 .navigation {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
   margin-top: 40px;
 }
 
 .nav-button {
-  font-family: 'Courier New', monospace;
-  background-color: transparent;
-  color: #00ffe7;
-  border: 1px solid #00ffe7;
   padding: 10px 20px;
-  border-radius: 6px;
-  margin: 0 10px;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  border: 1px solid #555;
   text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
 }
 
 .nav-button:hover {
-  background-color: #00ffe7;
-  color: #121212;
+  background-color: #333;
 }
 
-/* === Subheaders (e.g. section titles) === */
-h3 {
-  color: #00d0ff;
-  margin-top: 30px;
-  margin-bottom: 10px;
+/* === Mobile Optimization === */
+@media (max-width: 768px) {
+  .codex-container {
+    padding: 25px 20px;
+    font-size: 0.95rem;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  html, body {
+    padding: 20px 10px;
+  }
 }
 
-/* === Optional Text Effects === */
-.redacted {
-  background-color: #444;
-  color: #444;
-  border-radius: 3px;
-  padding: 0 4px;
-  letter-spacing: 0.15em;
+/* === Ancient Codex Theme (Optional) === */
+.codex-theme-ancient {
+  background-color: #2c261f;
+  color: #d7cab3;
+  font-family: 'Georgia', serif;
 }
 
-.hex-hint {
-  color: #888;
-  font-size: 0.85rem;
-  font-style: italic;
-  margin-top: -10px;
+.codex-theme-ancient .codex-container {
+  background-color: #3b332a;
+  color: #e9decf;
+  box-shadow: none;
+  border: 1px solid #6e5e4b;
 }
 
-/* === Terminal-style effect for password hints === */
-.terminal-glow {
-  color: #00ffe7;
-  text-shadow: 0 0 8px #00ffe7;
+.codex-theme-ancient .codex-title {
+  color: #e3c27a;
 }
 
-
+.codex-theme-ancient blockquote {
+  background-color: #4a3f33;
+  border-left: 4px solid #c7a76c;
+  color: #f1e4d2;
+}
