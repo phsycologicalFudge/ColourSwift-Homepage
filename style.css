@@ -104,3 +104,37 @@ a, a:link, a:visited, .nav-button {
 .final-entry-box p {
     color: #c0c0c0 !important; /* Override default p color */
 }
+
+/* ─── PASSWORD PORTAL ───────────────────────────────────────────────── */
+
+/* style the input */
+input[type="password"],
+input[type="text"] {
+  background-color: #111;           /* dark but visible */
+  color: #33ff33;                   /* CRT-green text */
+  border: 1px solid #33ff33;        /* green outline */
+  padding: 0.5em 0.75em;            /* comfy click/tap area */
+  font-family: inherit;             /* match rest of site */
+  font-size: 1em;
+  outline: none;
+  box-shadow: inset 0 0 5px #000;   /* subtle inset glow */
+}
+
+/* style the submit button */
+button,
+input[type="submit"] {
+  background-color: transparent;    /* keep the CRT feel */
+  color: white;                     /* white stands out on black */
+  border: 1px solid #33ff33;
+  padding: 0.5em 1em;
+  font-family: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  text-shadow: none;                /* clear text */
+}
+button:hover,
+input[type="submit"]:hover {
+  background-color: #33ff33;        /* invert on hover */
+  color: #000;
+}
+
