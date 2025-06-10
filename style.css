@@ -138,3 +138,19 @@ input[type="submit"]:hover {
   color: #000;
 }
 
+
+
+/* ─── LOGIN PAGE CENTERING ─────────────────────────────────────── */
+body.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.login-container {
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+/* ──────────────────────────────────────────────────────────────── */
