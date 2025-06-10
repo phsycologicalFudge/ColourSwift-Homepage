@@ -1,68 +1,88 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Initializing Codex...</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Initializing Codex...</title>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <link rel="stylesheet" href="style.css">
+  <!-- CRT & portal styling + redacted rule -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #terminal .redacted {
+      color: #e60000; /* bright red on green/black */
+    }
+  </style>
 </head>
 <body>
-<div id="terminal"></div>
-<script>
+  <div id="terminal"></div>
+
+  <script>
     const lines = [
       "> Initializing Voidwalk Interface [OK]",
       "> Authenticating access...",
       "> Cipher accepted — Welcome, REDACTED",
       "> Compiling Codex fragments...",
-      "> Launching emphetripia.html"
+      "> Launching 001.html"
     ];
-    let i = 0;
+
     const term = document.getElementById('terminal');
 
-    function typeLine(lineIndex) {
-      if (lineIndex >= lines.length) {
-        window.location.href = "emphetripia.html";
-        return;
-      }
-      let line = lines[lineIndex];
-      let charIndex = 0;
-      let span = document.createElement("span");
-
-      function typeChar() {
-        if (charIndex < line.length) {
-          span.textContent += line[charIndex++];
-          setTimeout(typeChar, 30);
+    // types a string into `element`, then calls cb()
+    function typeChars(text, element, cb) {
+      let idx = 0;
+      (function next() {
+        if (idx < text.length) {
+          element.textContent += text[idx++];
+          setTimeout(next, 30);
         } else {
-          term.appendChild(span);
-          term.appendChild(document.createElement("br"));
-          typeLine(lineIndex + 1);
+          cb();
         }
-      }
-
-      term.appendChild(span);
-      typeChar();
+      })();
     }
 
+    function typeLine(i) {
+      if (i >= lines.length) {
+        window.location.href = "002.html";
+        return;
+      }
+
+      const raw = lines[i];
+      // check for REDACTED
+      if (raw.includes("REDACTED")) {
+        const [before, after] = raw.split("REDACTED");
+
+        // 1) type prefix into a new span
+        const prefixSpan = document.createElement('span');
+        term.appendChild(prefixSpan);
+        typeChars(before, prefixSpan, () => {
+          // 2) create & append redacted span
+          const redSpan = document.createElement('span');
+          redSpan.className = 'redacted';
+          term.appendChild(redSpan);
+          // 3) type "REDACTED" inside it
+          typeChars("REDACTED", redSpan, () => {
+            // 4) type suffix into a new span
+            const suffixSpan = document.createElement('span');
+            term.appendChild(suffixSpan);
+            typeChars(after, suffixSpan, () => {
+              term.appendChild(document.createElement('br'));
+              typeLine(i + 1);
+            });
+          });
+        });
+
+      } else {
+        // normal line
+        const span = document.createElement('span');
+        term.appendChild(span);
+        typeChars(raw, span, () => {
+          term.appendChild(document.createElement('br'));
+          typeLine(i + 1);
+        });
+      }
+    }
+
+    // kick it off
     typeLine(0);
   </script>
 </body>
