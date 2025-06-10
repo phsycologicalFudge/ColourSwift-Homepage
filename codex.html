@@ -8,116 +8,23 @@
 
 
 
-<style>
-/* Remove boxes/backgrounds from content containers */
-* {
-  background: transparent !important;
-  border: none !important;
-}
-
-/* Normalize blockquote color */
-blockquote, blockquote * {
-  color: #33ff33 !important;
-}
-
-/* Ensure links remain white */
-a, a:link, a:visited, a.nav-button {
-  color: white !important;
-  text-decoration: none !important;
-}
-</style>
 
 
 
 
-<style>
-body {
-    background-color: #000;
-    color: #33ff33;
-    font-family: 'Courier New', Courier, monospace;
-    text-shadow: 0 0 2px #33ff33;
-    position: relative;
-    overflow: hidden;
-}
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0px,
-        rgba(0, 0, 0, 0) 2px,
-        rgba(0, 255, 0, 0.05) 3px,
-        rgba(0, 0, 0, 0) 4px
-    );
-    pointer-events: none;
-    z-index: 10;
-    animation: flicker 0.15s infinite;
-}
-@keyframes flicker {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 1; }
-}
-</style>
 
 
-<style>
-/* Remove container boxes */
-.codex-container, .codex-body {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-/* Force all paragraph text green */
-p {
-    color: #33ff33 !important;
-}
-/* Ensure navigation links stay white */
-.navigation a {
-    color: #fff !important;
-}
-</style>
 
 
-<style>
-html, body {
-    background-color: #000 !important;
-}
-body * {
-    background-color: transparent !important;
-}
-</style>
 
 
-<style>
-.navigation {
-    display: block !important;
-    position: relative !important;
-    margin-top: 40px !important;
-    z-index: 1 !important;
-}
-.navigation a {
-    color: white !important;
-    text-decoration: none !important;
-    margin-right: 20px;
-}
-</style>
 
 
-<style>
-html, body {
-    height: auto !important;
-    min-height: auto !important;
-    overflow: visible !important;
-    overflow-y: auto !important;
-}
-</style>
 
+
+
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="terminal"></div>

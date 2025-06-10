@@ -1,143 +1,106 @@
-/* === Reset & Base Styles === */
+/* === MASTER STYLESHEET FOR VOIDWALK CODEX === */
+
+/* --- Base & Reset --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* Universal style overrides */
+  background: transparent !important;
+  border: none !important;
 }
 
 html, body {
-  height: 100%;
-  background-color: #121212;
-  color: #e0e0e0;
-  font-family: 'Courier New', monospace;
-  line-height: 1.8;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000 !important;
+  color: #33ff33;
+  text-shadow: 0 0 2px #33ff33;
+  position: relative;
+  /* Allow scrolling on content pages */
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+  overflow-y: auto !important;
 }
 
-/* === Codex Container === */
-.codex-container {
-  background-color: #1b1b1b;
-  border: 1px solid #444;
-  padding: 50px 60px;
-  max-width: 850px;
-  width: 100%;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.05);
-  border-radius: 8px;
-  color: #cccccc;
-}
-
-/* === Headings === */
-.codex-title {
-  font-size: 1.6rem;
-  color: #00ffe7;
-  letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* === Body Paragraphs === */
-.codex-body p {
-  margin-bottom: 1.2em;
-  font-size: 1rem;
-}
-
-/* === Blockquotes === */
-blockquote {
-  background-color: #1a1a1a;
-  border-left: 4px solid #00aabb;
-  margin: 20px 0;
-  padding: 15px 20px;
-  font-style: italic;
-  color: #aaddff;
-}
-
-/* === Navigation Buttons === */
-.navigation {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.nav-button {
-  font-family: 'Courier New', monospace;
-  background-color: transparent;
-  color: #00ffe7;
-  border: 1px solid #00ffe7;
-  padding: 10px 20px;
-  border-radius: 6px;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.nav-button:hover {
-  background-color: #00ffe7;
-  color: #121212;
-}
-
-/* === Subheaders (e.g. section titles) === */
-h3 {
-  color: #00d0ff;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-/* === Optional Text Effects === */
-.redacted {
-  background-color: #444;
-  color: #444;
-  border-radius: 3px;
-  padding: 0 4px;
-  letter-spacing: 0.15em;
-}
-
-.hex-hint {
-  color: #888;
-  font-size: 0.85rem;
-  font-style: italic;
-  margin-top: -10px;
-}
-
-/* === Terminal-style effect for password hints === */
-.terminal-glow {
-  color: #00ffe7;
-  text-shadow: 0 0 8px #00ffe7;
-}
-
-
-
-
-body {
-    background-color: #000;
-    color: #33ff33;
-    font-family: 'Courier New', Courier, monospace;
-    text-shadow: 0 0 2px #33ff33;
-    position: relative;
-    overflow: hidden;
-}
-
+/* --- VHS/CRT Scanline Effect --- */
 body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0) 0px,
-        rgba(0, 0, 0, 0) 2px,
-        rgba(0, 255, 0, 0.05) 3px,
-        rgba(0, 0, 0, 0) 4px
-    );
-    pointer-events: none;
-    z-index: 10;
-    animation: flicker 0.15s infinite;
+  content: "";
+  position: fixed; /* Use fixed to cover the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 255, 0, 0.05) 3px,
+    rgba(0, 0, 0, 0) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+  animation: flicker 0.15s infinite;
 }
 
 @keyframes flicker {
-    0%, 100% { opacity: 0.85; }
-    50% { opacity: 1; }
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* --- Accessibility: Reduce motion for users who prefer it --- */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}
+
+/* --- Content & Layout --- */
+.codex-container, .codex-body {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 auto; /* Center the container */
+  max-width: 850px; /* Give it a max-width for readability */
+}
+
+/* --- Typography --- */
+p {
+  color: #33ff33 !important;
+}
+
+blockquote, blockquote * {
+  color: #33ff33 !important;
+}
+
+/* --- Navigation --- */
+.navigation {
+  display: block !important;
+  position: relative !important;
+  margin-top: 40px !important;
+  z-index: 1 !important;
+}
+
+a, a:link, a:visited, .nav-button {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.navigation a {
+  margin-right: 20px;
+}
+
+/* --- Specific Page Styles (from final-entry.html) --- */
+.final-entry-box {
+    font-family: 'Courier New', monospace; 
+    background-color: #111 !important; /* Kept important to override base */
+    color: #c0c0c0; 
+    padding: 30px; 
+    border-left: 4px solid #555 !important; 
+    line-height: 1.7; 
+    box-shadow: inset 0 0 20px #000;
+}
+.final-entry-box p {
+    color: #c0c0c0 !important; /* Override default p color */
 }
