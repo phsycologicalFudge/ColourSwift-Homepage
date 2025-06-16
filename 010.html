@@ -1,82 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Final Entry</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Final Entry</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 3em 1em;
+    }
 
+    .codex-title {
+      font-size: 2em;
+      text-shadow: 0 0 4px #00ffcc;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    .codex-audio-player {
+      background-color: #0c0c0c;
+      padding: 1em;
+      border: 1px solid #00ffcc;
+      margin-top: 2em;
+      color: #00ffcc;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 4px;
+      box-shadow: 0 0 5px #00ffcc88;
+    }
+
+    .codex-transmission-label {
+      font-size: 0.9em;
+      margin-bottom: 0.5em;
+      text-shadow: 0 0 3px #00ffcc;
+    }
+
+    audio {
+      width: 100%;
+      filter: grayscale(100%) brightness(0.9) contrast(1.2);
+      border-radius: 6px;
+      background-color: #111;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #0c0c0c;
+      color-scheme: dark;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-volume-slider {
+      filter: invert(1);
+    }
+  </style>
 </head>
 <body>
-<div class="codex-container">
-<h1 class="codex-title">Final Entry</h1>
-<div class="codex-body final-entry-box">
-<div class="codex-container">
-<div class="codex-body final-entry-box">
-<p>“The <span><span>Void</span></span> does not choose the strongest. It chooses the one who is most prepared to disappear.” </p>
-<br/>
-<p>I'm tired.<br/>
-  Was it worth it?<br/>
-  They have all forgotten.<br/>
-  I have not.<br/>
-  I miss you.<br/>
-<span>_ __ll _r_t__t __m</span></p>
-<br/>
-<p>— Codex Fragment 000<br/>Original Founder's Draft (Archived)</p>
-</div>
-</div>
-</div>
-<div class="navigation">
-<a class="nav-button" href="009.html">← Previous</a>
-<a class="nav-button" href="#">Next →</a>
-</div>
-
-
-<div class="codex-audio-player">
-  <p class="codex-transmission-label">[Codex Transmission: Audio Log Detected]</p>
-  <audio controls>
-    <source src="codex_transmission01.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-</div>
-
-<style>
-  .codex-audio-player {
-    background-color: #0c0c0c;
-    padding: 1em;
-    border: 1px solid #00ffcc;
-    margin-top: 2em;
-    font-family: 'Courier New', monospace;
-    color: #00ffcc;
-    width: fit-content;
-    border-radius: 4px;
-    box-shadow: 0 0 5px #00ffcc88;
-  }
-
-  .codex-transmission-label {
-    font-size: 0.9em;
-    margin-bottom: 0.5em;
-    text-shadow: 0 0 3px #00ffcc;
-  }
-
-  audio {
-    width: 100%;
-    filter: grayscale(100%) brightness(0.9) contrast(1.2);
-    border-radius: 6px;
-    background-color: #111;
-  }
-
-  audio::-webkit-media-controls-panel {
-    background-color: #0c0c0c;
-    color-scheme: dark;
-  }
-
-  audio::-webkit-media-controls-play-button,
-  audio::-webkit-media-controls-volume-slider {
-    filter: invert(1);
-  }
-</style>
-
-</div></body></html>
+  <h1 class="codex-title">Final Entry</h1>
+  <div class="codex-audio-player">
+    <p class="codex-transmission-label">[Codex Transmission: Audio Log Detected]</p>
+    <audio controls>
+      <source src="codex_transmission01.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</body>
+</html>
