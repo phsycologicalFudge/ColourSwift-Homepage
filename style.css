@@ -154,3 +154,19 @@ body.login-page {
   text-align: center;
 }
 /* ──────────────────────────────────────────────────────────────── */
+
+
+/* ─── Codex audio ─────────────────────────────────────── */
+.codex-audio-player {
+  background-color: #111;
+  padding: 1em;
+  border: 1px solid #333;
+  margin-top: 2em;
+  color: #ccc;
+}
+
+.codex-transmission-label {
+  font-family: monospace;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
