@@ -44,23 +44,38 @@
 
 <style>
   .codex-audio-player {
-    background-color: #111;
+    background-color: #0c0c0c;
     padding: 1em;
-    border: 1px solid #333;
+    border: 1px solid #00ffcc;
     margin-top: 2em;
-    color: #ccc;
-    font-family: monospace;
+    font-family: 'Courier New', monospace;
+    color: #00ffcc;
+    width: fit-content;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #00ffcc88;
   }
 
   .codex-transmission-label {
     font-size: 0.9em;
     margin-bottom: 0.5em;
-    color: #00ffcc;
-    text-shadow: 0 0 4px #00ffcc;
+    text-shadow: 0 0 3px #00ffcc;
   }
 
   audio {
     width: 100%;
+    filter: grayscale(100%) brightness(0.9) contrast(1.2);
+    border-radius: 6px;
+    background-color: #111;
+  }
+
+  audio::-webkit-media-controls-panel {
+    background-color: #0c0c0c;
+    color-scheme: dark;
+  }
+
+  audio::-webkit-media-controls-play-button,
+  audio::-webkit-media-controls-volume-slider {
+    filter: invert(1);
   }
 </style>
 
