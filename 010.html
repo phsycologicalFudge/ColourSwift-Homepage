@@ -7,33 +7,9 @@
 <title>Final Entry</title>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="codex-audio-player">
-  <p class="codex-transmission-label">[Codex Transmission: Audio Log Detected]</p>
-  <audio controls>
-    <source src="codex_transmission01.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-</div>
 <div class="codex-container">
 <h1 class="codex-title">Final Entry</h1>
 <div class="codex-body final-entry-box">
@@ -56,4 +32,36 @@
 <a class="nav-button" href="009.html">← Previous</a>
 <a class="nav-button" href="#">Next →</a>
 </div>
+
+
+<div class="codex-audio-player">
+  <p class="codex-transmission-label">[Codex Transmission: Audio Log Detected]</p>
+  <audio controls>
+    <source src="codex_transmission01.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<style>
+  .codex-audio-player {
+    background-color: #111;
+    padding: 1em;
+    border: 1px solid #333;
+    margin-top: 2em;
+    color: #ccc;
+    font-family: monospace;
+  }
+
+  .codex-transmission-label {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+    color: #00ffcc;
+    text-shadow: 0 0 4px #00ffcc;
+  }
+
+  audio {
+    width: 100%;
+  }
+</style>
+
 </div></body></html>
