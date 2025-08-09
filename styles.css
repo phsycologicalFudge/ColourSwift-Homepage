@@ -7,15 +7,39 @@ a{color:#93c5fd}
 .btn-ghost{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:#e6e9ef;text-decoration:none}
 ul{padding-left:1.2rem}
 
-.subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
 
+/* --- Cards layout for portal --- */
+.grid.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 22px;
+  margin-top: 18px;
+}
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(148,163,184,0.15);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25) inset, 0 1px 0 rgba(255,255,255,.04);
+}
+.card h2, .card h3 { margin: 0 0 10px 0; }
+.card ul { margin: 8px 0 0 1.1rem; }
+.card li { margin: 6px 0; }
 
-/* ---- auto formatting helpers ---- */
-.wrap { max-width: 900px; margin: 0 auto; }
-.subhead { margin: 28px 0 10px; font-size: 1.1rem; color: #A5B4FC; letter-spacing: .2px; }
-p { margin: 10px 0 12px; line-height: 1.55; }
-ul { margin: 10px 0 12px 1.25rem; }
-ul li { margin: 6px 0; }
-.figure { text-align:center; margin:14px 0; }
-.figure img { max-width: 560px; width: 100%; height: auto; border-radius: 12px; }
-.figure a { display:inline-block; }
+/* Hero + buttons */
+.hero { margin-top: 28px; }
+.lede { margin: 0 0 10px 0; opacity: .9; }
+.cta { display:flex; gap:10px; margin: 12px 0 8px; }
+.btn { font-weight: 600; text-decoration: none; }
+.btn-primary { background: linear-gradient(180deg, #6aa8ff, #3b82f6); color: #0b1220; border: none; }
+.btn-ghost { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.04); }
+
+/* Reading order block as a full-width card */
+.reading-order { margin-top: 22px; }
+.reading-order .card ol { margin: 8px 0 0 1.2rem; }
+.reading-order .card li { margin: 6px 0; }
+
+/* General tweaks */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.25rem; }
+.note { margin-top: 6px; opacity: .85; }
