@@ -8,3 +8,14 @@ a{color:#93c5fd}
 ul{padding-left:1.2rem}
 
 .subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
+
+
+/* ---- auto formatting helpers ---- */
+.wrap { max-width: 900px; margin: 0 auto; }
+.subhead { margin: 28px 0 10px; font-size: 1.1rem; color: #A5B4FC; letter-spacing: .2px; }
+p { margin: 10px 0 12px; line-height: 1.55; }
+ul { margin: 10px 0 12px 1.25rem; }
+ul li { margin: 6px 0; }
+.figure { text-align:center; margin:14px 0; }
+.figure img { max-width: 560px; width: 100%; height: auto; border-radius: 12px; }
+.figure a { display:inline-block; }
