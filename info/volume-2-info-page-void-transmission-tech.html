@@ -1,99 +1,38 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>(Volume 2) Info page: Void Transmission Tech</title>
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    .illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto 0; }
-    .lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
-    .lightbox-backdrop.active { display:flex; }
-    .lightbox-content { position:relative; max-width: 96vw; max-height: 90vh; }
-    .lightbox-img { max-width: 96vw; max-height: 90vh; border-radius: 12px; }
-    .lightbox-close, .lightbox-prev, .lightbox-next {
-      position:absolute; top:50%; transform: translateY(-50%);
-      background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-      color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none;
-    }
-    .lightbox-close { top: 16px; right: 16px; transform:none; }
-    .lightbox-prev { left: -56px; }
-    .lightbox-next { right: -56px; }
-    @media (max-width: 840px) {
-      .lightbox-prev { left: 8px; }
-      .lightbox-next { right: 8px; }
-    }
-  </style>
-</head>
-<body>
-  <main class="wrap">
-    <a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
-    <h1>(Volume 2) Info page: Void Transmission Tech</h1>
-<section class="card"><p>Through the guidance of the music pillar, the D.S.O had invented a new method of
-surveillance. Through the use of Void Transmission technology, people across the
-world could view the events of the National Exam in real time. From open fields to the
-smalles t compartments hidden beneath a building.
-A basic guide to the technology:</p></section>
-<section class="card"><ul>
-<li>Spec Camera: Collects visual feed from several miles away.</li>
-<li>D.S.O Relay: Receives and transmits the collected data.</li>
-<li>D.S.O.I (Intelligence): Converts this information into visual data, with the help of
-several supercomputers.
-Extended Method of transmission:
-The Spec Camera : Large black boxes that emit a web of sensory particles across their
-designated area. Each box is encased in a thin layer of polycarbonate glass, with each
-unit containing a core of advanced computational hardware, typically equipped with
-the latest generation DU -32 decoding chips. Behind these processors lies a secured
-compartment that houses semi -unstable VX crystals that have been meticulously
-tuned for high -precision sensory data.
-D.S.O Relays : There are several transmission towers and satellites owned by the
-D.S.O. These are partially used to receive and transmit any information sent by a Spec
-Camera. Each relay is specifically adapted to stabilise the raw and unstable format of
-VX energy.</li>
-</ul></section>
-<section class="card"><p>D.S.O.I (Intelligence): The Intelligence sector of the D.S.O receives and converts these
-transmissions to comprehensible information. This is possible due to the technological
-milestone of the supercomputer, capable of translating stabilised and compressed
-sensory data received v ia the relays across the globe.
-Extra facts:</p></section>
-<section class="card"><ul>
-<li>The first -generation spec cameras are capable of firing sensory particles across
-a 5-mile radius and can be fine -tuned to specific locations.</li>
-<li>Due to their sub -atomic size and complex structure, VX particles allow data to
-be densely encoded and transmitted efficiently via electromagnetic signals.</li>
-<li>The transmitted information may appear slightly simple at first glance, but it
-contains an incredibly dense collection of data that a supercomputer can
-convert into a visual feed.</li>
-</ul></section><section class="card"><img class="illustration" data-lightbox data-full="../images/page9_1.webp" src="../images/page9_1.webp" alt="(Volume 2) Info page: Void Transmission Tech illustration"></section><section class="card"><img class="illustration" data-lightbox data-full="../images/page10_1.webp" src="../images/page10_1.webp" alt="(Volume 2) Info page: Void Transmission Tech illustration"></section>
-  </main>
-  <div class="lightbox-backdrop" id="lb">
-    <div class="lightbox-content">
-      <img class="lightbox-img" id="lb-img" src="" alt="">
-      <div class="lightbox-close" id="lb-close">✕</div>
-      <div class="lightbox-prev" id="lb-prev">◀</div>
-      <div class="lightbox-next" id="lb-next">▶</div>
-    </div>
-  </div>
-  <script>
-    (function(){
-      const imgs = Array.from(document.querySelectorAll('[data-lightbox]'));
-      const lb = document.getElementById('lb');
-      const lbImg = document.getElementById('lb-img');
-      const btnClose = document.getElementById('lb-close');
-      const btnPrev = document.getElementById('lb-prev');
-      const btnNext = document.getElementById('lb-next');
-      let idx = -1;
-      function openAt(i){ idx = i; lbImg.src = imgs[idx].dataset.full; lb.classList.add('active'); }
-      function close(){ lb.classList.remove('active'); lbImg.src=''; }
-      function prev(){ if(!imgs.length) return; idx = (idx - 1 + imgs.length) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
-      function next(){ if(!imgs.length) return; idx = (idx + 1) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
-      imgs.forEach((im, i)=>{ im.addEventListener('click', ()=>openAt(i)); });
-      btnClose.addEventListener('click', close);
-      btnPrev.addEventListener('click', prev);
-      btnNext.addEventListener('click', next);
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); if(e.key==='ArrowLeft') prev(); if(e.key==='ArrowRight') next(); });
-      lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
-    })();
-  </script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>(Volume 2) Info page: Void Transmission Tech</title><link rel="stylesheet" href="../styles.css">
+<style>
+.illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto; }
+.lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
+.lightbox-backdrop.active { display:flex; }
+.lightbox-img { max-width:96vw; max-height:90vh; border-radius:12px; }
+.lightbox-close,.lightbox-prev,.lightbox-next {
+position:absolute; top:50%; transform: translateY(-50%);
+background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none; }
+.lightbox-close { top:16px; right:16px; transform:none; }
+.lightbox-prev { left: -56px; } .lightbox-next { right:-56px; }
+@media(max-width:840px){ .lightbox-prev{left:8px} .lightbox-next{right:8px} }
+.subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
+</style></head><body><main class="wrap">
+<a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
+<h1>(Volume 2) Info page: Void Transmission Tech</h1>
+<section class="card">
+<p>Through the guidance of the music pillar, the D.S.O had invented a new method of</p><p>surveillance. Through the use of Void Transmission technology, people across the</p><p>world could view the events of the National Exam in real time. From open fields to the</p><p>smallest compartments hidden beneath a building.</p><h2 class="subhead">A basic guide to the technology</h2><ul><li><strong>Spec Camera:</strong> Collects visual feed from several miles away.</li><li><strong>D.S.O Relay:</strong> Receives and transmits the collected data.</li><li><strong>D.S.O.I (Intelligence):</strong> Converts this information into visual data, with the help of</li></ul><p>several supercomputers.</p><h2 class="subhead">Extended Method of transmission</h2><p>The Spec Camera: Large black boxes that emit a web of sensory particles across their</p><p>designated area. Each box is encased in a thin layer of polycarbonate glass, with each</p><p>unit containing a core of advanced computational hardware, typically equipped with</p><p>the latest generation DU-32 decoding chips. Behind these processors lies a secured</p><p>compartment that houses semi-unstable VX crystals that have been meticulously</p><p>tuned for high-precision sensory data.</p><p>&lt;image: DeviceRGB, width: 520, height: 520, bpc: 8&gt;</p><img class="illustration" data-lightbox data-full="../images/p9_x49.webp" src="../images/p9_x49.webp" alt="(Volume 2) Info page: Void Transmission Tech illustration"><p>D.S.O Relays: There are several transmission towers and satellites owned by the</p><p>D.S.O. These are partially used to receive and transmit any information sent by a Spec</p><p>Camera. Each relay is specifically adapted to stabilise the raw and unstable format of</p><p>VX energy.</p><p>&lt;image: DeviceRGB, width: 520, height: 291, bpc: 8&gt;</p><img class="illustration" data-lightbox data-full="../images/p10_x52.webp" src="../images/p10_x52.webp" alt="(Volume 2) Info page: Void Transmission Tech illustration"><p>D.S.O.I (Intelligence): The Intelligence sector of the D.S.O receives and converts these</p><p>transmissions to comprehensible information. This is possible due to the technological</p><p>milestone of the supercomputer, capable of translating stabilised and compressed</p><p>sensory data received via the relays across the globe.</p><h2 class="subhead">Extra facts</h2><ul><li>The first-generation spec cameras are capable of firing sensory particles across</li></ul><p>a 5-mile radius and can be fine-tuned to specific locations.</p><ul><li>Due to their sub-atomic size and complex structure, VX particles allow data to</li></ul><p>be densely encoded and transmitted efficiently via electromagnetic signals.</p><ul><li>The transmitted information may appear slightly simple at first glance, but it</li></ul><p>contains an incredibly dense collection of data that a supercomputer can</p><p>convert into a visual feed.</p></section></main>
+<div class="lightbox-backdrop" id="lb"><img class="lightbox-img" id="lb-img" src="" alt="">
+<div class="lightbox-close" id="lb-close">✕</div>
+<div class="lightbox-prev" id="lb-prev">◀</div>
+<div class="lightbox-next" id="lb-next">▶</div></div>
+<script>
+(function(){const imgs=[...document.querySelectorAll('[data-lightbox]')];
+const lb=document.getElementById('lb'),im=document.getElementById('lb-img');
+const c=document.getElementById('lb-close'),pv=document.getElementById('lb-prev'),nx=document.getElementById('lb-next');let i=-1;
+function openAt(k){i=k;im.src=imgs[i].dataset.full;lb.classList.add('active');}
+function close(){lb.classList.remove('active');im.src='';}
+function prev(){if(!imgs.length)return;i=(i-1+imgs.length)%imgs.length;im.src=imgs[i].dataset.full;}
+function next(){if(!imgs.length)return;i=(i+1)%imgs.length;im.src=imgs[i].dataset.full;}
+imgs.forEach((e,k)=>e.addEventListener('click',()=>openAt(k)));c.addEventListener('click',close);
+pv.addEventListener('click',prev);nx.addEventListener('click',next);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
+lb.addEventListener('click',e=>{if(e.target===lb)close();});})();
+</script></body></html>
