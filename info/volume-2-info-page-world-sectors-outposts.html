@@ -1,38 +1,84 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>(Volume 2) Info Page: World Sectors &amp; Outposts</title><link rel="stylesheet" href="../styles.css">
-<style>
-.illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto; }
-.lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
-.lightbox-backdrop.active { display:flex; }
-.lightbox-img { max-width:96vw; max-height:90vh; border-radius:12px; }
-.lightbox-close,.lightbox-prev,.lightbox-next {
-position:absolute; top:50%; transform: translateY(-50%);
-background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none; }
-.lightbox-close { top:16px; right:16px; transform:none; }
-.lightbox-prev { left: -56px; } .lightbox-next { right:-56px; }
-@media(max-width:840px){ .lightbox-prev{left:8px} .lightbox-next{right:8px} }
-.subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
-</style></head><body><main class="wrap">
-<a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
-<h1>(Volume 2) Info Page: World Sectors &amp; Outposts</h1>
-<section class="card">
-<p>Sectors</p><p>During the initial reconstruction of the Gaia, formally known as Earth before the war,</p><p>the World Government assigned the remaining countries a numerical identifier for</p><p>simple communication.</p><h2 class="subhead">Examples</h2><ul><li>Sector 9 = Japan</li><li>Sector 1 = United Kingdom</li><li>Sector 5 = United States</li><li>Sector 8 = China</li></ul><p>Cardinal Directions</p><h2 class="subhead">To identify individual cities within a sector, a directional tag was added</h2><ul><li>A = North</li><li>B = East</li><li>C = South</li><li>D = West</li></ul><h2 class="subhead">This creates combined identifiers</h2><ul><li>Sector 1C = United Kingdom, South (London)</li><li>Sector 9B = Japan, east (New Tokyo)</li></ul><p>Outposts</p><p>Each directional tag is further subdivided into smaller units called outposts.</p><p>For example, the city of Blackreach is assigned the numerical value 7, with the</p><h2 class="subhead">directional tag A (North). Following this logic</h2><ul><li>Outpost 7A, Sector 9B is located in East Japan, north of New Tokyo.</li></ul></section></main>
-<div class="lightbox-backdrop" id="lb"><img class="lightbox-img" id="lb-img" src="" alt="">
-<div class="lightbox-close" id="lb-close">✕</div>
-<div class="lightbox-prev" id="lb-prev">◀</div>
-<div class="lightbox-next" id="lb-next">▶</div></div>
-<script>
-(function(){const imgs=[...document.querySelectorAll('[data-lightbox]')];
-const lb=document.getElementById('lb'),im=document.getElementById('lb-img');
-const c=document.getElementById('lb-close'),pv=document.getElementById('lb-prev'),nx=document.getElementById('lb-next');let i=-1;
-function openAt(k){i=k;im.src=imgs[i].dataset.full;lb.classList.add('active');}
-function close(){lb.classList.remove('active');im.src='';}
-function prev(){if(!imgs.length)return;i=(i-1+imgs.length)%imgs.length;im.src=imgs[i].dataset.full;}
-function next(){if(!imgs.length)return;i=(i+1)%imgs.length;im.src=imgs[i].dataset.full;}
-imgs.forEach((e,k)=>e.addEventListener('click',()=>openAt(k)));c.addEventListener('click',close);
-pv.addEventListener('click',prev);nx.addEventListener('click',next);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
-lb.addEventListener('click',e=>{if(e.target===lb)close();});})();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>(Volume 2) Info Page: World Sectors &amp; Outposts</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto; }
+    .subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
+    .lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
+    .lightbox-backdrop.active { display:flex; }
+    .lightbox-content { position:relative; max-width: 96vw; max-height: 90vh; }
+    .lightbox-img { max-width: 96vw; max-height: 90vh; border-radius: 12px; }
+    .lightbox-close, .lightbox-prev, .lightbox-next {
+      position:absolute; top:50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none;
+    }
+    .lightbox-close { top: 16px; right: 16px; transform:none; }
+    .lightbox-prev { left: -56px; }
+    .lightbox-next { right: -56px; }
+    @media (max-width: 840px) { .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
+    <h1>(Volume 2) Info Page: World Sectors &amp; Outposts</h1>
+<p>Sectors 
+During the initial reconstruction of the Gaia, formally known as Earth before the war, 
+the World Government assigned the remaining countries a numerical identifier for 
+simple communication. 
+Examples: 
+• Sector 9 = Japan 
+• Sector 1 = United Kingdom 
+• Sector 5 = United States 
+• Sector 8 = China 
+Cardinal Directions 
+To identify individual cities within a sector, a directional tag was added: 
+• A = North 
+• B = East 
+• C = South 
+• D = West 
+This creates combined identifiers: 
+• Sector 1C = United Kingdom, South ( London ) 
+• Sector 9B = Japan, east ( New Tokyo ) 
+Outposts 
+Each directional tag is further subdivided into smaller units called outposts. 
+For example, the city of Blackreach is assigned the numerical value 7, with the 
+directional tag A (North). Following this logic: 
+• Outpost 7A, Sector 9B is located in East Japan, north of New Tokyo.</p>
+  </main>
+  <div class="lightbox-backdrop" id="lb">
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lb-img" src="" alt="">
+      <div class="lightbox-close" id="lb-close">✕</div>
+      <div class="lightbox-prev" id="lb-prev">◀</div>
+      <div class="lightbox-next" id="lb-next">▶</div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const imgs = Array.from(document.querySelectorAll('[data-lightbox]'));
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const btnClose = document.getElementById('lb-close');
+      const btnPrev = document.getElementById('lb-prev');
+      const btnNext = document.getElementById('lb-next');
+      let idx = -1;
+      function openAt(i){ idx = i; lbImg.src = imgs[idx].dataset.full; lb.classList.add('active'); }
+      function close(){ lb.classList.remove('active'); lbImg.src=''; }
+      function prev(){ if(!imgs.length) return; idx = (idx - 1 + imgs.length) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      function next(){ if(!imgs.length) return; idx = (idx + 1) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      imgs.forEach((im, i)=>{ im.addEventListener('click', ()=>openAt(i)); });
+      btnClose.addEventListener('click', close);
+      btnPrev.addEventListener('click', prev);
+      btnNext.addEventListener('click', next);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); if(e.key==='ArrowLeft') prev(); if(e.key==='ArrowRight') next(); });
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+    })();
+  </script>
+</body>
+</html>

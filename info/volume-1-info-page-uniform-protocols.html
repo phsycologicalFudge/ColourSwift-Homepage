@@ -1,38 +1,62 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>(Volume 1) Info Page: Uniform Protocols</title><link rel="stylesheet" href="../styles.css">
-<style>
-.illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto; }
-.lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
-.lightbox-backdrop.active { display:flex; }
-.lightbox-img { max-width:96vw; max-height:90vh; border-radius:12px; }
-.lightbox-close,.lightbox-prev,.lightbox-next {
-position:absolute; top:50%; transform: translateY(-50%);
-background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none; }
-.lightbox-close { top:16px; right:16px; transform:none; }
-.lightbox-prev { left: -56px; } .lightbox-next { right:-56px; }
-@media(max-width:840px){ .lightbox-prev{left:8px} .lightbox-next{right:8px} }
-.subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
-</style></head><body><main class="wrap">
-<a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
-<h1>(Volume 1) Info Page: Uniform Protocols</h1>
-<section class="card">
-<h2 class="subhead">Basic Uniform Protocols</h2><p>The D.S.O requires all agents to wear a basic black military uniform. A cross-like sigil of</p><p>protection is placed on the lapel, along with a pair of black boots that are issued to all</p><p>soldiers.</p><p>&lt;image: DeviceRGB, width: 624, height: 624, bpc: 8&gt;</p><img class="illustration" data-lightbox data-full="../images/p4_x33.webp" src="../images/p4_x33.webp" alt="(Volume 1) Info Page: Uniform Protocols illustration"><h2 class="subhead">Additional Uniform Protocols</h2><ul><li>Cape - Agents of higher ranks may be rewarded with a fashionable cape.</li><li>Helm of Authority - Reserved for the Holy Pillars.</li></ul><p>&lt;image: DeviceRGB, width: 1024, height: 1024, bpc: 8&gt;</p><img class="illustration" data-lightbox data-full="../images/p5_x36.webp" src="../images/p5_x36.webp" alt="(Volume 1) Info Page: Uniform Protocols illustration"><p>&lt;image: DeviceRGB, width: 1024, height: 1024, bpc: 8&gt;</p><img class="illustration" data-lightbox data-full="../images/p5_x37.webp" src="../images/p5_x37.webp" alt="(Volume 1) Info Page: Uniform Protocols illustration"></section></main>
-<div class="lightbox-backdrop" id="lb"><img class="lightbox-img" id="lb-img" src="" alt="">
-<div class="lightbox-close" id="lb-close">✕</div>
-<div class="lightbox-prev" id="lb-prev">◀</div>
-<div class="lightbox-next" id="lb-next">▶</div></div>
-<script>
-(function(){const imgs=[...document.querySelectorAll('[data-lightbox]')];
-const lb=document.getElementById('lb'),im=document.getElementById('lb-img');
-const c=document.getElementById('lb-close'),pv=document.getElementById('lb-prev'),nx=document.getElementById('lb-next');let i=-1;
-function openAt(k){i=k;im.src=imgs[i].dataset.full;lb.classList.add('active');}
-function close(){lb.classList.remove('active');im.src='';}
-function prev(){if(!imgs.length)return;i=(i-1+imgs.length)%imgs.length;im.src=imgs[i].dataset.full;}
-function next(){if(!imgs.length)return;i=(i+1)%imgs.length;im.src=imgs[i].dataset.full;}
-imgs.forEach((e,k)=>e.addEventListener('click',()=>openAt(k)));c.addEventListener('click',close);
-pv.addEventListener('click',prev);nx.addEventListener('click',next);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
-lb.addEventListener('click',e=>{if(e.target===lb)close();});})();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>(Volume 1) Info Page: Uniform Protocols</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .illustration { width: 450px; max-width: 100%; height:auto; border-radius:12px; cursor: zoom-in; display:block; margin: 12px auto; }
+    .subhead{margin:28px 0 8px;font-size:1.1rem;color:#A5B4FC;letter-spacing:.3px}
+    .lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
+    .lightbox-backdrop.active { display:flex; }
+    .lightbox-content { position:relative; max-width: 96vw; max-height: 90vh; }
+    .lightbox-img { max-width: 96vw; max-height: 90vh; border-radius: 12px; }
+    .lightbox-close, .lightbox-prev, .lightbox-next {
+      position:absolute; top:50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none;
+    }
+    .lightbox-close { top: 16px; right: 16px; transform:none; }
+    .lightbox-prev { left: -56px; }
+    .lightbox-next { right: -56px; }
+    @media (max-width: 840px) { .lightbox-prev { left: 8px; } .lightbox-next { right: 8px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
+    <h1>(Volume 1) Info Page: Uniform Protocols</h1>
+<h2 class="subhead">Basic Uniform Protocols</h2><ul><li>Cape - Agents of higher ranks may be rewarded with a fashionable cape.</li><li>Helm of Authority - Reserved for the Holy Pillars.</li></ul><img class="illustration" data-lightbox data-full="../images/page4_1.webp" src="../images/page4_1.webp" alt="illustration">
+  </main>
+  <div class="lightbox-backdrop" id="lb">
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lb-img" src="" alt="">
+      <div class="lightbox-close" id="lb-close">✕</div>
+      <div class="lightbox-prev" id="lb-prev">◀</div>
+      <div class="lightbox-next" id="lb-next">▶</div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const imgs = Array.from(document.querySelectorAll('[data-lightbox]'));
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const btnClose = document.getElementById('lb-close');
+      const btnPrev = document.getElementById('lb-prev');
+      const btnNext = document.getElementById('lb-next');
+      let idx = -1;
+      function openAt(i){ idx = i; lbImg.src = imgs[idx].dataset.full; lb.classList.add('active'); }
+      function close(){ lb.classList.remove('active'); lbImg.src=''; }
+      function prev(){ if(!imgs.length) return; idx = (idx - 1 + imgs.length) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      function next(){ if(!imgs.length) return; idx = (idx + 1) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      imgs.forEach((im, i)=>{ im.addEventListener('click', ()=>openAt(i)); });
+      btnClose.addEventListener('click', close);
+      btnPrev.addEventListener('click', prev);
+      btnNext.addEventListener('click', next);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); if(e.key==='ArrowLeft') prev(); if(e.key==='ArrowRight') next(); });
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+    })();
+  </script>
+</body>
+</html>
