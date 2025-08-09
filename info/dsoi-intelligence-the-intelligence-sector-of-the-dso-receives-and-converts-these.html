@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D.S.O.I (Intelligence): The Intelligence sector of the D.S.O receives and converts these</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .illustration { width: 450px; max-width: 100%; height: auto; border-radius: 12px; cursor: zoom-in; display:block; margin: 12px auto 0; }
+    /* Lightbox */
+    .lightbox-backdrop { position: fixed; inset:0; background: rgba(0,0,0,.9); display:none; align-items:center; justify-content:center; z-index:9999; }
+    .lightbox-backdrop.active { display:flex; }
+    .lightbox-content { position:relative; max-width: 96vw; max-height: 90vh; }
+    .lightbox-img { max-width: 96vw; max-height: 90vh; border-radius: 12px; }
+    .lightbox-close, .lightbox-prev, .lightbox-next {
+      position:absolute; top:50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer; user-select:none;
+    }
+    .lightbox-close { top: 16px; right: 16px; transform:none; }
+    .lightbox-prev { left: -56px; }
+    .lightbox-next { right: -56px; }
+    @media (max-width: 840px) {
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="btn btn-ghost" href="../index.html">← Back to Portal</a>
+    <h1>D.S.O.I (Intelligence): The Intelligence sector of the D.S.O receives and converts these</h1>
+<section class="card"><p>transmissions to comprehensible information. This is possible due to the technological
+milestone of the supercomputer, capable of translating stabilised and compressed
+sensory data received v ia the relays across the globe.
+Extra facts:</p></section>
+<section class="card"><ul>
+<li>The first -generation spec cameras are capable of firing sensory particles across
+a 5-mile radius and can be fine -tuned to specific locations.</li>
+<li>Due to their sub -atomic size and complex structure, VX particles allow data to
+be densely encoded and transmitted efficiently via electromagnetic signals.</li>
+<li>The transmitted information may appear slightly simple at first glance, but it
+contains an incredibly dense collection of data that a supercomputer can
+convert into a visual feed.</li>
+</ul></section><section class="card"><img class="illustration" data-lightbox data-full="../images/page10_1.webp" src="../images/page10_1.webp" alt="D.S.O.I (Intelligence): The Intelligence sector of the D.S.O receives and converts these illustration"></section>
+  </main>
+  <div class="lightbox-backdrop" id="lb">
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lb-img" src="" alt="">
+      <div class="lightbox-close" id="lb-close">✕</div>
+      <div class="lightbox-prev" id="lb-prev">◀</div>
+      <div class="lightbox-next" id="lb-next">▶</div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const imgs = Array.from(document.querySelectorAll('[data-lightbox]'));
+      const lb = document.getElementById('lb');
+      const lbImg = document.getElementById('lb-img');
+      const btnClose = document.getElementById('lb-close');
+      const btnPrev = document.getElementById('lb-prev');
+      const btnNext = document.getElementById('lb-next');
+      let idx = -1;
+      function openAt(i){ idx = i; lbImg.src = imgs[idx].dataset.full; lb.classList.add('active'); }
+      function close(){ lb.classList.remove('active'); lbImg.src=''; }
+      function prev(){ if(!imgs.length) return; idx = (idx - 1 + imgs.length) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      function next(){ if(!imgs.length) return; idx = (idx + 1) % imgs.length; lbImg.src = imgs[idx].dataset.full; }
+      imgs.forEach((im, i)=>{ im.addEventListener('click', ()=>openAt(i)); });
+      btnClose.addEventListener('click', close);
+      btnPrev.addEventListener('click', prev);
+      btnNext.addEventListener('click', next);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); if(e.key==='ArrowLeft') prev(); if(e.key==='ArrowRight') next(); });
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) close(); });
+    })();
+  </script>
+</body>
+</html>
