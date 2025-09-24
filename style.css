@@ -347,9 +347,13 @@ footer a:hover {
 .policy li {
   margin-bottom: 0.5rem;
 }
+/* Remove blue tap highlight on mobile */
 .logo-link {
-  display: inline-block;
+  -webkit-tap-highlight-color: transparent; /* for iOS/Android WebKit browsers */
+  outline: none; /* removes outline */
 }
-.logo-link:hover {
-  text-decoration: none;
+.logo-link:focus {
+  outline: none;
+  box-shadow: none; /* in case of focus styles */
 }
+
