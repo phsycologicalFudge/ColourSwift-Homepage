@@ -304,6 +304,7 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
 /* Privacy / Terms Policy Page */
 .policy {
   max-width: 900px;
@@ -340,20 +341,25 @@ footer a:hover {
   color: #FF4500;
 }
 
-.policy ul, .policy ol {
+.policy ul,
+.policy ol {
   margin: 1rem 0 1rem 2rem;
 }
 
 .policy li {
   margin-bottom: 0.5rem;
 }
-/* Remove blue tap highlight on mobile */
+
 .logo-link {
-  -webkit-tap-highlight-color: transparent; /* for iOS/Android WebKit browsers */
-  outline: none; /* removes outline */
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
+  /* for iOS/Android WebKit browsers */
+  outline: none;
+  /* removes outline */
 }
-.logo-link:focus {
+
+.logo-link:hover {
+  text-decoration: none;
   outline: none;
   box-shadow: none; /* in case of focus styles */
 }
-
