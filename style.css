@@ -305,45 +305,34 @@ footer a:hover {
   text-decoration: underline;
 }
 /* Privacy / Terms Policy Page */
-.policy {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: #0f0f0f;   /* matches your site */
-  border: 1px solid #222;
-  border-radius: 8px;
-  color: #ddd;
-  line-height: 1.8;
-  font-size: 1rem;
-  text-align: left;
+/* Force dark background + light text */
+.policy [data-custom-class='body'],
+.policy [data-custom-class='body'] * {
+  background: #0f0f0f !important;
+  color: #ddd !important;
+  font-family: Arial, sans-serif !important;
 }
 
-.policy h1,
-.policy h2,
-.policy h3 {
-  color: #e5e5e5;
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
+/* Headings */
+.policy [data-custom-class='title'],
+.policy [data-custom-class='heading_1'],
+.policy [data-custom-class='heading_2'] {
+  color: #e5e5e5 !important;
+  font-weight: bold !important;
 }
 
-.policy p {
-  margin-bottom: 1rem;
-  color: #ccc;
+/* Body text */
+.policy [data-custom-class='body_text'] {
+  color: #ccc !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
 }
 
-.policy a {
-  color: #00679e;
-  text-decoration: underline;
+/* Links */
+.policy [data-custom-class='link'] {
+  color: #00679e !important;
+  text-decoration: underline !important;
 }
-
-.policy a:hover {
-  color: #FF4500;
-}
-
-.policy ul, .policy ol {
-  margin: 1rem 0 1rem 2rem;
-}
-
-.policy li {
-  margin-bottom: 0.5rem;
+.policy [data-custom-class='link']:hover {
+  color: #FF4500 !important;
 }
