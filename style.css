@@ -24,6 +24,7 @@ header {
 
 header .logo {
   height: 40px;
+  width: auto;
 }
 
 header nav a {
