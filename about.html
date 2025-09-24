@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | ColourSwift</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <img src="images/logo.svg" alt="ColourSwift Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="https://tech.colourswift.com">Tech</a>
+      <a href="https://cloud.colourswift.com">Cloud</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about section">
+    <h2>About ColourSwift</h2>
+    <p>
+      ColourSwift is a Birmingham-based technology business with a simple mission: to make technology reliable,
+      transparent, and easy to trust.
+    </p>
+    <p>
+      We began by offering local repair and support services, helping everyday users and small businesses keep their
+      devices running smoothly. Our focus has always been on clarity, fair pricing, and support you can count on.
+    </p>
+    <p>
+      Looking ahead, we’re building on those same principles to launch ColourSwift Cloud. A secure, privacy-first
+      storage service designed for everyday users who want peace of mind without enterprise complexity. This service
+      will go live in 2026.
+    </p>
+    <p>
+      Whether today through tech repairs, or tomorrow through secure cloud storage, our vision remains the same:
+      technology you can trust, built with transparency and value for the people who use it.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact section dark">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:support@colourswift.com">support@colourswift.com</a></p>
+
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <!-- Web3Forms Access Key -->
+      <input type="hidden" name="access_key" value="efde834f-a746-4963-8903-062b780be974">
+
+      <!-- Form fields -->
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <!-- Redirect to thank-you page -->
+      <input type="hidden" name="redirect" value="https://colourswift.com/thank-you.html">
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Loader -->
+  <div id="loader">
+    <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ColourSwift</p>
+  </footer>
+<script>
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.getAttribute("href");
+
+      // Only trigger loader for internal links
+      if (
+        url &&
+        !url.startsWith("http") &&
+        !url.startsWith("mailto:") &&
+        !url.startsWith("#")
+      ) {
+        // Get just the filenames (e.g. "about.html")
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const targetPage = url.split("/").pop() || "index.html";
+
+        // Skip if it's the same page
+        if (currentPage === targetPage) {
+          return;
+        }
+
+        e.preventDefault(); // stop instant navigation
+        const loader = document.getElementById("loader");
+        loader.classList.remove("hidden"); // show loader again
+
+        setTimeout(() => {
+          window.location.href = url; // continue navigation
+        }, 400); // delay for effect
+      }
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
