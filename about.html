@@ -10,6 +10,10 @@
 </head>
 
 <body>
+  <div id="loader">
+  <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
+</div>
+
   <!-- Header -->
   <header>
     <img src="images/logo.svg" alt="ColourSwift Logo" class="logo">
@@ -64,48 +68,10 @@
     </form>
   </section>
 
-  <!-- Loader -->
-  <div id="loader">
-    <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
-  </div>
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 ColourSwift</p>
   </footer>
-<script>
-  document.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", function (e) {
-      const url = this.getAttribute("href");
-
-      // Only trigger loader for internal links
-      if (
-        url &&
-        !url.startsWith("http") &&
-        !url.startsWith("mailto:") &&
-        !url.startsWith("#")
-      ) {
-        // Get just the filenames (e.g. "about.html")
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
-        const targetPage = url.split("/").pop() || "index.html";
-
-        // Skip if it's the same page
-        if (currentPage === targetPage) {
-          return;
-        }
-
-        e.preventDefault(); // stop instant navigation
-        const loader = document.getElementById("loader");
-        loader.classList.remove("hidden"); // show loader again
-
-        setTimeout(() => {
-          window.location.href = url; // continue navigation
-        }, 400); // delay for effect
-      }
-    });
-  });
-</script>
-
 
 </body>
 
