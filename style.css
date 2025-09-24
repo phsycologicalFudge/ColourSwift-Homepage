@@ -347,3 +347,9 @@ footer a:hover {
 .policy li {
   margin-bottom: 0.5rem;
 }
+.logo-link {
+  display: inline-block;
+}
+.logo-link:hover {
+  text-decoration: none;
+}
