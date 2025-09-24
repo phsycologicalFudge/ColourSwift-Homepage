@@ -30,6 +30,11 @@
     if (e.persisted) hideLoader();
   });
 
+  document.querySelector('.menu-toggle').addEventListener('click', () => {
+  document.querySelector('header nav').classList.toggle('active');
+});
+
+
   // Intercept internal link clicks (event delegation)
   document.addEventListener('click', function (e) {
     const a = e.target.closest('a');
