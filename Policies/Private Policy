@@ -1,4 +1,24 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Colourswift</title>
+  <link rel="stylesheet" href="style.css"> <!-- use your existing CSS -->
+</head>
+<body>
+  <header>
+    <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tech.html">Tech</a>
+      <a href="cloud.html">Cloud</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="policy">
+    <style>
   [data-custom-class='body'], [data-custom-class='body'] * {
           background: transparent !important;
         }
@@ -53,3 +73,10 @@ word-break: break-word !important;
     </style>
       </div>
       
+  </main>
+
+  <footer>
+    <p>© 2025 Colourswift | <a href="privacy.html">Privacy Policy</a></p>
+  </footer>
+</body>
+</html>
