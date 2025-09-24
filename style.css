@@ -280,7 +280,9 @@ footer {
   header nav.active {
     display: flex;
   }
-
+  .menu-toggle {
+  display: none;
+}
   .menu-toggle {
     display: block;
     cursor: pointer;
