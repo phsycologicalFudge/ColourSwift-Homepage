@@ -404,3 +404,28 @@ footer a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+/* Mobile-friendly dropdowns inside burger menu */
+@media (max-width: 768px) {
+  .dropdown {
+    position: static; /* don’t float */
+  }
+
+  .dropdown-content {
+    position: static;
+    background: none;
+    box-shadow: none;
+    display: none; /* hidden until expanded */
+    padding-left: 15px; /* indent submenu a bit */
+  }
+
+  .dropdown-content a {
+    padding: 8px 14px;
+    background: #0a0a0a;
+    border-left: 2px solid #444;
+  }
+
+  /* when expanded */
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
