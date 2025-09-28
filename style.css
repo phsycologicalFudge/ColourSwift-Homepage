@@ -404,3 +404,12 @@ footer a:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.badge {
+  background: #222;
+  color: #FF4500;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  margin-left: 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
