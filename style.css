@@ -413,3 +413,29 @@ footer a:hover {
   border-radius: 4px;
   font-weight: bold;
 }
+/* ===========================
+   Hamburger Button
+   =========================== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #e5e5e5; /* white bars to match theme */
+  border-radius: 2px;
+}
+
+/* Show burger only on mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
