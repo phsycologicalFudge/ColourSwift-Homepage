@@ -33,15 +33,6 @@
   document.querySelector('.menu-toggle').addEventListener('click', () => {
   document.querySelector('header nav').classList.toggle('active');
 });
-  // Dropdown toggle on mobile
-document.querySelectorAll('.dropbtn').forEach(btn => {
-  btn.addEventListener('click', function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault(); // stop direct navigation
-      this.parentElement.classList.toggle('open');
-    }
-  });
-});
 
   // Intercept internal link clicks (event delegation)
   document.addEventListener('click', function (e) {
