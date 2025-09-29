@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://colourswift.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://colourswift.com/about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://colourswift.com/thank-you</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://colourswift.com/Policies/Private-Policy</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://colourswift.com/Policies/Terms-Of-Use</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
