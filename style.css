@@ -439,3 +439,7 @@ footer a:hover {
     display: flex;
   }
 }
+
+.about p {
+  text-align: left;
+}
