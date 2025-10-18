@@ -31,8 +31,8 @@
   });
 
   document.querySelector('.menu-toggle').addEventListener('click', () => {
-  document.querySelector('header nav').classList.toggle('active');
-});
+    document.querySelector('header nav').classList.toggle('active');
+  });
 
   // Intercept internal link clicks (event delegation)
   document.addEventListener('click', function (e) {
@@ -43,7 +43,7 @@
     if (!href || isExternal(href)) return;
 
     const current = filename(window.location.pathname);
-    const target  = filename(href);
+    const target = filename(href);
 
     // same-page link: do nothing
     if (current === target) return;
@@ -55,4 +55,20 @@
       window.location.href = href;
     }, 200);
   });
+
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const allItems = document.querySelectorAll('.faq-item');
+
+      // Close all others first
+      allItems.forEach(i => {
+        if (i !== item) i.classList.remove('active');
+      });
+
+      // Toggle current one
+      item.classList.toggle('active');
+    });
+  });
+
 })();

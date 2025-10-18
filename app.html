@@ -159,9 +159,113 @@
           </div>
         </div>
       </section>
+    </div>
+  </section>
+
+      <section class="faq">
+        <h2>Privacy FAQ</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">1. Does the app collect or share data?</button>
+          <div class="faq-answer">
+            <p>No. Nothing is collected at all. There are no advertising SDKs too.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">2. Why do I need to update the virus database?</button>
+          <div class="faq-answer">
+            <p>
+              CS Secure Files is highly inspired by the well-known ClamAV. While we use our own AV engine,
+              we use parts of their virus database which is updated regularly. Thousands of new viruses
+              appear daily, and so it is important to update the database we provide (<code>defs.vxpack</code>)
+              via the in-app button. This is not compulsory but highly recommended for the best security.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">3. Can I see this database?</button>
+          <div class="faq-answer">
+            <p>
+              Yes, you can. By law we are required to make the virus database open source since we use parts
+              of ClamAV’s database. You can view it
+              <a href="https://github.com/phsycologicalFudge/AVDatabase" target="_blank"
+                rel="noopener noreferrer">here</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">4. How can I verify that the app doesn’t secretly collect data?</button>
+          <div class="faq-answer">
+            <p>
+              You can install apps such as <strong>TrackerControl Slim (TC Slim)</strong>. This shows which
+              tracking SDKs your apps use.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">5. Why is the antivirus engine closed source?</button>
+          <div class="faq-answer">
+            <p>
+              The AV within the app is proprietary technology that is unique to ColourSwift.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">6. Why does Android show network activity for the app?</button>
+          <div class="faq-answer">
+            <p>
+              Unlike many apps with both foreground and background data usage, CS Secure Files will only
+              connect to our database servers when you click the update definitions button, causing
+              a small temporary spike in foreground data usage. If you do not update the database for years,
+              there will be zero data usage.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">7. What permissions does the app need and why?</button>
+          <div class="faq-answer">
+            <table class="faq-table">
+              <tr>
+                <th>Permission</th>
+                <th>Why It’s Needed</th>
+              </tr>
+              <tr>
+                <td>Manage External Storage</td>
+                <td>Lets the file manager access all folders, required for browsing and managing files.</td>
+              </tr>
+              <tr>
+                <td>Storage Access / Read & Write</td>
+                <td>Needed on older Android versions for reading user files and extracting archives.</td>
+              </tr>
+              <tr>
+                <td>Post Notifications</td>
+                <td>Required on Android 13+ to show the “Protection Active” notification.</td>
+              </tr>
+              <tr>
+                <td>Install Packages</td>
+                <td>Allows launching the native APK installer when installing apps manually.</td>
+              </tr>
+              <tr>
+                <td>Foreground Service</td>
+                <td>Keeps real-time protection alive and shows persistent notifications.</td>
+              </tr>
+              <tr>
+                <td>Internet</td>
+                <td>Used only to check for and download antivirus definition updates securely.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
 
 
-      <footer>
+ <footer>
         <p>&copy; 2025 ColourSwift</p>
         <a href="/Policies/Private-Policy">Privacy Policy</a> |
         <a href="/Policies/Terms-Of-Use">Terms of Use</a> |

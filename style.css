@@ -444,3 +444,82 @@ footer a:hover {
   text-align: left;
 }
 
+.faq {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.faq-item {
+  border-bottom: 1px solid #333;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  color: #aaa;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  content: '–';
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  color: #ccc;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 800px;
+  padding: 0.5rem 0 1rem 0;
+}
+
+.faq-answer p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.faq-table th, .faq-table td {
+  border: 1px solid #333;
+  padding: 0.5rem;
+  color: #ccc;
+  text-align: left;
+  vertical-align: top;
+}
+
+.faq-table th {
+  background: #111;
+  color: #fff;
+}
