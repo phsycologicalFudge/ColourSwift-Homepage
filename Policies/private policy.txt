@@ -1,7 +1,16 @@
 PRIVACY POLICY
-Last updated October 01, 2025
+Last updated Novemer 07, 2025
 
+Disclaimer for ColourSwift AV+
 
+Updated: November 2025
+
+The ColourSwift AV+ mobile application does not collect, transmit, or store any personal or device data.
+All scanning operations are performed locally on the user’s device.
+No files, metadata, or scan results are uploaded or shared with ColourSwift Limited or any third party.
+The app may request permissions required for its core security functions (such as file access to perform scans), but these permissions are used solely for on-device operations and are not used to access private data for analytics, marketing, or profiling.
+
+This privacy policy continues to apply to all other ColourSwift Limited services, including the ColourSwift Cloud platform and related websites.
 
 This Privacy Notice for ColourSwift Limited ('we', 'us', or 'our'), describes how and why we might access, collect, store, use, and/or share ('process') your personal information when you use our services ('Services'), including when you:
 Visit our website at colourswift.com or any website of ours that links to this Privacy Notice

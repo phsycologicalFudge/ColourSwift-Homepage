@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation | CS Security</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .docs-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #0f0f0f;
+      border: 1px solid #222;
+      border-radius: 8px;
+      gap: 2rem;
+      min-height: 700px;
+    }
+
+    .docs-sidebar {
+      width: 250px;
+      border-right: 1px solid #222;
+      padding-right: 1.5rem;
+    }
+
+    .docs-sidebar h3 {
+      margin-bottom: 1rem;
+      color: #FF4500;
+    }
+
+    .docs-sidebar a {
+      display: block;
+      color: #ccc;
+      padding: 0.4rem 0;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .docs-sidebar a:hover,
+    .docs-sidebar a.active {
+      color: #FF4500;
+      font-weight: bold;
+    }
+
+    .docs-content {
+      flex: 1;
+      color: #ddd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .doc-section.active {
+      display: block;
+    }
+
+    .docs-content h1,
+    .docs-content h2 {
+      color: #e5e5e5;
+      margin-bottom: 0.8rem;
+    }
+
+    .docs-content p {
+      margin-bottom: 1rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    .docs-content ul,
+    .docs-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .highlight {
+      color: #FF4500;
+      font-weight: bold;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      background: #00679e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.25s, opacity 0.25s;
+    }
+
+    .nav-btn:hover {
+      background: #FF4500;
+    }
+
+    .nav-btn.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      background: #222;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .docs-container {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .docs-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo-link">
+      <img src="images/Whitelogo.svg" class="logo" alt="CS Security Logo" />
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/docs.html" style="color:#FF4500;">Docs</a>
+    </nav>
+  </header>
+
+  <main class="docs-container">
+    <aside class="docs-sidebar">
+      <h3>Documentation</h3>
+      <a href="#overview" data-section="overview" class="active">Overview</a>
+      <a href="#clamav" data-section="clamav">ClamAV Integration</a>
+      <a href="#how" data-section="how">How It Works</a>
+      <a href="#privacy" data-section="privacy">Privacy & Safety</a>
+      <a href="#ml" data-section="ml">Machine Learning</a>
+      <a href="#limitations" data-section="limitations">Limitations</a>
+    </aside>
+
+    <div class="docs-content" id="content-area">
+      <!-- OVERVIEW -->
+      <section id="overview" class="doc-section active">
+        <h1>Overview</h1>
+        <p><span class="highlight">CS Security</span> is a modern Android antivirus and behavioural scanner that combines
+          trusted open-source intelligence with custom proprietary systems. All analysis occurs <strong>entirely on your
+          device</strong>, ensuring no file content or metadata ever leaves your phone.</p>
+
+        <p>Our encrypted <strong>VXPack</strong> includes local signature databases derived from
+          <a href="https://www.clamav.net/" target="_blank" rel="noopener noreferrer">ClamAV</a>’s trusted virus
+          definitions, alongside our own dataset from
+          <a href="https://github.com/phsycologicalFudge/AVDatabase/" target="_blank" rel="noopener noreferrer">CS Security’s AV Database</a>.
+          This combination allows for strong hybrid detection while preserving your privacy.</p>
+
+        <h2>Core Design</h2>
+        <ul>
+          <li><strong>Privacy First:</strong> 100% on-device detection, no cloud scanning or data upload.</li>
+          <li><strong>Hybrid Intelligence:</strong> Uses ClamAV signatures and local ML-based heuristics together.</li>
+          <li><strong>Lightweight Performance:</strong> Native Rust engine optimized for speed and low memory.</li>
+          <li><strong>Transparency:</strong> Public technical documentation for users and researchers.</li>
+        </ul>
+
+        <div class="nav-buttons">
+          <button class="nav-btn disabled">← Previous</button>
+          <button class="nav-btn" data-next="clamav">Next →</button>
+        </div>
+      </section>
+
+      <!-- CLAMAV INTEGRATION -->
+      <section id="clamav" class="doc-section">
+        <h1>ClamAV Integration</h1>
+        <p><strong>CS Security</strong> integrates with <a href="https://www.clamav.net/" target="_blank" rel="noopener noreferrer">ClamAV</a>, 
+          a respected open-source antivirus engine. ClamAV definitions form the foundation of our <strong>VXPack</strong>, 
+          giving CS Security access to thousands of verified threat signatures without requiring an online connection.</p>
+
+        <h2>How It’s Used</h2>
+        <ul>
+          <li>CS Security periodically fetches updated ClamAV signature sets and compresses them into its VXPack format.</li>
+          <li>Definitions are AES-encrypted locally and verified before loading to ensure authenticity.</li>
+          <li>During scans, CS Security cross-references file hashes and byte sequences against both ClamAV’s 
+              and CS Security’s internal threat lists.</li>
+        </ul>
+
+        <h2>Open Collaboration</h2>
+        <p>To maintain transparency and extend malware coverage, we provide our own 
+          <a href="https://github.com/phsycologicalFudge/AVDatabase/" target="_blank" rel="noopener noreferrer">public AV Database repository</a> 
+          containing definitions and releases of our file manager.
+          Developers or analysts can learn more about ClamAV’s format and logic at 
+          <a href="https://docs.clamav.net/" target="_blank" rel="noopener noreferrer">docs.clamav.net</a>.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="overview">← Previous</button>
+          <button class="nav-btn" data-next="how">Next →</button>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="doc-section">
+        <h1>How It Works</h1>
+        <p>The CS Security engine processes files through several carefully controlled steps. 
+           While implementation details are proprietary, the workflow below illustrates how scanning and threat detection occur.</p>
+
+        <h2>1. Engine Initialization</h2>
+        <ul>
+          <li>The encrypted VXPack (containing ClamAV and CS definitions) is loaded and decrypted locally.</li>
+          <li>All signature tables, hash maps, and ML models are verified and prepared in memory.</li>
+          <li>The engine allocates minimal resources to maintain smooth performance during scanning.</li>
+        </ul>
+
+        <h2>2. Scan Modes</h2>
+        <ul>
+          <li><strong>Smart Scan:</strong> Balanced speed and accuracy, analysing essential system and app directories.</li>
+          <li><strong>Rapid Scan:</strong> Fastest mode for quick surface-level checks.</li>
+          <li><strong>Single File Scan:</strong> Manual scan for any selected file or APK.</li>
+        </ul>
+
+        <h2>3. Detection Layers</h2>
+        <ol>
+          <li><strong>Signature Layer:</strong> Compares file patterns against ClamAV and CS definitions.</li>
+          <li><strong>Hash Layer:</strong> Uses SHA-256 fingerprints to confirm known malware samples.</li>
+          <li><strong>Heuristic Layer:</strong> Applies AI-assisted pattern analysis and APK behaviour scoring.</li>
+        </ol>
+
+        <p>Once analysis completes, CS Security provides a clear verdict. <strong>Clean</strong>, <strong>Suspicious</strong>, 
+           or <strong>Malicious</strong>, displayed in the app UI.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="clamav">← Previous</button>
+          <button class="nav-btn" data-next="privacy">Next →</button>
+        </div>
+      </section>
+
+      <!-- PRIVACY -->
+      <section id="privacy" class="doc-section">
+        <h1>Privacy & Safety</h1>
+        <p><strong>CS Security</strong> never sends any scanned data, hashes, or results to external servers. 
+           The scanner operates fully offline and isolates your system files from external access.</p>
+
+        <ul>
+          <li>No analytics SDKs or third-party tracking libraries.</li>
+          <li>All updates verified via cryptographic checksum before installation.</li>
+          <li>Only technical metadata is read during scanning, never personal content.</li>
+        </ul>
+
+        <p>This ensures that your device remains protected without compromising your privacy,
+           an approach inspired by open-source values but applied through proprietary safeguards.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="how">← Previous</button>
+          <button class="nav-btn" data-next="ml">Next →</button>
+        </div>
+      </section>
+
+      <!-- MACHINE LEARNING -->
+      <section id="ml" class="doc-section">
+        <h1>Machine Learning</h1>
+        <p>CS Security uses an offline-trained behavioural model that analyses APKs beyond static signatures. 
+           The model inspects app structures, permission usage, and declared components to estimate potential risk.</p>
+
+        <ul>
+          <li>Trained on both benign and malicious APK samples.</li>
+          <li>Focuses on statistical patterns, not user data or device telemetry.</li>
+          <li>Runs entirely on-device with no remote inference.</li>
+        </ul>
+
+        <p>This layer assists in identifying new or obfuscated threats that may bypass traditional pattern-based checks,
+           helping CS Security stay adaptive while preserving privacy.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="privacy">← Previous</button>
+          <button class="nav-btn" data-next="limitations">Next →</button>
+        </div>
+      </section>
+
+      <!-- LIMITATIONS -->
+      <section id="limitations" class="doc-section">
+        <h1>Limitations</h1>
+        <p>No security product is perfect. CS Security is designed for practicality, speed, and privacy,
+           and is a newborn in the mist of giant corporations.</p>
+
+        <ul>
+          <li>Highly encrypted or self-mutating payloads may avoid detection.</li>
+          <li>Threats exploiting kernel or firmware vulnerabilities fall outside app-level scope.</li>
+          <li>False positives can occur with new or heavily obfuscated software.</li>
+        </ul>
+
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Keep your VXPack definitions updated regularly.</li>
+          <li>Use Smart Scan weekly, Rapid Scan for quick checks, 
+              and Single File Scan for manual testing.</li>
+          <li>Install apps only from trusted sources such as Google Play or verified repositories.</li>
+        </ul>
+
+        <p>CS Security’s hybrid model, ClamAV's definitions plus proprietary layers, ensures powerful offline protection 
+           while remaining lightweight, transparent, and respectful of user trust.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="ml">← Previous</button>
+          <button class="nav-btn disabled">Next →</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ColourSwift Ltd. All rights reserved. 
+      <a href="/privacy.html">Privacy Policy</a> • 
+      <a href="/terms.html">Terms of Use</a>
+    </p>
+  </footer>
+
+  <script>
+    const sidebarLinks = document.querySelectorAll(".docs-sidebar a");
+    const sections = document.querySelectorAll(".doc-section");
+    const contentArea = document.getElementById("content-area");
+
+    function showSection(id) {
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.id === id);
+      });
+      sidebarLinks.forEach((link) => {
+        link.classList.toggle("active", link.dataset.section === id);
+      });
+    }
+
+    sidebarLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = link.dataset.section;
+        showSection(id);
+      });
+    });
+
+    document.querySelectorAll(".nav-btn[data-next]").forEach((btn) => {
+      btn.addEventListener("click", () => showSection(btn.dataset.next));
+    });
+    document.querySelectorAll(".nav-btn[data-prev]").forEach((btn) => {
+      btn.addEventListener("click", () => showSection(btn.dataset.prev));
+    });
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash) showSection(hash);
+
+    // fix height flicker
+    const observer = new ResizeObserver(() => {
+      contentArea.style.minHeight = "700px";
+    });
+    observer.observe(contentArea);
+  </script>
+</body>
+</html>
