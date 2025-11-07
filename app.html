@@ -6,9 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ColourSwift Apps | Secure Files & Antivirus</title>
   <meta name="description"
-    content="Explore ColourSwift Secure Files and ColourSwift Security+ — privacy-first Android apps built for performance and protection.">
+    content="Explore ColourSwift Secure Files and CS Security — privacy-first Android apps built for performance and protection.">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <style>
+    .gallery-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
+    .gallery-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .gallery-container::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 6px;
+    }
+
+    .gallery-container::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+
+    .gallery-image {
+      flex: 0 0 auto;
+      width: 220px;
+      border-radius: 8px;
+      border: 1px solid #222;
+      transition: transform 0.3s;
+    }
+
+    .gallery-image:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 
 <body>
@@ -27,7 +63,7 @@
       <a href="/">Home</a>
       <a href="https://tech.colourswift.com">Repairs</a>
       <a href="/app" class="active">Our Apps</a>
-      <a href="/docs">docs</a>
+      <a href="/docs">Docs</a>
       <a href="about">About</a>
     </nav>
   </header>
@@ -36,9 +72,9 @@
   <section class="about">
     <h1>ColourSwift Apps</h1>
     <p>
-      Two lightweight tools built to protect your device and your privacy —
+      Two lightweight tools built to protect your device and your privacy:
       <strong>Secure Files</strong> for total file control, and
-      <strong>Security+</strong> for real-time protection.
+      <strong>CS Security</strong> for real-time protection.
     </p>
   </section>
 
@@ -48,24 +84,23 @@
 
       <!-- Secure Files -->
       <div class="reason" style="flex:1 1 420px;">
-        <img src="images/securefiles_icon.svg" alt="Secure Files" style="height:80px; margin-bottom:1rem;">
+        <img src="images/logo (3).png" alt="Secure Files" style="height:80px; margin-bottom:1rem;">
         <h2>ColourSwift Secure Files</h2>
         <p style="color:#ccc; margin:1rem 0;">
           A private, offline file manager with a built-in cleaner and media viewer.
-          Designed for speed, security, and zero tracking.
         </p>
         <a href="https://play.google.com/store/apps/details?id=com.colourswift.securefiles" target="_blank" rel="noopener">
           <img src="images/google-play-badge.png" alt="Get it on Google Play" style="height:60px;">
         </a>
       </div>
 
-      <!-- Security+ -->
+      <!-- CS Security -->
       <div class="reason" style="flex:1 1 420px;">
-        <img src="images/securityplus_icon.svg" alt="Security+" style="height:80px; margin-bottom:1rem;">
-        <h2>ColourSwift Security+</h2>
+        <img src="images/logo.png" alt="CS Security" style="height:80px; margin-bottom:1rem;">
+        <h2>CS Security</h2>
         <p style="color:#ccc; margin:1rem 0;">
           A lightweight antivirus suite that protects your downloads in real time.
-          Completely ad-free and powered by our Rust-based engine.
+          Completely ad-free and powered by ColourSwift AV+
         </p>
         <a href="https://play.google.com/store/apps/details?id=com.colourswift.cssecurity" target="_blank" rel="noopener">
           <img src="images/google-play-badge.png" alt="Get it on Google Play" style="height:60px;">
@@ -74,14 +109,18 @@
     </div>
   </section>
 
-  <!-- Unified collage -->
+  <!-- Unified gallery -->
   <section class="why" style="background:#0f0f0f;">
     <h2>App Gallery</h2>
-    <div class="reasons" style="max-width:1000px; margin:0 auto; gap:1rem;">
-      <img src="images/screenshots/landing-page-screenshot.jpg" alt="Home Dashboard" style="width:220px; border-radius:8px; border:1px solid #222;">
-      <img src="images/screenshots/files-screenshot.jpg" alt="File Manager" style="width:220px; border-radius:8px; border:1px solid #222;">
-      <img src="images/screenshots/antivirus-screenshot.jpg" alt="Antivirus Scan" style="width:220px; border-radius:8px; border:1px solid #222;">
-      <img src="images/screenshots/settings-screenshot.jpg" alt="Settings" style="width:220px; border-radius:8px; border:1px solid #222;">
+    <div class="gallery-container">
+      <img src="images/screenshots/landing-page-screenshot.jpg" alt="Home Dashboard" class="gallery-image">
+      <img src="images/screenshots/files-screenshot.jpg" alt="File Manager" class="gallery-image">
+      <img src="images/screenshots/antivirus-screenshot.jpg" alt="Antivirus Scan" class="gallery-image">
+      <img src="images/screenshots/settings-screenshot.jpg" alt="Settings" class="gallery-image">
+      <img src="images/screenshots/Homescreen.jpg" alt="Home Dashboard" class="gallery-image">
+      <img src="images/screenshots/Scanscreen.jpg" alt="Scan Screen" class="gallery-image">
+      <img src="images/screenshots/SettingsScreen.jpg" alt="Settings" class="gallery-image">
+      <!-- Add more screenshots here -->
     </div>
   </section>
 
