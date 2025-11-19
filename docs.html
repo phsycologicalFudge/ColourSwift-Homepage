@@ -63,6 +63,7 @@
     .docs-content h2 {
       color: #e5e5e5;
       margin-bottom: 0.8rem;
+      font-weight: bold;
     }
 
     .docs-content p {
@@ -153,6 +154,7 @@
       <a href="#overview" data-section="overview" class="active">Overview</a>
       <a href="#clamav" data-section="clamav">ClamAV Integration</a>
       <a href="#how" data-section="how">How It Works</a>
+      <a href="#cloud" data-section="cloud">The Cloud</a>
       <a href="#privacy" data-section="privacy">Privacy & Safety</a>
       <a href="#ml" data-section="ml">Machine Learning</a>
       <a href="#limitations" data-section="limitations">Limitations</a>
@@ -162,22 +164,16 @@
       <!-- OVERVIEW -->
       <section id="overview" class="doc-section active">
         <h1>Overview</h1>
-        <p><span class="highlight">CS Security</span> is a modern Android antivirus and behavioural scanner that combines
-          trusted open-source intelligence with custom proprietary systems. All analysis occurs <strong>entirely on your
-          device</strong>, ensuring no file content or metadata ever leaves your phone.</p>
+        <p><span class="highlight">CS Security</span> is an Android antivirus and behavioural scanner that combines trusted open source intelligence with custom proprietary systems. By default, all scanning is performed on your device, and no files are uploaded. Cloud assisted scanning is optional and only activates when you enable it.</p>
 
-        <p>Our encrypted <strong>VXPack</strong> includes local signature databases derived from
-          <a href="https://www.clamav.net/" target="_blank" rel="noopener noreferrer">ClamAV</a>’s trusted virus
-          definitions, alongside our own dataset from
-          <a href="https://github.com/phsycologicalFudge/AVDatabase/" target="_blank" rel="noopener noreferrer">CS Security’s AV Database</a>.
-          This combination allows for strong hybrid detection while preserving your privacy.</p>
+        <p>Our encrypted VXPack includes local signature databases derived from ClamAV’s virus definitions along with the CS Security AV Database. This provides strong hybrid detection while maintaining user privacy.</p>
 
         <h2>Core Design</h2>
         <ul>
-          <li><strong>Privacy First:</strong> 100% on-device detection, no cloud scanning or data upload.</li>
-          <li><strong>Hybrid Intelligence:</strong> Uses ClamAV signatures and local ML-based heuristics together.</li>
-          <li><strong>Lightweight Performance:</strong> Native Rust engine optimized for speed and low memory.</li>
-          <li><strong>Transparency:</strong> Public technical documentation for users and researchers.</li>
+          <li>Privacy First, all scanning is on device unless you enable cloud assisted mode.</li>
+          <li>Hybrid Intelligence, combining ClamAV signatures with CS heuristics and local machine learning.</li>
+          <li>Lightweight Performance, powered by a native Rust engine.</li>
+          <li>Transparency, open technical documentation for research and inspection.</li>
         </ul>
 
         <div class="nav-buttons">
@@ -189,24 +185,17 @@
       <!-- CLAMAV INTEGRATION -->
       <section id="clamav" class="doc-section">
         <h1>ClamAV Integration</h1>
-        <p><strong>CS Security</strong> integrates with <a href="https://www.clamav.net/" target="_blank" rel="noopener noreferrer">ClamAV</a>, 
-          a respected open-source antivirus engine. ClamAV definitions form the foundation of our <strong>VXPack</strong>, 
-          giving CS Security access to thousands of verified threat signatures without requiring an online connection.</p>
+        <p>CS Security integrates ClamAV definitions as part of its VXPack. These definitions provide thousands of verified threat signatures that assist in local analysis without requiring internet access.</p>
 
         <h2>How It’s Used</h2>
         <ul>
-          <li>CS Security periodically fetches updated ClamAV signature sets and compresses them into its VXPack format.</li>
-          <li>Definitions are AES-encrypted locally and verified before loading to ensure authenticity.</li>
-          <li>During scans, CS Security cross-references file hashes and byte sequences against both ClamAV’s 
-              and CS Security’s internal threat lists.</li>
+          <li>CS Security periodically updates and repackages ClamAV signatures into its VXPack format.</li>
+          <li>Definitions are encrypted locally and verified before loading.</li>
+          <li>During scans, CS Security checks byte patterns and both SHA256 and MD5 hashes against ClamAV and CS signature lists.</li>
         </ul>
 
         <h2>Open Collaboration</h2>
-        <p>To maintain transparency and extend malware coverage, we provide our own 
-          <a href="https://github.com/phsycologicalFudge/AVDatabase/" target="_blank" rel="noopener noreferrer">public AV Database repository</a> 
-          containing definitions and releases of our file manager.
-          Developers or analysts can learn more about ClamAV’s format and logic at 
-          <a href="https://docs.clamav.net/" target="_blank" rel="noopener noreferrer">docs.clamav.net</a>.</p>
+        <p>For transparency, we maintain our public AV Database containing definitions and release data. Developers and security researchers can explore ClamAV documentation for deeper understanding of its structure and detection logic.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="overview">← Previous</button>
@@ -217,35 +206,55 @@
       <!-- HOW IT WORKS -->
       <section id="how" class="doc-section">
         <h1>How It Works</h1>
-        <p>The CS Security engine processes files through several carefully controlled steps. 
-           While implementation details are proprietary, the workflow below illustrates how scanning and threat detection occur.</p>
+        <p>The CS Security engine processes files through several controlled steps. This section explains the general workflow used by the scanner.</p>
 
         <h2>1. Engine Initialization</h2>
         <ul>
-          <li>The encrypted VXPack (containing ClamAV and CS definitions) is loaded and decrypted locally.</li>
-          <li>All signature tables, hash maps, and ML models are verified and prepared in memory.</li>
-          <li>The engine allocates minimal resources to maintain smooth performance during scanning.</li>
+          <li>The encrypted VXPack is loaded and decrypted locally.</li>
+          <li>Signature tables, hash maps, and machine learning models are prepared in memory.</li>
+          <li>The engine uses minimal resources to remain responsive during scanning.</li>
         </ul>
 
         <h2>2. Scan Modes</h2>
         <ul>
-          <li><strong>Smart Scan:</strong> Balanced speed and accuracy, analysing essential system and app directories.</li>
-          <li><strong>Rapid Scan:</strong> Fastest mode for quick surface-level checks.</li>
-          <li><strong>Single File Scan:</strong> Manual scan for any selected file or APK.</li>
+          <li>Smart Scan, balanced speed and accuracy for common directories.</li>
+          <li>Rapid Scan, a fast surface level scan.</li>
+          <li>Single File Scan, manual inspection for any file or APK.</li>
         </ul>
 
         <h2>3. Detection Layers</h2>
         <ol>
-          <li><strong>Signature Layer:</strong> Compares file patterns against ClamAV and CS definitions.</li>
-          <li><strong>Hash Layer:</strong> Uses SHA-256 fingerprints to confirm known malware samples.</li>
-          <li><strong>Heuristic Layer:</strong> Applies AI-assisted pattern analysis and APK behaviour scoring.</li>
+          <li>Signature Layer, byte pattern checks using ClamAV and CS definitions.</li>
+          <li>Hash Layer, comparing both SHA256 and MD5 fingerprints against known malware lists.</li>
+          <li>Heuristic Layer, machine learning based behaviour analysis for APKs.</li>
         </ol>
 
-        <p>Once analysis completes, CS Security provides a clear verdict. <strong>Clean</strong>, <strong>Suspicious</strong>, 
-           or <strong>Malicious</strong>, displayed in the app UI.</p>
+        <p>After completing all layers, the app provides a clear verdict such as Clean, Suspicious, or Malicious.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="clamav">← Previous</button>
+          <button class="nav-btn" data-next="cloud">Next →</button>
+        </div>
+      </section>
+
+      <!-- THE CLOUD -->
+      <section id="cloud" class="doc-section">
+        <h1>The Cloud</h1>
+        <p>Cloud assisted scanning is an optional feature. When enabled, the scanner switches from offline only analysis to a combined offline and cloud assisted workflow.</p>
+
+        <h2>How Cloud Assisted Scanning Works</h2>
+        <p>When you enable the cloud assisted option, CS Security calculates the SHA256 and MD5 hashes of each file you scan. Only these two fingerprints are sent to the cloud server. No file content or personal data is uploaded.</p>
+
+        <h2>What A Hash Is</h2>
+        <p>A hash is a mathematical fingerprint of a file. Every file produces a unique fingerprint when processed through a hashing algorithm. Even a small change inside the file results in a completely different hash. This allows security systems to identify known malware quickly without transmitting the file itself.</p>
+
+        <h2>Server Comparison</h2>
+        <p>The cloud server compares the SHA256 and MD5 hashes against millions of known malware fingerprints stored in a secure database. If the server recognises the hash as malware, it sends a positive match back to the app. CS Security then immediately flags the file as malicious.</p>
+
+        <p>If the server does not recognise the hash, the result simply means unknown, not clean. These files are then routed to the local offline engine, which performs full checks using signatures, heuristics, and machine learning.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="how">← Previous</button>
           <button class="nav-btn" data-next="privacy">Next →</button>
         </div>
       </section>
@@ -253,20 +262,18 @@
       <!-- PRIVACY -->
       <section id="privacy" class="doc-section">
         <h1>Privacy & Safety</h1>
-        <p><strong>CS Security</strong> never sends any scanned data, hashes, or results to external servers. 
-           The scanner operates fully offline and isolates your system files from external access.</p>
+        <p>CS Security does not upload files during scanning. Only SHA256 and MD5 hashes are used in cloud assisted mode, and this occurs only if you enable the feature. Without cloud assisted mode enabled, the scanner remains fully offline.</p>
 
         <ul>
-          <li>No analytics SDKs or third-party tracking libraries.</li>
-          <li>All updates verified via cryptographic checksum before installation.</li>
-          <li>Only technical metadata is read during scanning, never personal content.</li>
+          <li>No analytics or tracking libraries.</li>
+          <li>All definition updates verified with checksums before use.</li>
+          <li>Only structural metadata is read during scanning.</li>
         </ul>
 
-        <p>This ensures that your device remains protected without compromising your privacy,
-           an approach inspired by open-source values but applied through proprietary safeguards.</p>
+        <p>This ensures that your device remains private while retaining strong protection.</p>
 
         <div class="nav-buttons">
-          <button class="nav-btn" data-prev="how">← Previous</button>
+          <button class="nav-btn" data-prev="cloud">← Previous</button>
           <button class="nav-btn" data-next="ml">Next →</button>
         </div>
       </section>
@@ -274,17 +281,15 @@
       <!-- MACHINE LEARNING -->
       <section id="ml" class="doc-section">
         <h1>Machine Learning</h1>
-        <p>CS Security uses an offline-trained behavioural model that analyses APKs beyond static signatures. 
-           The model inspects app structures, permission usage, and declared components to estimate potential risk.</p>
+        <p>CS Security includes an offline behavioural model that analyses APKs using statistical patterns taken from known benign and malicious samples. It examines permission structures, internal components, and declared behaviours to estimate risk levels.</p>
 
         <ul>
-          <li>Trained on both benign and malicious APK samples.</li>
-          <li>Focuses on statistical patterns, not user data or device telemetry.</li>
-          <li>Runs entirely on-device with no remote inference.</li>
+          <li>Trained using diverse APK datasets.</li>
+          <li>No user data or telemetry are used by the model.</li>
+          <li>Runs entirely on device with no remote processing.</li>
         </ul>
 
-        <p>This layer assists in identifying new or obfuscated threats that may bypass traditional pattern-based checks,
-           helping CS Security stay adaptive while preserving privacy.</p>
+        <p>This helps detect new or modified threats that do not match known signatures.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="privacy">← Previous</button>
@@ -295,25 +300,22 @@
       <!-- LIMITATIONS -->
       <section id="limitations" class="doc-section">
         <h1>Limitations</h1>
-        <p>No security product is perfect. CS Security is designed for practicality, speed, and privacy,
-           and is a newborn in the mist of giant corporations.</p>
+        <p>No security product can identify every threat. CS Security is designed to be lightweight and practical while still providing strong coverage through its layers.</p>
 
         <ul>
-          <li>Highly encrypted or self-mutating payloads may avoid detection.</li>
-          <li>Threats exploiting kernel or firmware vulnerabilities fall outside app-level scope.</li>
-          <li>False positives can occur with new or heavily obfuscated software.</li>
+          <li>Self modifying or encrypted payloads can bypass detection.</li>
+          <li>Firmware or kernel level threats fall outside the scope of app based scanners.</li>
+          <li>False positives may occur with heavily obfuscated software.</li>
         </ul>
 
         <h2>Best Practices</h2>
         <ul>
-          <li>Keep your VXPack definitions updated regularly.</li>
-          <li>Use Smart Scan weekly, Rapid Scan for quick checks, 
-              and Single File Scan for manual testing.</li>
-          <li>Install apps only from trusted sources such as Google Play or verified repositories.</li>
+          <li>Keep your VXPack definitions updated.</li>
+          <li>Use Smart Scan regularly and Rapid Scan for quick checks.</li>
+          <li>Install apps from trusted sources whenever possible.</li>
         </ul>
 
-        <p>CS Security’s hybrid model, ClamAV's definitions plus proprietary layers, ensures powerful offline protection 
-           while remaining lightweight, transparent, and respectful of user trust.</p>
+        <p>CS Security uses a hybrid approach combining ClamAV definitions and proprietary detection layers to offer strong protection while respecting user privacy.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="ml">← Previous</button>
@@ -362,7 +364,6 @@
     const hash = window.location.hash.replace("#", "");
     if (hash) showSection(hash);
 
-    // fix height flicker
     const observer = new ResizeObserver(() => {
       contentArea.style.minHeight = "700px";
     });
