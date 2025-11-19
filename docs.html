@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -116,6 +117,7 @@
         opacity: 0;
         transform: translateY(8px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -127,6 +129,7 @@
         flex-direction: column;
         min-height: auto;
       }
+
       .docs-sidebar {
         width: 100%;
         border-right: none;
@@ -136,6 +139,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <a href="/" class="logo-link">
@@ -164,9 +168,13 @@
       <!-- OVERVIEW -->
       <section id="overview" class="doc-section active">
         <h1>Overview</h1>
-        <p><span class="highlight">CS Security</span> is an Android antivirus and behavioural scanner that combines trusted open source intelligence with custom proprietary systems. By default, all scanning is performed on your device, and no files are uploaded. Cloud assisted scanning is optional and only activates when you enable it.</p>
+        <p><span class="highlight">CS Security</span> is an Android antivirus and behavioural scanner that combines
+          trusted open source intelligence with custom proprietary systems. By default, all scanning is performed on
+          your device, and no files are uploaded. Cloud assisted scanning is optional and only activates when you enable
+          it.</p>
 
-        <p>Our encrypted VXPack includes local signature databases derived from ClamAV’s virus definitions along with the CS Security AV Database. This provides strong hybrid detection while maintaining user privacy.</p>
+        <p>Our encrypted VXPack includes local signature databases derived from ClamAV’s virus definitions along with
+          the CS Security AV Database. This provides strong hybrid detection while maintaining user privacy.</p>
 
         <h2>Core Design</h2>
         <ul>
@@ -185,17 +193,21 @@
       <!-- CLAMAV INTEGRATION -->
       <section id="clamav" class="doc-section">
         <h1>ClamAV Integration</h1>
-        <p>CS Security integrates ClamAV definitions as part of its VXPack. These definitions provide thousands of verified threat signatures that assist in local analysis without requiring internet access.</p>
+        <p>CS Security integrates ClamAV definitions as part of its VXPack. These definitions provide thousands of
+          verified threat signatures that assist in local analysis without requiring internet access.</p>
 
         <h2>How It’s Used</h2>
         <ul>
           <li>CS Security periodically updates and repackages ClamAV signatures into its VXPack format.</li>
           <li>Definitions are encrypted locally and verified before loading.</li>
-          <li>During scans, CS Security checks byte patterns and both SHA256 and MD5 hashes against ClamAV and CS signature lists.</li>
+          <li>During scans, CS Security checks byte patterns and both SHA256 and MD5 hashes against ClamAV and CS
+            signature lists.</li>
         </ul>
 
         <h2>Open Collaboration</h2>
-        <p>For transparency, we maintain our public AV Database containing definitions and release data. Developers and security researchers can explore ClamAV documentation for deeper understanding of its structure and detection logic.</p>
+        <p>For transparency, we maintain our public AV Database containing definitions and release data. Developers and
+          security researchers can explore ClamAV documentation for deeper understanding of its structure and detection
+          logic.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="overview">← Previous</button>
@@ -206,7 +218,8 @@
       <!-- HOW IT WORKS -->
       <section id="how" class="doc-section">
         <h1>How It Works</h1>
-        <p>The CS Security engine processes files through several controlled steps. This section explains the general workflow used by the scanner.</p>
+        <p>The CS Security engine processes files through several controlled steps. This section explains the general
+          workflow used by the scanner.</p>
 
         <h2>1. Engine Initialization</h2>
         <ul>
@@ -231,6 +244,82 @@
 
         <p>After completing all layers, the app provides a clear verdict such as Clean, Suspicious, or Malicious.</p>
 
+        <div style="margin: 2rem 0;">
+          <svg viewBox="0 0 800 220" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <marker id="arrowHeadOffline" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#FF4500"></polygon>
+              </marker>
+            </defs>
+
+            <rect x="40" y="60" width="140" height="60" rx="10" ry="10" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="110" y="92" text-anchor="middle" fill="#e5e5e5" font-size="13"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              File selected
+            </text>
+            <text x="110" y="108" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Smart, Rapid, or Single file
+            </text>
+
+            <line x1="180" y1="90" x2="230" y2="90" stroke="#FF4500" stroke-width="2"
+              marker-end="url(#arrowHeadOffline)"></line>
+
+            <rect x="230" y="40" width="160" height="100" rx="10" ry="10" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="310" y="78" text-anchor="middle" fill="#e5e5e5" font-size="13"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Engine initialisation
+            </text>
+            <text x="310" y="96" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              VXPack decrypted
+            </text>
+            <text x="310" y="112" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Signatures and model loaded
+            </text>
+
+            <line x1="390" y1="90" x2="440" y2="90" stroke="#FF4500" stroke-width="2"
+              marker-end="url(#arrowHeadOffline)"></line>
+
+            <rect x="440" y="30" width="160" height="120" rx="10" ry="10" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="520" y="62" text-anchor="middle" fill="#e5e5e5" font-size="13"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Detection layers
+            </text>
+            <text x="520" y="82" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Signatures
+            </text>
+            <text x="520" y="98" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              SHA256 and MD5 hashes
+            </text>
+            <text x="520" y="114" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Heuristics and ML
+            </text>
+
+            <line x1="600" y1="90" x2="650" y2="90" stroke="#FF4500" stroke-width="2"
+              marker-end="url(#arrowHeadOffline)"></line>
+
+            <rect x="650" y="60" width="120" height="60" rx="10" ry="10" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="710" y="92" text-anchor="middle" fill="#e5e5e5" font-size="13"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Verdict
+            </text>
+            <text x="710" y="108" text-anchor="middle" fill="#999" font-size="11"
+              font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+              Clean, suspicious, or malicious
+            </text>
+          </svg>
+        </div>
+
+
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="clamav">← Previous</button>
           <button class="nav-btn" data-next="cloud">Next →</button>
@@ -240,18 +329,90 @@
       <!-- THE CLOUD -->
       <section id="cloud" class="doc-section">
         <h1>The Cloud</h1>
-        <p>Cloud assisted scanning is an optional feature. When enabled, the scanner switches from offline only analysis to a combined offline and cloud assisted workflow.</p>
+        <p>Cloud assisted scanning is an optional feature. When enabled, the scanner switches from offline only analysis
+          to a combined offline and cloud assisted workflow.</p>
 
         <h2>How Cloud Assisted Scanning Works</h2>
-        <p>When you enable the cloud assisted option, CS Security calculates the SHA256 and MD5 hashes of each file you scan. Only these two fingerprints are sent to the cloud server. No file content or personal data is uploaded.</p>
+        <p>When you enable the cloud assisted option, CS Security calculates the SHA256 and MD5 hashes of each file you
+          scan. Only these two fingerprints are sent to the cloud server. No file content or personal data is uploaded.
+        </p>
 
         <h2>What A Hash Is</h2>
-        <p>A hash is a mathematical fingerprint of a file. Every file produces a unique fingerprint when processed through a hashing algorithm. Even a small change inside the file results in a completely different hash. This allows security systems to identify known malware quickly without transmitting the file itself.</p>
+        <p>A hash is a mathematical fingerprint of a file. Every file produces a unique fingerprint when processed
+          through a hashing algorithm. Even a small change inside the file results in a completely different hash. This
+          allows security systems to identify known malware quickly without transmitting the file itself.</p>
 
         <h2>Server Comparison</h2>
-        <p>The cloud server compares the SHA256 and MD5 hashes against millions of known malware fingerprints stored in a secure database. If the server recognises the hash as malware, it sends a positive match back to the app. CS Security then immediately flags the file as malicious.</p>
+        <p>The cloud server compares the SHA256 and MD5 hashes against millions of known malware fingerprints stored in
+          a secure database. If the server recognises the hash as malware, it sends a positive match back to the app. CS
+          Security then immediately flags the file as malicious.</p>
 
-        <p>If the server does not recognise the hash, the result simply means unknown, not clean. These files are then routed to the local offline engine, which performs full checks using signatures, heuristics, and machine learning.</p>
+        <p>If the server does not recognise the hash, the result simply means unknown, not clean. These files are then
+          routed to the local offline engine, which performs full checks using signatures, heuristics, and machine
+          learning.</p>
+
+        <div style="margin: 1.5rem 0;">
+          <svg viewBox="0 0 760 200" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <marker id="arrowC" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#FF4500"></polygon>
+              </marker>
+              <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#32CD32"></polygon>
+              </marker>
+            </defs>
+
+            <rect x="20" y="40" width="120" height="50" rx="8" ry="8" fill="#151515" stroke="#FF4500" stroke-width="2">
+            </rect>
+            <text x="80" y="68" text-anchor="middle" fill="#e5e5e5" font-size="12">File selected</text>
+            <text x="80" y="82" text-anchor="middle" fill="#999" font-size="10">Cloud assist on</text>
+
+            <line x1="140" y1="65" x2="200" y2="65" stroke="#FF4500" stroke-width="2" marker-end="url(#arrowC)"></line>
+
+            <rect x="200" y="40" width="130" height="50" rx="8" ry="8" fill="#151515" stroke="#FF4500" stroke-width="2">
+            </rect>
+            <text x="265" y="66" text-anchor="middle" fill="#e5e5e5" font-size="12">Hash calculation</text>
+            <text x="265" y="82" text-anchor="middle" fill="#999" font-size="10">SHA256, MD5</text>
+
+            <line x1="330" y1="65" x2="390" y2="65" stroke="#FF4500" stroke-width="2" marker-end="url(#arrowC)"></line>
+
+            <rect x="390" y="30" width="130" height="70" rx="8" ry="8" fill="#151515" stroke="#FF4500" stroke-width="2">
+            </rect>
+            <text x="455" y="62" text-anchor="middle" fill="#e5e5e5" font-size="12">Cloud lookup</text>
+            <text x="455" y="78" text-anchor="middle" fill="#999" font-size="10">Compare hashes</text>
+
+            <line x1="520" y1="65" x2="580" y2="65" stroke="#32CD32" stroke-width="2" marker-end="url(#arrowGreen)">
+            </line>
+
+            <rect x="580" y="40" width="130" height="50" rx="8" ry="8" fill="#151515" stroke="#32CD32" stroke-width="2">
+            </rect>
+            <text x="645" y="68" text-anchor="middle" fill="#e5e5e5" font-size="12">Known malware</text>
+            <text x="645" y="82" text-anchor="middle" fill="#999" font-size="10">Flag immediately</text>
+
+            <line x1="455" y1="100" x2="455" y2="140" stroke="#FF4500" stroke-width="1.5"></line>
+
+            <rect x="390" y="140" width="130" height="50" rx="8" ry="8" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="455" y="165" text-anchor="middle" fill="#e5e5e5" font-size="12">Not known</text>
+            <text x="455" y="180" text-anchor="middle" fill="#999" font-size="10">Hash not found</text>
+
+            <line x1="390" y1="165" x2="250" y2="165" stroke="#FF4500" stroke-width="2" marker-end="url(#arrowC)">
+            </line>
+
+            <rect x="120" y="140" width="130" height="50" rx="8" ry="8" fill="#151515" stroke="#FF4500"
+              stroke-width="2"></rect>
+            <text x="185" y="165" text-anchor="middle" fill="#e5e5e5" font-size="12">Offline engine</text>
+            <text x="185" y="180" text-anchor="middle" fill="#999" font-size="10">Signatures, ML</text>
+
+            <line x1="120" y1="165" x2="60" y2="165" stroke="#FF4500" stroke-width="2" marker-end="url(#arrowC)"></line>
+
+            <rect x="20" y="140" width="90" height="50" rx="8" ry="8" fill="#151515" stroke="#FF4500" stroke-width="2">
+            </rect>
+            <text x="65" y="168" text-anchor="middle" fill="#e5e5e5" font-size="12">Verdict</text>
+            <text x="65" y="183" text-anchor="middle" fill="#999" font-size="10">On device</text>
+          </svg>
+        </div>
+
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="how">← Previous</button>
@@ -262,7 +423,9 @@
       <!-- PRIVACY -->
       <section id="privacy" class="doc-section">
         <h1>Privacy & Safety</h1>
-        <p>CS Security does not upload files during scanning. Only SHA256 and MD5 hashes are used in cloud assisted mode, and this occurs only if you enable the feature. Without cloud assisted mode enabled, the scanner remains fully offline.</p>
+        <p>CS Security does not upload files during scanning. Only SHA256 and MD5 hashes are used in cloud assisted
+          mode, and this occurs only if you enable the feature. Without cloud assisted mode enabled, the scanner remains
+          fully offline.</p>
 
         <ul>
           <li>No analytics or tracking libraries.</li>
@@ -281,7 +444,9 @@
       <!-- MACHINE LEARNING -->
       <section id="ml" class="doc-section">
         <h1>Machine Learning</h1>
-        <p>CS Security includes an offline behavioural model that analyses APKs using statistical patterns taken from known benign and malicious samples. It examines permission structures, internal components, and declared behaviours to estimate risk levels.</p>
+        <p>CS Security includes an offline behavioural model that analyses APKs using statistical patterns taken from
+          known benign and malicious samples. It examines permission structures, internal components, and declared
+          behaviours to estimate risk levels.</p>
 
         <ul>
           <li>Trained using diverse APK datasets.</li>
@@ -300,7 +465,8 @@
       <!-- LIMITATIONS -->
       <section id="limitations" class="doc-section">
         <h1>Limitations</h1>
-        <p>No security product can identify every threat. CS Security is designed to be lightweight and practical while still providing strong coverage through its layers.</p>
+        <p>No security product can identify every threat. CS Security is designed to be lightweight and practical while
+          still providing strong coverage through its layers.</p>
 
         <ul>
           <li>Self modifying or encrypted payloads can bypass detection.</li>
@@ -315,7 +481,8 @@
           <li>Install apps from trusted sources whenever possible.</li>
         </ul>
 
-        <p>CS Security uses a hybrid approach combining ClamAV definitions and proprietary detection layers to offer strong protection while respecting user privacy.</p>
+        <p>CS Security uses a hybrid approach combining ClamAV definitions and proprietary detection layers to offer
+          strong protection while respecting user privacy.</p>
 
         <div class="nav-buttons">
           <button class="nav-btn" data-prev="ml">← Previous</button>
@@ -326,8 +493,8 @@
   </main>
 
   <footer>
-    <p>© 2025 ColourSwift Ltd. All rights reserved. 
-      <a href="/privacy.html">Privacy Policy</a> • 
+    <p>© 2025 ColourSwift Ltd. All rights reserved.
+      <a href="/privacy.html">Privacy Policy</a> •
       <a href="/terms.html">Terms of Use</a>
     </p>
   </footer>
@@ -370,4 +537,5 @@
     observer.observe(contentArea);
   </script>
 </body>
+
 </html>
