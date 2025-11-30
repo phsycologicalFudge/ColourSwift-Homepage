@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColourSwift | File Submissions</title>
+  <meta name="description"
+    content="Submit files to ColourSwift to be whitelisted or suspected malware analysis.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+</head>
+
+<body>
+  <div id="loader">
+    <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
+  </div>
+
+  <header>
+    <a href="/" class="logo-link">
+      <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="logo">
+    </a>
+    <div class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://tech.colourswift.com">Repairs</a>
+      <a href="/app">Our App</a>
+      <a href="/docs">docs</a>
+      <a href="about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="submission-hero">
+      <h1>Submit Files For Analysis</h1>
+      <p>Send known clean apps for fingerprinting or share files you believe might be malware. Files are stored
+        privately and used only to improve detection.</p>
+    </section>
+
+    <section class="submission-section">
+      <div class="upload-sections">
+        <div class="upload-card">
+          <h2>Whitelist Submission</h2>
+          <p>Use this when you are confident the file is clean and want it treated as a trusted app in future
+            detections.</p>
+
+          <form id="whitelistForm" class="upload-form" method="post" action="/submit-whitelist"
+            enctype="multipart/form-data">
+            <div id="whitelistDropzone" class="dropzone">
+              <span class="dropzone-title">Drop file here</span>
+              <span class="dropzone-subtitle">or tap to choose a file</span>
+              <span class="dropzone-hint">Supported: APK, APKM, XAPK, ZIP</span>
+            </div>
+            <input id="whitelistFile" type="file" name="file" accept=".apk,.apkm,.xapk,.zip" hidden>
+            <div id="whitelistFileInfo" class="file-info"></div>
+
+            <div id="whitelistReason" class="reason-form contact-form">
+              <input type="text" name="app_name" placeholder="App name (optional)">
+              <textarea name="reason" rows="3"
+                placeholder="Why should this file be whitelisted?"></textarea>
+              <input type="email" name="contact" placeholder="Contact email (optional)">
+              <button type="submit">Submit whitelist</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="upload-card">
+          <h2>Suspected Malware Submission</h2>
+          <p>Use this for anything suspicious. These samples help train detection and improve protection for everyone.</p>
+
+          <form id="malwareForm" class="upload-form" method="post" action="/submit-malware"
+            enctype="multipart/form-data">
+            <div id="malwareDropzone" class="dropzone">
+              <span class="dropzone-title">Drop file here</span>
+              <span class="dropzone-subtitle">or tap to choose a file</span>
+              <span class="dropzone-hint">Supported: APK, APKM, XAPK, ZIP</span>
+            </div>
+            <input id="malwareFile" type="file" name="file" accept=".apk,.apkm,.xapk,.zip" hidden>
+            <div id="malwareFileInfo" class="file-info"></div>
+
+            <div id="malwareReason" class="reason-form contact-form">
+              <input type="text" name="app_name" placeholder="App name (optional)">
+              <textarea name="reason" rows="3"
+                placeholder="Why do you think this file is malware?"></textarea>
+              <input type="email" name="contact" placeholder="Contact email (optional)">
+              <button type="submit">Submit suspected malware</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ColourSwift</p>
+    <a href="/Policies/Private-Policy">Privacy Policy</a> |
+    <a href="/Policies/Terms-Of-Use">Terms of Use</a> |
+    <a href="https://app.colourswift.com">Our Cloud (DEMO)</a>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function setupUpload(formId, inputId, dropzoneId, reasonId, infoId) {
+        var fileInput = document.getElementById(inputId);
+        var dropzone = document.getElementById(dropzoneId);
+        var reasonBlock = document.getElementById(reasonId);
+        var fileInfo = document.getElementById(infoId);
+        if (!fileInput || !dropzone || !reasonBlock) return;
+
+        function showReason(file) {
+          if (!file) return;
+          var sizeKb = Math.round(file.size / 1024);
+          fileInfo.textContent = file.name + ' (' + sizeKb + ' KB)';
+          reasonBlock.classList.add('visible');
+        }
+
+        dropzone.addEventListener('click', function () {
+          fileInput.click();
+        });
+
+        dropzone.addEventListener('dragover', function (e) {
+          e.preventDefault();
+          dropzone.classList.add('dragover');
+        });
+
+        dropzone.addEventListener('dragleave', function (e) {
+          e.preventDefault();
+          dropzone.classList.remove('dragover');
+        });
+
+        dropzone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          dropzone.classList.remove('dragover');
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            showReason(e.dataTransfer.files[0]);
+          }
+        });
+
+        fileInput.addEventListener('change', function (e) {
+          var f = e.target.files[0];
+          showReason(f);
+        });
+      }
+
+      setupUpload('whitelistForm', 'whitelistFile', 'whitelistDropzone', 'whitelistReason', 'whitelistFileInfo');
+      setupUpload('malwareForm', 'malwareFile', 'malwareDropzone', 'malwareReason', 'malwareFileInfo');
+    });
+  </script>
+</body>
+
+</html>
