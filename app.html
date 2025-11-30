@@ -4,11 +4,11 @@
   <script src="script.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Android Antivirus</title>
-  <meta name="description"
-    content="Download from our github repo">
+  <title>CS Security | Download</title>
+  <meta name="description" content="Download CS Security from our GitHub repository">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
   <style>
     .gallery-container {
       display: flex;
@@ -34,34 +34,63 @@
     }
 
     .gallery-image {
-      flex: 0 0 auto;
-      width: 220px;
-      border-radius: 8px;
-      border: 1px solid #222;
-      transition: transform 0.3s;
+      width: 260px;
+      height: auto;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
     }
 
-    .gallery-image:hover {
-      transform: scale(1.05);
-    }
 
-    .discord-link {
-      text-align: center;
-      margin: 3rem 0;
-    }
+  .github-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: #0d1117;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid #30363d;
+    color: #e6edf3;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
 
-    .discord-link img {
-      height: 80px;
-      transition: transform 0.3s ease;
-    }
+  .github-download-btn:hover {
+    background: #161b22;
+    border-color: #3c4450;
+    transform: translateY(-1px);
+  }
 
-    .discord-link img:hover {
-      transform: scale(1.08);
-    }
-  </style>
+  .github-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.95;
+  }
+
+  .download-card {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 650px;
+    text-align: center;
+    background: #0f0f0f;
+    border-radius: 12px;
+    border: 1px solid #222;
+    box-shadow: 0 0 15px rgba(0,0,0,0.35);
+  }
+
+  .download-title {
+    font-size: 1.85rem;
+    margin-bottom: 0.65rem;
+  }
+</style>
+
 </head>
 
 <body>
+
   <div id="loader">
     <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
   </div>
@@ -70,73 +99,37 @@
     <a href="/" class="logo-link">
       <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="logo">
     </a>
+
     <div class="menu-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
     <nav>
       <a href="/">Home</a>
-      <a href="https://tech.colourswift.com">Repairs</a>
-      <a href="/app" class="active">Our Apps</a>
       <a href="/docs">Docs</a>
-      <a href="about">About</a>
+      <a href="/submissions">Submissions</a>
+      <a href="/about">About</a>
     </nav>
   </header>
 
-  <section class="about">
-    <h1>ColourSwift Apps</h1>
-    <p>
-      Two lightweight tools built to protect your device and your privacy:
-      Secure Files for total file control, and
-      CS Security for real-time protection.
-    </p>
-  </section>
+  <main>
 
-<section class="why">
-  <div class="reasons" style="gap:2rem; flex-wrap:wrap; max-width:1000px; margin:0 auto;">
-    <div class="reason" style="flex:1 1 420px;">
-      <img src="images/logo (3).png" alt="Secure Files" style="height:80px; margin-bottom:1rem;">
-      <h2>ColourSwift Secure Files</h2>
-      <p style="color:#ccc; margin:1rem 0;">
-        A private, offline file manager with a built-in cleaner and media viewer.
+    <!-- Top Info Card -->
+    <div class="download-card">
+      <h2 class="download-title">CS Security</h2>
+      <p class="download-subtitle">
+        Independent Android Antivirus powered by VX-TITANIUM™, machine learning, and cloud analysis.
       </p>
-      <a href="https://play.google.com/store/apps/details?id=com.colourswift.securefiles" target="_blank" rel="noopener">
-        <img src="images/google-play-badge.png" alt="Get it on Google Play" style="height:60px;">
+
+      <a class="github-download-btn" href="https://github.com/yourrepo/yourrelease" target="_blank">
+        <img src="images/GitHub_Logo_White.png" class="github-icon" alt="GitHub">
+        Download from GitHub
       </a>
     </div>
 
-    <div class="reason" style="flex:1 1 420px;">
-      <img src="images/logo.png" alt="CS Security" style="height:80px; margin-bottom:1rem;">
-      <h2>CS Security</h2>
-      <p style="color:#ccc; margin:1rem 0;">
-        A lightweight antivirus suite that protects your downloads in real time.
-        Completely ad-free and powered by ColourSwift AV+
-      </p>
-      <a href="https://play.google.com/store/apps/details?id=com.colourswift.cssecurity" target="_blank" rel="noopener">
-        <img src="images/google-play-badge.png" alt="Get it on Google Play" style="height:60px;">
-      </a>
-    </div>
-  </div>
-
-  <!-- Discord section (inside light grey zone) -->
-  <div style="text-align:center; margin-top:3rem;">
-    <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" target="_blank" rel="noopener">
-      <img src="images/GitHub_Logo_White.png" alt="github" style="height:80px; transition:transform 0.3s ease;">
-    </a>
-  </div>
-</section>
-
-  <section class="why" style="background:#0f0f0f;">
-    <h2>App Gallery</h2>
-    <div class="gallery-container">
-      <img src="images/screenshots/landing-page-screenshot.jpg" alt="Home Dashboard" class="gallery-image">
-      <img src="images/screenshots/files-screenshot.jpg" alt="File Manager" class="gallery-image">
-      <img src="images/screenshots/antivirus-screenshot.jpg" alt="Antivirus Scan" class="gallery-image">
-      <img src="images/screenshots/settings-screenshot.jpg" alt="Settings" class="gallery-image">
-      <img src="images/screenshots/Homescreen.jpg" alt="Home Dashboard" class="gallery-image">
-      <img src="images/screenshots/Scanscreen.jpg" alt="Scan Screen" class="gallery-image">
-      <img src="images/screenshots/SettingsScreen.jpg" alt="Settings" class="gallery-image">
-    </div>
-  </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 ColourSwift</p>
@@ -144,5 +137,7 @@
     <a href="/Policies/Terms-Of-Use">Terms of Use</a> |
     <a href="https://app.colourswift.com">Our Cloud (DEMO)</a>
   </footer>
+
 </body>
+
 </html>
