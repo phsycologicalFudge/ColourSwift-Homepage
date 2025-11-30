@@ -28,6 +28,42 @@ header .logo {
   width: auto;
 }
 
+.features-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+@media (min-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  background: #151515;
+  padding: 1.4rem;
+  border-radius: 12px;
+  border: 1px solid #222;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+
 header nav a {
   color: #e5e5e5;
   margin-left: 20px;
