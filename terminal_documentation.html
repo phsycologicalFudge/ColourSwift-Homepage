@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terminal Help | CS Security</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .docs-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #0f0f0f;
+      border: 1px solid #222;
+      border-radius: 8px;
+      gap: 2rem;
+      min-height: 700px;
+    }
+
+    .docs-sidebar {
+      width: 260px;
+      border-right: 1px solid #222;
+      padding-right: 1.5rem;
+    }
+
+    .docs-sidebar h3 {
+      margin-bottom: 1rem;
+      color: #FF4500;
+    }
+
+    .docs-sidebar a {
+      display: block;
+      color: #ccc;
+      padding: 0.4rem 0;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .docs-sidebar a:hover,
+    .docs-sidebar a.active {
+      color: #FF4500;
+      font-weight: bold;
+    }
+
+    .docs-content {
+      flex: 1;
+      color: #ddd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doc-section {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .doc-section.active {
+      display: block;
+    }
+
+    .docs-content h1,
+    .docs-content h2,
+    .docs-content h3 {
+      color: #e5e5e5;
+      margin-bottom: 0.8rem;
+      font-weight: bold;
+    }
+
+    .docs-content p {
+      margin-bottom: 1rem;
+      color: #ccc;
+      line-height: 1.7;
+    }
+
+    .docs-content ul,
+    .docs-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .highlight {
+      color: #FF4500;
+      font-weight: bold;
+    }
+
+    .command-card {
+      background: #151515;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 1.2rem 1.25rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .command-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .command-title h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      background: #222;
+      border: 1px solid #333;
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: #ccc;
+      white-space: nowrap;
+    }
+
+    .cmd {
+      background: #111;
+      border: 1px solid #222;
+      padding: 0.75rem 0.85rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0.5rem 0 0.75rem;
+      color: #e5e5e5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .cmd code {
+      white-space: pre;
+    }
+
+    .arglist {
+      margin: 0.25rem 0 0.75rem 1.25rem;
+    }
+
+    .arglist li {
+      margin-bottom: 0.3rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .meta-tag {
+      font-size: 0.75rem;
+      border: 1px solid #333;
+      background: #0f0f0f;
+      color: #bbb;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      background: #00679e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.25s, opacity 0.25s;
+    }
+
+    .nav-btn:hover {
+      background: #FF4500;
+    }
+
+    .nav-btn.disabled {
+      opacity: 0.35;
+      pointer-events: none;
+      background: #222;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .docs-container {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .docs-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="/" class="logo-link">
+      <img src="images/Whitelogo.svg" class="logo" alt="CS Security Logo" />
+    </a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/submissions">Submissions</a>
+    </nav>
+  </header>
+
+  <main class="docs-container">
+    <aside class="docs-sidebar">
+      <h3>Terminal Help</h3>
+      <a href="#overview" data-section="overview" class="active">Overview</a>
+      <a href="#syntax" data-section="syntax">Syntax</a>
+      <a href="#commands-1" data-section="commands-1">Commands (1)</a>
+      <a href="#commands-2" data-section="commands-2">Commands (2)</a>
+      <a href="#coming-soon" data-section="coming-soon">Coming Soon</a>
+      <a href="#examples" data-section="examples">Examples</a>
+      <a href="#notes" data-section="notes">Notes</a>
+    </aside>
+
+    <div class="docs-content" id="content-area">
+      <section id="overview" class="doc-section active">
+        <h1>Terminal help page</h1>
+        <p>The CS Security terminal provides direct access to diagnostic and scanning commands.Future versions will include scripting support.</p>
+        <p>Use <span class="highlight">help</span> at any time to open this page.</p>
+
+        <div class="nav-buttons">
+          <button class="nav-btn disabled">← Previous</button>
+          <button class="nav-btn" data-next="syntax">Next →</button>
+        </div>
+      </section>
+
+      <section id="syntax" class="doc-section">
+        <h1>Syntax</h1>
+        <p>Commands are space separated. Arguments in brackets are required unless marked optional.</p>
+
+        <div class="cmd"><code>command [required] &lt;optional&gt;</code></div>
+
+        <ul>
+          <li>Commands are lowercase.</li>
+          <li>Paths must be valid device paths.</li>
+          <li>URLs should include a scheme when possible, for example https://example.com.</li>
+          <li>Errors return a message describing what failed.</li>
+        </ul>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="overview">← Previous</button>
+          <button class="nav-btn" data-next="commands">Next →</button>
+        </div>
+      </section>
+
+      <section id="commands-1" class="doc-section">
+        <h1>Commands</h1>
+        <p>Available terminal commands.</p>
+
+        <div class="command-card">
+          <h3>help</h3>
+          <div class="cmd"><code>help</code></div>
+          <p>Displays a short command summary and opens the terminal documentation.</p>
+        </div>
+
+        <div class="command-card">
+          <h3>clear</h3>
+          <div class="cmd"><code>clear</code></div>
+          <p>Clears all terminal output.</p>
+        </div>
+
+        <div class="command-card">
+          <h3>info</h3>
+          <div class="cmd"><code>info</code></div>
+          <p>Displays engine version and basic device information.</p>
+        </div>
+
+        <div class="command-card">
+          <h3>scan</h3>
+          <div class="cmd"><code>scan [path]</code></div>
+          <p>Scans a file or directory using the local antivirus engine.</p>
+          <div class="cmd"><code>scan /storage/emulated/0/Download/app.apk</code></div>
+        </div>
+
+        <div class="command-card">
+          <h3>hash</h3>
+          <div class="cmd"><code>hash pick</code></div>
+          <p>Calculates MD5 and SHA256 hashes for a selected file.</p>
+          <div class="cmd"><code>hash /storage/emulated/0/Download/unknown.apk</code></div>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="syntax">← Previous</button>
+          <button class="nav-btn" data-next="commands-2">Next →</button>
+        </div>
+      </section>
+
+      <section id="commands-2" class="doc-section">
+        <h1>Commands</h1>
+        <p>Additional terminal commands.</p>
+
+        <div class="command-card">
+          <h3>check</h3>
+          <div class="cmd"><code>check [url]</code></div>
+          <p>Checks whether a website is associated with malicious or unsafe content.</p>
+          <div class="cmd"><code>check https://example.com</code></div>
+        </div>
+
+        <div class="command-card">
+          <h3>cloud status</h3>
+          <div class="cmd"><code>cloud status</code></div>
+          <p>Checks whether the cloud service is reachable by sending a test hash.</p>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="commands-1">← Previous</button>
+          <button class="nav-btn" data-next="coming-soon">Next →</button>
+        </div>
+      </section>
+
+      <section id="coming-soon" class="doc-section">
+        <h1>Coming Soon</h1>
+        <p>These commands are planned but not yet available.</p>
+
+        <div class="command-card">
+          <h3>network ping</h3>
+          <div class="cmd"><code>network ping [host]</code></div>
+          <p>Will test network reachability and latency to a domain or service.</p>
+        </div>
+
+        <div class="command-card">
+          <h3>ip ping</h3>
+          <div class="cmd"><code>ip ping [address]</code></div>
+          <p>Will perform a low-level ping to an IP address.</p>
+        </div>
+
+        <div class="command-card">
+          <h3>exif</h3>
+          <div class="cmd"><code>exif [file]</code></div>
+          <p>Will extract and display EXIF metadata from supported files.</p>
+        </div>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="commands-2">← Previous</button>
+          <button class="nav-btn disabled">Next →</button>
+        </div>
+      </section>
+
+
+
+
+      <section id="examples" class="doc-section">
+        <h1>Examples</h1>
+        <p>Minimal command sequences.</p>
+
+        <div class="cmd"><code>cloud status
+check https://github.com
+scan /storage/emulated/0/Download
+hash /storage/emulated/0/Download/unknown.apk</code></div>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="commands">← Previous</button>
+          <button class="nav-btn" data-next="notes">Next →</button>
+        </div>
+      </section>
+
+      <section id="notes" class="doc-section">
+        <h1>Notes</h1>
+        <ul>
+          <li>Terminal commands do not upload files.</li>
+          <li>Cloud related commands only transmit hashes when required by the command.</li>
+          <li>Some commands may require device permissions depending on the selected path.</li>
+          <li>Output varies based on enabled features and local database versions.</li>
+          <li>The terminal is still in active developement, please forgive any bugs.</li>
+        </ul>
+
+        <div class="nav-buttons">
+          <button class="nav-btn" data-prev="examples">← Previous</button>
+          <button class="nav-btn disabled">Next →</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 ColourSwift Ltd. All rights reserved.
+      <a href="/privacy.html">Privacy Policy</a> •
+      <a href="/terms.html">Terms of Use</a>
+    </p>
+  </footer>
+
+  <script>
+    const sidebarLinks = document.querySelectorAll(".docs-sidebar a");
+    const sections = document.querySelectorAll(".doc-section");
+    const contentArea = document.getElementById("content-area");
+
+    function showSection(id) {
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.id === id);
+      });
+      sidebarLinks.forEach((link) => {
+        link.classList.toggle("active", link.dataset.section === id);
+      });
+    }
+
+    sidebarLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = link.dataset.section;
+        showSection(id);
+      });
+    });
+
+    document.querySelectorAll(".nav-btn[data-next]").forEach((btn) => {
+      btn.addEventListener("click", () => showSection(btn.dataset.next));
+    });
+
+    document.querySelectorAll(".nav-btn[data-prev]").forEach((btn) => {
+      btn.addEventListener("click", () => showSection(btn.dataset.prev));
+    });
+
+    const hash = window.location.hash.replace("#", "");
+    if (hash) showSection(hash);
+
+    const observer = new ResizeObserver(() => {
+      contentArea.style.minHeight = "700px";
+    });
+    observer.observe(contentArea);
+  </script>
+</body>
+
+</html>
