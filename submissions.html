@@ -5,9 +5,8 @@
   <script src="script.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ColourSwift | File Submissions</title>
-  <meta name="description"
-    content="Submit files to ColourSwift to be whitelisted or suspected malware analysis.">
+  <title>ColourSwift | Reputation Submissions</title>
+  <meta name="description" content="">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
@@ -34,62 +33,55 @@
 
   <main>
     <section class="submission-hero">
-      <h1>Submit Files For Analysis</h1>
-      <p>Send known clean apps for fingerprinting or share files you believe might be malware. Files are stored
-        privately and used only to improve detection.</p>
+      <h1>Submit an app for a Reputation Review</h1>
     </section>
 
     <section class="submission-section">
       <div class="upload-sections">
         <div class="upload-card">
-          <h2>Whitelist Submission</h2>
-          <p>Use this when you are confident the file is clean and want it treated as a trusted app in future
-            detections.</p>
+          <h2>Positive reputation submission</h2>
+          <p>This helps ColourSwift reduce false positives in AvarionX Antivirus.</p>
 
-          <form id="whitelistForm" class="upload-form" method="post" action="/submit-whitelist"
-            enctype="multipart/form-data">
-            <div id="whitelistDropzone" class="dropzone">
-              <span class="dropzone-title">Drop file here</span>
-              <span class="dropzone-subtitle">or tap to choose a file</span>
-              <span class="dropzone-hint">Supported: APK, APKM, XAPK, ZIP</span>
-            </div>
-            <input id="whitelistFile" type="file" name="file" accept=".apk,.apkm,.xapk,.zip" hidden>
-            <div id="whitelistFileInfo" class="file-info"></div>
-
-            <div id="whitelistReason" class="reason-form contact-form">
-              <input type="text" name="app_name" placeholder="App name (optional)">
-              <textarea name="reason" rows="3"
-                placeholder="Why should this file be whitelisted?"></textarea>
-              <input type="email" name="contact" placeholder="Contact email (optional)">
-              <button type="submit">Submit whitelist</button>
+          <form id="whitelistForm" class="upload-form" method="post" target="hidden_iframe"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
+            <input type="hidden" name="entry.2128377910" value="Trusted app">
+            <div class="reason-form visible contact-form">
+              <input type="text" name="entry.1466873360" placeholder="App name (required)">
+              <input type="url" name="entry.36785452" placeholder="Source link (https://example.com)" required>
+              <textarea name="entry.642316376" rows="4" placeholder="Why do you trust this application?" required></textarea>
+              <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
+              <button type="submit">Submit trusted app</button>
+              <div class="form-note">This submission is stored in Google Forms.</div>
             </div>
           </form>
         </div>
 
         <div class="upload-card">
-          <h2>Suspected Malware Submission</h2>
-          <p>Use this for anything suspicious. These samples help train detection and improve protection for everyone.</p>
+          <h2>Negative reputation submission</h2>
+          <p>Use this if something looks suspicious. Links and context help improve protection for everyone.</p>
 
-          <form id="malwareForm" class="upload-form" method="post" action="/submit-malware"
-            enctype="multipart/form-data">
-            <div id="malwareDropzone" class="dropzone">
-              <span class="dropzone-title">Drop file here</span>
-              <span class="dropzone-subtitle">or tap to choose a file</span>
-              <span class="dropzone-hint">Supported: APK, APKM, XAPK, ZIP</span>
-            </div>
-            <input id="malwareFile" type="file" name="file" accept=".apk,.apkm,.xapk,.zip" hidden>
-            <div id="malwareFileInfo" class="file-info"></div>
-
-            <div id="malwareReason" class="reason-form contact-form">
-              <input type="text" name="app_name" placeholder="App name (optional)">
-              <textarea name="reason" rows="3"
-                placeholder="Why do you think this file is malware?"></textarea>
-              <input type="email" name="contact" placeholder="Contact email (optional)">
+          <form id="malwareForm" class="upload-form" method="post" target="hidden_iframe"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
+            <input type="hidden" name="entry.2128377910" value="Suspected malware">
+            <div class="reason-form visible contact-form">
+              <input type="text" name="entry.1466873360" placeholder="App name (required)">
+              <input type="url" name="entry.36785452" placeholder="Source link (required)" required>
+              <textarea name="entry.642316376" rows="4" placeholder="What makes it suspicious?" required></textarea>
+              <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
               <button type="submit">Submit suspected malware</button>
+              <div class="form-note">This submission is stored in Google Forms.</div>
             </div>
           </form>
         </div>
       </div>
+
+      <div id="submissionSuccess" class="submission-success" hidden>
+        <h2>Submitted</h2>
+        <p>Thanks. Your report has been recorded.</p>
+        <a class="btn" href="/">Back to home</a>
+      </div>
+
+      <iframe class="hidden-iframe" name="hidden_iframe" title="hidden_iframe"></iframe>
     </section>
   </main>
 
@@ -98,56 +90,6 @@
     <a href="/Policies/Private-Policy">Privacy Policy</a> |
     <a href="/Policies/Terms-Of-Use">Terms of Use</a> |
   </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      function setupUpload(formId, inputId, dropzoneId, reasonId, infoId) {
-        var fileInput = document.getElementById(inputId);
-        var dropzone = document.getElementById(dropzoneId);
-        var reasonBlock = document.getElementById(reasonId);
-        var fileInfo = document.getElementById(infoId);
-        if (!fileInput || !dropzone || !reasonBlock) return;
-
-        function showReason(file) {
-          if (!file) return;
-          var sizeKb = Math.round(file.size / 1024);
-          fileInfo.textContent = file.name + ' (' + sizeKb + ' KB)';
-          reasonBlock.classList.add('visible');
-        }
-
-        dropzone.addEventListener('click', function () {
-          fileInput.click();
-        });
-
-        dropzone.addEventListener('dragover', function (e) {
-          e.preventDefault();
-          dropzone.classList.add('dragover');
-        });
-
-        dropzone.addEventListener('dragleave', function (e) {
-          e.preventDefault();
-          dropzone.classList.remove('dragover');
-        });
-
-        dropzone.addEventListener('drop', function (e) {
-          e.preventDefault();
-          dropzone.classList.remove('dragover');
-          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            fileInput.files = e.dataTransfer.files;
-            showReason(e.dataTransfer.files[0]);
-          }
-        });
-
-        fileInput.addEventListener('change', function (e) {
-          var f = e.target.files[0];
-          showReason(f);
-        });
-      }
-
-      setupUpload('whitelistForm', 'whitelistFile', 'whitelistDropzone', 'whitelistReason', 'whitelistFileInfo');
-      setupUpload('malwareForm', 'malwareFile', 'malwareDropzone', 'malwareReason', 'malwareFileInfo');
-    });
-  </script>
 </body>
 
 </html>

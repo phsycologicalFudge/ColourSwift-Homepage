@@ -71,4 +71,42 @@
     });
   });
 
+  document.addEventListener('DOMContentLoaded', function () {
+  var menuToggle = document.querySelector('.menu-toggle');
+  var nav = document.querySelector('header nav');
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function () {
+      nav.classList.toggle('active');
+    });
+  }
+
+  var loader = document.getElementById('loader');
+  if (loader) {
+    setTimeout(function () {
+      loader.classList.add('hidden');
+    }, 250);
+  }
+
+  var success = document.getElementById('submissionSuccess');
+
+  function wireForm(id) {
+    var form = document.getElementById(id);
+    if (!form) return;
+
+    form.addEventListener('submit', function () {
+      if (success) {
+        success.hidden = false;
+        window.scrollTo({ top: success.offsetTop, behavior: 'smooth' });
+      }
+      setTimeout(function () {
+        form.reset();
+      }, 300);
+    });
+  }
+
+  wireForm('whitelistForm');
+  wireForm('malwareForm');
+});
+
 })();
