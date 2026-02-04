@@ -5,93 +5,109 @@
   <script src="script.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ColourSwift | Reputation Submissions</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="style.css">
+  <title>AvarionX | Submissions</title>
+  <meta name="description" content="Submit apps and links for reputation review to improve detection and reduce false positives.">
+  <link rel="stylesheet" href="test-style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 
 <body>
   <div id="loader">
-    <img src="images/logo.svg" alt="ColourSwift Logo" class="loader-logo">
+    <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="loader-logo">
   </div>
 
   <header>
-    <a href="/" class="logo-link">
-      <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="logo">
-    </a>
-    <div class="menu-toggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="brand-wordmark" aria-label="ColourSwift">ColourSwift</a>
+
+        <div class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav>
+          <a href="/docs">Docs</a>
+          <a href="/submissions" class="active">Submissions</a>
+          <a href="https://tech.colourswift.com">Repairs</a>
+          <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" class="nav-cta">Download</a>
+        </nav>
+      </div>
     </div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/docs">docs</a>
-    </nav>
   </header>
 
   <main>
     <section class="submission-hero">
-      <h1>Submit an app for a Reputation Review</h1>
+      <div class="container">
+        <h1>Reputation submissions</h1>
+        <p class="muted">Submit trusted apps to reduce false positives, or suspicious apps to improve detection.</p>
+      </div>
     </section>
 
     <section class="submission-section">
-      <div class="upload-sections">
-        <div class="upload-card">
-          <h2>Positive reputation submission</h2>
-          <p>This helps ColourSwift reduce false positives in AvarionX Antivirus.</p>
+      <div class="container">
+        <div class="upload-sections">
+          <div class="upload-card">
+            <h2>Positive reputation submission</h2>
+            <p>This helps reduce false positives in AvarionX.</p>
 
-          <form id="whitelistForm" class="upload-form" method="post" target="hidden_iframe"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
-            <input type="hidden" name="entry.2128377910" value="Trusted app">
-            <div class="reason-form visible contact-form">
-              <input type="text" name="entry.1466873360" placeholder="App name (required)">
-              <input type="url" name="entry.36785452" placeholder="Source link (https://example.com)" required>
-              <textarea name="entry.642316376" rows="4" placeholder="Why do you trust this application?" required></textarea>
-              <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
-              <button type="submit">Submit trusted app</button>
-              <div class="form-note">This submission is stored in Google Forms.</div>
-            </div>
-          </form>
+            <form id="whitelistForm" class="upload-form" method="post" target="hidden_iframe"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
+              <input type="hidden" name="entry.2128377910" value="Trusted app">
+              <div class="reason-form visible contact-form">
+                <input type="text" name="entry.1466873360" placeholder="App name (required)" required>
+                <input type="url" name="entry.36785452" placeholder="Source link (https://example.com)" required>
+                <textarea name="entry.642316376" rows="4" placeholder="Why do you trust this application?" required></textarea>
+                <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
+                <button type="submit">Submit trusted app</button>
+                <div class="form-note">Stored in Google Forms.</div>
+              </div>
+            </form>
+          </div>
+
+          <div class="upload-card">
+            <h2>Negative reputation submission</h2>
+            <p>Use this if something looks suspicious. Links and context help improve protection for everyone.</p>
+
+            <form id="malwareForm" class="upload-form" method="post" target="hidden_iframe"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
+              <input type="hidden" name="entry.2128377910" value="Suspected malware">
+              <div class="reason-form visible contact-form">
+                <input type="text" name="entry.1466873360" placeholder="App name (required)" required>
+                <input type="url" name="entry.36785452" placeholder="Source link (required)" required>
+                <textarea name="entry.642316376" rows="4" placeholder="What makes it suspicious?" required></textarea>
+                <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
+                <button type="submit">Submit suspected malware</button>
+                <div class="form-note">Stored in Google Forms.</div>
+              </div>
+            </form>
+          </div>
         </div>
 
-        <div class="upload-card">
-          <h2>Negative reputation submission</h2>
-          <p>Use this if something looks suspicious. Links and context help improve protection for everyone.</p>
-
-          <form id="malwareForm" class="upload-form" method="post" target="hidden_iframe"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSft3b_not2cqzztm2d_AEC_04FqwRV4dQIbOx9AsN3FL1YbqA/formResponse">
-            <input type="hidden" name="entry.2128377910" value="Suspected malware">
-            <div class="reason-form visible contact-form">
-              <input type="text" name="entry.1466873360" placeholder="App name (required)">
-              <input type="url" name="entry.36785452" placeholder="Source link (required)" required>
-              <textarea name="entry.642316376" rows="4" placeholder="What makes it suspicious?" required></textarea>
-              <input type="email" name="entry.1180224463" placeholder="Contact email (optional)">
-              <button type="submit">Submit suspected malware</button>
-              <div class="form-note">This submission is stored in Google Forms.</div>
-            </div>
-          </form>
+        <div id="submissionSuccess" class="submission-success" hidden>
+          <h2>Submitted</h2>
+          <p>Thanks. Your report has been recorded.</p>
+          <a class="btn" href="/">Back to home</a>
         </div>
-      </div>
 
-      <div id="submissionSuccess" class="submission-success" hidden>
-        <h2>Submitted</h2>
-        <p>Thanks. Your report has been recorded.</p>
-        <a class="btn" href="/">Back to home</a>
+        <iframe class="hidden-iframe" name="hidden_iframe" title="hidden_iframe"></iframe>
       </div>
-
-      <iframe class="hidden-iframe" name="hidden_iframe" title="hidden_iframe"></iframe>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 ColourSwift</p>
-    <a href="/Policies/Private-Policy">Privacy Policy</a> |
-    <a href="/Policies/Terms-Of-Use">Terms of Use</a> |
+    <div class="container">
+      <div class="footer-inner">
+        <div>&copy; 2025 ColourSwift</div>
+        <div>
+          <a href="/Policies/Private-Policy">Privacy</a>
+          <span> | </span>
+          <a href="/Policies/Terms-Of-Use">Terms</a>
+        </div>
+      </div>
+    </div>
   </footer>
 </body>
 
 </html>
-
-//
