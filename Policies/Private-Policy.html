@@ -2,201 +2,153 @@
 <html lang="en">
 
 <head>
+  <script src="../script.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | Colourswift</title>
-  <link rel="stylesheet" href="../style.css">
+  <title>Privacy Policy | ColourSwift</title>
+  <meta name="description" content="Privacy Policy for ColourSwift services including Security, Secure VPN, DNS Filtering, and Cloud.">
+  <link rel="stylesheet" href="../test-style.css">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 </head>
 
 <body>
+  <div id="loader">
+    <img src="../images/Whitelogo.svg" alt="ColourSwift Logo" class="loader-logo">
+  </div>
+
   <header>
-    <img src="../images/Whitelogo.svg" alt="ColourSwift Logo" class="logo">
-    <nav>
-      <a href="../index">Home</a>
-      <a href="../tech">Tech</a>
-      <a href="../cloud">Cloud</a>
-      <a href="../about">About</a>
-    </nav>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="brand-wordmark" aria-label="ColourSwift">ColourSwift</a>
+        <div class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <nav>
+          <a href="/docs">Docs</a>
+          <a href="/submissions">Submissions</a>
+          <a href="https://tech.colourswift.com">Repairs</a>
+          <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" class="nav-cta">Download</a>
+        </nav>
+      </div>
+    </div>
   </header>
 
-  <main class="policy">
-    <h1>Privacy Policy</h1>
-    <p><em>Last updated December 31, 2025</em></p>
+  <section class="section">
+    <div class="container" style="max-width: 900px;">
+      <h1 class="section-title" style="text-align:left;">Privacy Policy</h1>
+      <p class="section-subtitle" style="text-align:left;margin-left:0;margin-right:0;">
+        Last updated February 22, 2026
+      </p>
 
-    <h2>1. Introduction</h2>
-    <p>This Privacy Notice for Colourswift Limited (“we,” “us,” or “our”) explains how we collect, use,
-      and protect your personal information when you use our services (“Services”), including our website, mobile
-      applications, and cloud services.</p>
-    <p>If you do not agree with this Privacy Policy, please discontinue use of our Services. If you have questions,
-      contact us at <a href="mailto:support@colourswift.com">support@colourswift.com</a>.</p>
+      <h2>1. Introduction</h2>
+      <p>This Privacy Notice for Colourswift Limited explains how we collect, use, and protect your personal information when you use our services, including our website, mobile applications, VPN services, DNS filtering services, and cloud services.</p>
+      <p>If you do not agree with this Privacy Policy, please discontinue use of our Services. If you have questions, contact support@colourswift.com.</p>
 
-    <h2>1.1 Disclaimer for ColourSwift Security</h2>
-    <p>
-      ColourSwift Security provides antivirus protection through a combination of on-device scanning
-      and cloud-assisted threat intelligence.
-      All file analysis and scanning logic execute locally on device.
-      No file contents, metadata, or scan results are uploaded to or stored on
-      ColourSwift servers.
-    </p>
-    <p>
-      When enabled, realtime protection uses cloud-based threat intelligence to improve detection accuracy.
-      This process involves submitting cryptographic file hashes for threat lookup purposes only.
-      Hash lookups do not include file contents and are not used for profiling, analytics, or tracking.
-    </p>
-    <p>
-      Manual scans may be performed without using cloud-based threat intelligence.
-      When cloud lookups are disabled for manual scanning, all detection is performed entirely on-device.
-    </p>
-    <p>
-      The app may request permissions such as storage access or notification access
-      solely to enable local scanning and realtime protection.
-      These permissions are never used for analytics, marketing, profiling, or advertising.
-    </p>
-    <p>
-      This disclaimer applies specifically to ColourSwift Security.
-      Other ColourSwift Limited services follow the broader privacy principles outlined in this policy.
-    </p>
+      <h2>1.1 Disclaimer for ColourSwift Security/AvarionX Antivirus</h2>
+      <p>AvarionX Antivirus provides antivirus protection through a combination of on-device scanning and cloud-assisted threat intelligence. All file analysis and scanning logic execute locally on device. No file contents, metadata, or scan results are uploaded to or stored on ColourSwift servers.</p>
+      <p>When enabled, realtime protection may submit cryptographic file hashes for threat lookup purposes only. Hash lookups do not include file contents and are not used for profiling, analytics, or advertising.</p>
+      <p>Manual scans may be performed without cloud lookups. When cloud lookups are disabled, all detection is performed entirely on-device.</p>
+      <p>Permissions such as storage or notification access are requested solely to enable local scanning and realtime protection.</p>
 
-    <h2>2. Information We Collect</h2>
-    <p>We collect only the information necessary to provide and maintain our services. This includes:</p>
+<h2>1.2 VX-Link (Secure VPN and DNS Filtering)</h2>
 
-    <h3>When using offline ColourSwift applications:</h3>
-    <ul>
-      <li>No personal data is transmitted to our servers.</li>
-      <li>All files and activity remain stored locally on your device.</li>
-      <li>Storage access is requested only to enable local functionality.</li>
-    </ul>
+<p>VX-Link is the network protection component of ColourSwift. It includes Secure VPN and DNS Filtering functionality.</p>
 
-    <h3>When using cloud-based threat lookup services:</h3>
-    <ul>
-      <li>Cryptographic file hashes submitted for malware detection purposes.</li>
-      <li>No file contents are uploaded.</li>
-      <li>Hashes are used solely to perform threat intelligence lookups.</li>
-      <li>Hashes are not used for profiling, analytics, or advertising.</li>
-    </ul>
+<p>Secure VPN routes your device traffic through our VPN servers using modern encryption protocols. While connected, your public IP address is replaced with the IP address of the selected server region.</p>
 
-    <h3>When using ColourSwift Cloud Storage services or creating an account:</h3>
-    <ul>
-      <li>Account details such as name, email, username, and password.</li>
-      <li>Files and other content you choose to upload to cloud storage services.</li>
-      <li>Payment data processed securely by third-party providers. We do not store full card details.</li>
-      <li>Technical data such as IP address, browser type, and device identifiers for security and diagnostic purposes.
-      </li>
-    </ul>
+<p>DNS Filtering routes DNS queries through our filtering infrastructure to block known malware domains, advertisements, trackers, and other unwanted categories. DNS Filtering may be used independently or together with Secure VPN.</p>
 
-    <p>We do <strong>not</strong> collect location data, contact lists, behavioural tracking data, or advertising
-      profiles.</p>
+<p>We do not retain browsing history. We do not retain DNS query history linked to individual users. DNS queries are processed in transit solely for the purpose of applying filtering rules and returning a response.</p>
 
-    <h2>3. How We Use Your Information</h2>
-    <ul>
-      <li>Provide and operate our services.</li>
-      <li>Process payments and manage subscriptions.</li>
-      <li>Respond to support requests.</li>
-      <li>Maintain security and prevent abuse.</li>
-      <li>Comply with legal obligations.</li>
-    </ul>
+<p>To operate the service, validate subscriptions, enforce plan limits, prevent abuse, and maintain reliability, we may process limited technical data including IP address, selected server region, connection status, aggregate bandwidth usage totals, and device identifiers. This data is used strictly for service functionality, security, and account management purposes.</p>
 
-    <h2>4. Legal Basis (UK and EU GDPR)</h2>
-    <p>We process personal information under the following legal bases:</p>
-    <ul>
-      <li><strong>Contract</strong> to provide requested services.</li>
-      <li><strong>Legal obligation</strong> to comply with applicable laws.</li>
-      <li><strong>Legitimate interests</strong> to ensure service security and reliability.</li>
-      <li><strong>Consent</strong> for optional communications.</li>
-    </ul>
+<p>We may generate limited diagnostic and operational logs necessary to maintain, secure, and improve the service. Such logs are not designed to create or retain records of individual browsing activity.</p>
 
-    <h2>5. Data Retention</h2>
-    <p>Account-related data is retained for as long as your account remains active. Upon account deletion, personal
-      data is deleted or anonymised unless retention is required by law.</p>
-    <p>Where no personal data is collected or stored, retention periods do not apply.</p>
+      <h2>2. Information We Collect</h2>
+      <p>We collect only the information necessary to provide and maintain our services.</p>
 
-    <h2>6. Security</h2>
-    <p>We implement appropriate technical and organisational safeguards to protect personal information.
-      Communications with cloud services are encrypted using modern industry standards.</p>
-    <p>Offline ColourSwift applications operate entirely locally unless cloud features are explicitly enabled.</p>
-    <p>While no online system can guarantee absolute security, our design philosophy prioritises user privacy and data
-      minimisation.</p>
+      <h3>Offline applications</h3>
+      <ul>
+        <li>No personal data is transmitted to our servers.</li>
+        <li>All files and activity remain stored locally on your device.</li>
+      </ul>
 
-    <h2>7. Minors</h2>
-    <p>
-      Our services are not directed at children.
-      We do not knowingly collect personal data from children below the applicable age
-      of digital consent under local law.
-    </p>
-    <p>
-      Where required by applicable law, a child may be defined as a person under 18 years
-      of age. If we become aware that personal data relating to a child has been collected,
-      such data will be deleted.
-    </p>
+      <h3>Cloud-based threat lookup</h3>
+      <ul>
+        <li>Cryptographic file hashes for malware detection.</li>
+        <li>No file contents uploaded.</li>
+      </ul>
 
-    <h2>8. Your Rights</h2>
-    <p>Under UK and EU data protection law, you have the right to:</p>
-    <ul>
-      <li>Access your personal data.</li>
-      <li>Request correction or deletion.</li>
-      <li>Restrict or object to processing.</li>
-      <li>Withdraw consent where applicable.</li>
-    </ul>
-    <p>
-      You may exercise these rights by contacting
-      <a href="mailto:support@colourswift.com">support@colourswift.com</a>.
-    </p>
-    <p>
-      You also have the right to lodge a complaint with the UK Information Commissioner’s Office
-      or your local data protection authority.
-    </p>
+      <h3>Secure VPN and DNS Filtering</h3>
+      <ul>
+        <li>Selected server region and connection status.</li>
+        <li>Aggregate bandwidth usage totals for subscription enforcement.</li>
+        <li>IP address and device identifiers for security and abuse prevention.</li>
+        <li>DNS queries processed in transit for filtering purposes, not stored as per-user history.</li>
+      </ul>
 
-    <h2>8.1 India (Digital Personal Data Protection Act, 2023)</h2>
-    <p>
-      For users located in India, ColourSwift processes personal data in accordance with the
-      Digital Personal Data Protection Act, 2023 (DPDP Act).
-    </p>
-    <p>
-      Under the DPDP Act, Indian users are considered “Data Principals” and have the right to:
-    </p>
-    <ul>
-      <li>Access a summary of their personal data.</li>
-      <li>Request correction or erasure of personal data.</li>
-      <li>Withdraw consent where applicable.</li>
-      <li>Raise grievances related to the processing of their personal data.</li>
-    </ul>
-    <p>
-      Requests and grievances under the DPDP Act may be submitted using the same contact
-      details provided in this policy. The support email listed in the Contact section also
-      serves as the grievance redressal contact for data-protection related concerns.
-    </p>
-    <p>
-      Personal data may be processed outside India where required to provide the Services.
-      Such processing is carried out subject to appropriate safeguards and applicable law.
-    </p>
-    <p>
-      Personal data relating to Indian users is erased once the specified purpose is fulfilled
-      or consent is withdrawn, unless retention is required by law.
-    </p>
+      <h3>Accounts and Cloud Storage</h3>
+      <ul>
+        <li>Name, email, username, and authentication credentials.</li>
+        <li>Files uploaded to cloud storage services.</li>
+        <li>Payment data processed by third-party providers.</li>
+        <li>Technical data such as IP address and device identifiers for diagnostics.</li>
+      </ul>
 
-    <h2>9. Cookies</h2>
-    <p>Our website may use cookies to support core functionality.
-      You can control cookie usage through your browser settings.
-      See our <a href="/Policies/cookie-policy">Cookie Policy</a> for details.</p>
+      <p>We do not collect precise location data, contact lists, behavioural tracking data, or advertising profiles.</p>
 
-    <h2>10. Updates to This Policy</h2>
-    <p>This Privacy Policy may be updated periodically.
-      Changes will be posted on this page with an updated revision date.</p>
+      <h2>3. How We Use Information</h2>
+      <ul>
+        <li>Provide and operate services.</li>
+        <li>Validate subscriptions and enforce limits.</li>
+        <li>Process payments.</li>
+        <li>Respond to support requests.</li>
+        <li>Maintain security and prevent abuse.</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
 
-    <h2>11. Contact</h2>
-    <p>If you have questions about this policy, contact us at:</p>
-    <p><strong>Colourswift Limited</strong><br>
+      <h2>4. Legal Basis</h2>
+      <p>We process personal information under contract, legal obligation, legitimate interests, and consent where applicable.</p>
+
+      <h2>5. Data Retention</h2>
+      <p>Account-related data is retained while your account is active. Upon deletion, personal data is deleted or anonymised unless retention is required by law.</p>
+      <p>Technical and operational data is retained only as long as necessary to provide the service and ensure security.</p>
+
+      <h2>6. Security</h2>
+      <p>We implement appropriate technical and organisational safeguards. Communications with cloud services and VPN infrastructure are encrypted using modern standards.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>Under applicable data protection law, you have the right to access, correct, delete, restrict, or object to processing of your personal data. Contact support@colourswift.com to exercise these rights.</p>
+
+      <h2>8. Cookies</h2>
+      <p>Our website may use cookies to support core functionality. You can control cookies through your browser settings.</p>
+
+      <h2>9. Updates</h2>
+      <p>This Privacy Policy may be updated periodically. Changes will be posted with a revised date.</p>
+
+      <h2>10. Contact</h2>
+      <p>Colourswift Limited<br>
       Birmingham, United Kingdom<br>
-      <a href="mailto:support@colourswift.com">support@colourswift.com</a>
-    </p>
-  </main>
+      support@colourswift.com</p>
+
+    </div>
+  </section>
 
   <footer>
-    <p>© 2025 Colourswift |
-      <a href="/Policies/Privacy-Policy">Privacy Policy</a> |
-      <a href="/Policies/Terms-Of-Use">Terms of Use</a>
-    </p>
+    <div class="container">
+      <div class="footer-inner">
+        <div>&copy; 2026 ColourSwift Technologies</div>
+        <div>
+          <a href="/Policies/Private-Policy">Privacy</a>
+          <span> | </span>
+          <a href="/Policies/Terms-Of-Use">Terms</a>
+        </div>
+      </div>
+    </div>
   </footer>
-</body>
 
+</body>
 </html>

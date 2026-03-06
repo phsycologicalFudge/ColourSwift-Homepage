@@ -1,0 +1,43 @@
+{
+  "apps": {
+    "phsycologicalFudge/ColourSwift_AV": {
+      "latestVersion": "v3.0.7-02",
+      "downloads": {
+        "arm64-v8a": {
+          "url": "https://github.com/phsycologicalFudge/ColourSwift_AV/releases/download/v3.0.7-02/app-arm64-v8a-release.apk",
+          "name": "app-arm64-v8a-release.apk"
+        },
+        "armeabi-v7a": {
+          "url": "https://github.com/phsycologicalFudge/ColourSwift_AV/releases/download/v3.0.7-02/app-armeabi-v7a-release.apk",
+          "name": "app-armeabi-v7a-release.apk"
+        }
+      }
+    },
+    "phsycologicalFudge/AvarionX-VPN": {
+      "latestVersion": "3.0.7",
+      "downloads": {
+        "arm64-v8a": {
+          "url": "https://github.com/phsycologicalFudge/AvarionX-VPN/releases/download/3.0.7/app-arm64-v8a-release.apk",
+          "name": "app-arm64-v8a-release.apk"
+        },
+        "armeabi-v7a": {
+          "url": "https://github.com/phsycologicalFudge/AvarionX-VPN/releases/download/3.0.7/app-armeabi-v7a-release.apk",
+          "name": "app-armeabi-v7a-release.apk"
+        }
+      }
+    },
+    "phsycologicalFudge/CS-Secure-Files": {
+      "latestVersion": "1.0.0",
+      "downloads": {
+        "arm64-v8a": {
+          "url": "https://github.com/phsycologicalFudge/CS-Secure-Files/releases/download/1.0.0/app-arm64-v8a-release.apk",
+          "name": "app-arm64-v8a-release.apk"
+        },
+        "armeabi-v7a": {
+          "url": "https://github.com/phsycologicalFudge/CS-Secure-Files/releases/download/1.0.0/app-armeabi-v7a-release.apk",
+          "name": "app-armeabi-v7a-release.apk"
+        }
+      }
+    }
+  }
+}
