@@ -3,11 +3,51 @@
 
 <head>
   <script src="script.js" defer></script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terminal Help | AvarionX</title>
-  <link rel="stylesheet" href="test-style.css" />
+  <link rel="stylesheet" href="test-style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <style>
+    .cmd {
+      display: inline-block;
+      padding: 8px 12px;
+      background: rgba(14, 165, 233, 0.12);
+      border: 1px solid rgba(14, 165, 233, 0.3);
+      border-radius: 8px;
+      color: var(--primary);
+      font-family: monospace;
+      font-size: 14px;
+      margin: 12px 0;
+    }
+    .kbd {
+      font-family: monospace;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .terminal-container h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      margin: 64px 0 32px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .terminal-container h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 40px;
+      color: var(--text);
+    }
+    .terminal-container p {
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
@@ -19,27 +59,25 @@
     <div class="container">
       <div class="header-inner">
         <a href="/" class="brand-wordmark" aria-label="ColourSwift">ColourSwift</a>
-
         <div class="menu-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
           <span></span>
         </div>
-
         <nav>
           <a href="/docs">Docs</a>
           <a href="/submissions">Submissions</a>
-          <a href="https://tech.colourswift.com">Repairs</a>
+          <a href="https://api.colourswift.com/account">Account</a>
           <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" class="nav-cta">Download</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main class="terminal-page">
-    <div class="container terminal-container">
-      <h1>Terminal Help</h1>
-      <p class="muted">Use <span class="kbd">help</span> at any time to open this page.</p>
+  <main class="section">
+    <div class="container terminal-container" style="max-width: 800px;">
+      <h1 class="section-title" style="text-align: left;">Terminal Help</h1>
+      <p class="section-subtitle" style="text-align: left; margin-left: 0;">Use <span class="kbd">help</span> at any time to open this page.</p>
 
       <h2>Commands</h2>
 
@@ -92,7 +130,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div>&copy; 2025 ColourSwift</div>
+        <div>&copy; 2026 ColourSwift Technologies</div>
         <div>
           <a href="/Policies/Private-Policy">Privacy</a>
           <span> | </span>

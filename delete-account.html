@@ -1,127 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Delete Account | ColourSwift</title>
-  <link rel="stylesheet" href="test-style.css" />
+  <link rel="stylesheet" href="test-style.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <style>
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus {
+      border-color: var(--primary);
+    }
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+    .step-container {
+      max-width: 500px;
+      margin: 48px auto 0;
+    }
+  </style>
 </head>
 <body>
   <div id="loader">
-    <img src="logo.png" alt="ColourSwift" class="loader-logo" />
+    <img src="images/Whitelogo.svg" alt="ColourSwift Logo" class="loader-logo">
   </div>
 
   <header>
-    <div class="container header-inner">
-      <a class="logo-link" href="index.html" aria-label="ColourSwift home">
-        <img src="logo.png" alt="ColourSwift" class="logo" />
-      </a>
-
-      <div class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="brand-wordmark" aria-label="ColourSwift">ColourSwift</a>
+        <div class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <a href="/docs">Docs</a>
+          <a href="/submissions">Submissions</a>
+          <a href="https://api.colourswift.com/account">Account</a>
+          <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" class="nav-cta">Download</a>
+        </nav>
       </div>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="support.html">Support</a>
-        <a href="delete-account.html" class="nav-cta">Delete Account</a>
-      </nav>
     </div>
   </header>
 
-<main>
-  <section class="hero submission-hero">
-    <div class="container">
-      <h1>Delete your ColourSwift account</h1>
-      <p class="muted">
-        This page lets you request account deletion for ColourSwift services, including AvarionX Secure VPN.
-        You will verify by email before deletion is confirmed.
-      </p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <section class="submission-section">
-    <div class="container" style="max-width: 760px;">
-      <div class="upload-card">
-        <h2 id="stepTitle">Step 1, Request deletion code</h2>
-        <p id="stepDesc">
-          Enter the email address used for your account. We will send a deletion verification code.
-        </p>
-
-        <div id="step1">
-          <form id="deleteStartForm" class="contact-form" novalidate>
-            <input id="deleteEmail" name="email" type="email" placeholder="Email address" required />
-            <button type="submit">Send deletion code</button>
-          </form>
-          <p class="form-note" id="deleteStartNote">
-            If the account exists, a code will be sent to the email address.
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Data Management</div>
+          <h1 class="section-title">Delete your ColourSwift account</h1>
+          <p class="section-subtitle">
+            This page lets you request account deletion for ColourSwift services, including AvarionX Secure VPN.
+            You will verify by email before deletion is confirmed.
           </p>
         </div>
 
-        <div id="step2" hidden>
-          <form id="deleteVerifyForm" class="contact-form" novalidate>
-            <input id="verifyEmail" name="email" type="email" placeholder="Email address" required />
-            <input id="deleteCode" name="code" type="text" inputmode="numeric" placeholder="Deletion code" required />
-            <button type="submit">Verify code</button>
-          </form>
-          <p class="form-note" id="deleteVerifyNote">
-            Enter the code sent to your email.
+        <div class="step-container">
+          <h2 class="section-title" id="stepTitle" style="font-size: 24px; text-align: left;">Step 1, Request deletion code</h2>
+          <p class="section-subtitle" id="stepDesc" style="text-align: left; margin-left: 0; margin-bottom: 24px;">
+            Enter the email address used for your account. We will send a deletion verification code.
           </p>
-          <div class="buttons" style="margin-top: 12px;">
-            <button type="button" class="btn alt" id="backToStep1">Back</button>
-          </div>
-        </div>
 
-        <div id="step3" hidden>
-          <form id="deleteConfirmForm" class="contact-form" novalidate>
-            <input id="deleteToken" name="deleteToken" type="text" placeholder="Deletion token" required readonly />
-            <button type="submit">Delete my account</button>
-          </form>
-          <p class="form-note" id="deleteConfirmNote">
-            This will disable your account and revoke access tokens and device access.
-          </p>
-          <div class="buttons" style="margin-top: 12px;">
-            <button type="button" class="btn alt" id="backToStep2">Back</button>
+          <div id="step1">
+            <form id="deleteStartForm" novalidate>
+              <input class="form-input" id="deleteEmail" name="email" type="email" placeholder="Email address" required>
+              <button class="btn" type="submit">Send deletion code</button>
+            </form>
+            <p class="form-note" id="deleteStartNote">If the account exists, a code will be sent to the email address.</p>
           </div>
-        </div>
 
-        <div id="step4" hidden>
-          <div class="submission-success" style="margin: 0; box-shadow: none;">
-            <h3>Account deleted</h3>
-            <p>Your ColourSwift account deletion request has been completed.</p>
+          <div id="step2" hidden>
+            <form id="deleteVerifyForm" novalidate>
+              <input class="form-input" id="verifyEmail" name="email" type="email" placeholder="Email address" required>
+              <input class="form-input" id="deleteCode" name="code" type="text" inputmode="numeric" placeholder="Deletion code" required>
+              <div class="buttons">
+                <button class="btn" type="submit">Verify code</button>
+                <button type="button" class="btn alt" id="backToStep1">Back</button>
+              </div>
+            </form>
+            <p class="form-note" id="deleteVerifyNote">Enter the code sent to your email.</p>
           </div>
-          <div class="buttons" style="margin-top: 14px;">
-            <a class="btn alt" href="index.html">Return home</a>
+
+          <div id="step3" hidden>
+            <form id="deleteConfirmForm" novalidate>
+              <input class="form-input" id="deleteToken" name="deleteToken" type="text" placeholder="Deletion token" required readonly>
+              <div class="buttons">
+                <button class="btn" type="submit">Delete my account</button>
+                <button type="button" class="btn alt" id="backToStep2">Back</button>
+              </div>
+            </form>
+            <p class="form-note" id="deleteConfirmNote">This will disable your account and revoke access tokens and device access.</p>
+          </div>
+
+          <div id="step4" hidden>
+            <div class="section-header-center" style="margin-top: 32px;">
+              <h3 class="section-title" style="font-size: 24px;">Account deleted</h3>
+              <p class="section-subtitle" style="margin-bottom: 24px;">Your ColourSwift account deletion request has been completed.</p>
+              <a class="btn alt" href="/">Return home</a>
+            </div>
+          </div>
+
+          <div id="deleteStatusCard" style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;" hidden>
+            <h3 class="section-title" id="deleteStatusTitle" style="font-size: 20px; text-align: left;">Status</h3>
+            <p class="section-subtitle" id="deleteStatusText" style="text-align: left; margin-left: 0;">Waiting for action.</p>
+          </div>
+
+          <div style="margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px;">
+            <h2 class="section-title" style="font-size: 20px; text-align: left;">What happens when you delete your account</h2>
+            <p class="section-subtitle" style="text-align: left; margin-left: 0;">
+              Your account is disabled, login tokens are revoked, and VPN device access linked to your account is revoked.
+              If you have an active subscription, manage cancellation in Google Play to avoid future charges.
+            </p>
           </div>
         </div>
       </div>
-
-      <div id="deleteStatusCard" class="submission-success" hidden>
-        <h3 id="deleteStatusTitle">Status</h3>
-        <p id="deleteStatusText">Waiting for action.</p>
-      </div>
-
-      <div class="upload-card" style="margin-top: 16px;">
-        <h2>What happens when you delete your account</h2>
-        <p>
-          Your account is disabled, login tokens are revoked, and VPN device access linked to your account is revoked.
-          If you have an active subscription, manage cancellation in Google Play to avoid future charges.
-        </p>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer-inner">
-      <div>© <span id="year"></span> ColourSwift</div>
+      <div>© <span id="year"></span> ColourSwift Technologies</div>
       <div>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="/Policies/Private-Policy">Privacy</a>
+        <span> | </span>
+        <a href="/Policies/Terms-Of-Use">Terms</a>
       </div>
     </div>
   </footer>
@@ -130,25 +148,21 @@
   <script>
     (function () {
       const API_BASE = "https://api.colourswift.com";
-
       const startForm = document.getElementById("deleteStartForm");
       const verifyForm = document.getElementById("deleteVerifyForm");
       const confirmForm = document.getElementById("deleteConfirmForm");
-
       const deleteEmail = document.getElementById("deleteEmail");
       const verifyEmail = document.getElementById("verifyEmail");
       const deleteCode = document.getElementById("deleteCode");
       const deleteToken = document.getElementById("deleteToken");
-
       const startNote = document.getElementById("deleteStartNote");
       const verifyNote = document.getElementById("deleteVerifyNote");
       const confirmNote = document.getElementById("deleteConfirmNote");
-
       const statusCard = document.getElementById("deleteStatusCard");
       const statusTitle = document.getElementById("deleteStatusTitle");
       const statusText = document.getElementById("deleteStatusText");
-
       const year = document.getElementById("year");
+      
       if (year) year.textContent = String(new Date().getFullYear());
 
       function setStatus(title, text) {
@@ -167,32 +181,27 @@
           },
           body: JSON.stringify(body)
         });
-
         let data = {};
         try {
           data = await res.json();
         } catch {
           data = {};
         }
-
         if (!res.ok) {
           const msg = (data && data.error) ? data.error : "request_failed";
           throw new Error(msg);
         }
-
         return data;
       }
 
       if (startForm) {
         startForm.addEventListener("submit", async function (e) {
           e.preventDefault();
-
           const email = (deleteEmail.value || "").trim().toLowerCase();
           if (!email) {
             startNote.textContent = "Enter your email address.";
             return;
           }
-
           startNote.textContent = "Sending code...";
           try {
             await postJson("/account-delete/start", { email });
@@ -209,23 +218,18 @@
       if (verifyForm) {
         verifyForm.addEventListener("submit", async function (e) {
           e.preventDefault();
-
           const email = (verifyEmail.value || "").trim().toLowerCase();
           const code = (deleteCode.value || "").trim();
-
           if (!email || !code) {
             verifyNote.textContent = "Enter both email and deletion code.";
             return;
           }
-
           verifyNote.textContent = "Verifying code...";
           try {
             const data = await postJson("/account-delete/verify", { email, code });
-
             if (data && data.deleteToken) {
               deleteToken.value = data.deleteToken;
             }
-
             verifyNote.textContent = "Code verified. Continue to final confirmation.";
             setStatus("Code verified", "Your deletion token is ready. Submit Step 3 to delete the account.");
           } catch (err) {
@@ -238,16 +242,13 @@
       if (confirmForm) {
         confirmForm.addEventListener("submit", async function (e) {
           e.preventDefault();
-
           const token = (deleteToken.value || "").trim();
           if (!token) {
             confirmNote.textContent = "Verify your code first to get a deletion token.";
             return;
           }
-
           const sure = window.confirm("Are you sure you want to delete your account? This cannot be undone.");
           if (!sure) return;
-
           confirmNote.textContent = "Deleting account...";
           try {
             await postJson("/account-delete/confirm", { deleteToken: token });
