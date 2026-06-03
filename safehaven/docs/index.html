@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../../script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | SafeHaven Store</title>
+    <meta name="description" content="Technical architecture documentation for the SafeHaven ecosystem including trust metrics, ingestion pipelines, lifecycle validation and scanner topology.">
+    <link rel="stylesheet" href="../safehaven-style.css">
+    <link rel="stylesheet" href="docs-style.css">
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=600;700;800;900&family=DM+Sans:wght=400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader">
+        <img src="../../images/Whitelogo.svg" alt="ColourSwift Logo" class="loader-logo">
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="brand-wordmark" aria-label="ColourSwift">ColourSwift</a>
+                <div class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav>
+                    <a href="https://api.colourswift.com/account">Account</a>
+                    <a href="https://github.com/phsycologicalFudge/SafeHaven-Store" class="nav-cta">Download</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="safehaven-main container">
+        <aside class="safehaven-sidebar">
+            <div class="sidebar-box">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#overview" class="active">1. Overview & Trust Layers</a></li>
+                    <li><a href="#curation">2. App Curation & Ingestion</a></li>
+                    <li><a href="#lifecycle">3. Submission Lifecycle</a></li>
+                    <li><a href="#sync">4. Client Sync & Patching</a></li>
+                    <li><a href="#scanner">5. Scanner Architecture</a></li>
+                    <li><a href="#ranking">6. Ranking & Storage Layout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <article class="safehaven-content">
+            <section id="overview">
+                <div class="eyebrow">Section 1</div>
+                <h1>Overview and Trust Layers</h1>
+                
+                <h3>Core Function</h3>
+                <p>SafeHaven is an independent Android application distribution platform focused on transparency, source code visibility, and clear software metadata. Instead of asking users to blindly trust the platform or the applications within it, SafeHaven explicitly documents where an application comes from, whether its developer source has been cryptographically verified, and how it performs against automated security scans.</p>
+                
+                <h3>Ecosystem Components</h3>
+                <p>The infrastructure relies on three decoupled components to maintain speed, scale, and separation of concerns:</p>
+                <ul>
+                    <li><strong>Routing Backend:</strong> A Cloudflare Workers application that manages API routing, processes developer uploads, orchestrates security scans, and generates the public catalog index.</li>
+                    <li><strong>Storage Layer:</strong> An S3-compatible object storage server that hosts the public JSON index document, staging uploads, and production binary files.</li>
+                    <li><strong>Scanner Service:</strong> A standalone Python application running as background services on a Linux server to pull pending files, extract metadata, and run signature or threat validations.</li>
+                </ul>
+
+                <h3>The Five Trust Metrics</h3>
+                <p>The client interface displays five explicit trust metrics for every application profile to give users visibility into package security:</p>
+                <ul>
+                    <li><strong>Source Linked:</strong> The listing contains a verified link to a public source repository containing the code for the package.</li>
+                    <li><strong>Verified Source:</strong> The developer has proven direct administrative control over the linked repository by completing a cryptographic hand-shake file verification during setup.</li>
+                    <li><strong>Unverified Listings:</strong> Applications suggested or imported by the community that have not been explicitly claimed by their original authors are clearly marked as unverified to maximize transparency.</li>
+                    <li><strong>APK Scanning:</strong> Every single compiled application file must pass through an automated check pipeline before becoming searchable or downloadable in the public repository.</li>
+                    <li><strong>Hex-Signal Verification:</strong> Packages are regularly rescanned post-release to ensure metadata remains fresh and new signatures can be verified against malicious zero-day discoveries.</li>
+                </ul>
+            </section>
+
+            <section id="curation">
+                <div class="eyebrow">Section 2</div>
+                <h2>App Curation and Ingestion</h2>
+                <p>SafeHaven populates its catalog using four distinct validation channels to balance verified developer support with open-source discovery:</p>
+
+                <h3>Developer Submissions</h3>
+                <p>Verified application authors register and manage profiles directly using the web management portal. From this dashboard, developers retain complete control over their listing text, promotional assets, tags, and version lifecycle releases.</p>
+
+                <h3>Community Contributions</h3>
+                <p>General users can submit public repository links for open-source applications they wish to see on the platform. These entries automatically pass into the validation queue but are rigidly tagged with an 'Unverified Developer' label in the client app, letting mobile users know the profile was built by the community rather than the original creator.</p>
+
+                <h3>Automated GitHub Scraping</h3>
+                <p>The backend utilizes automated scanning routines that regularly filter global software tracking pages for the top 50 trending open-source Android projects. If a package does not match an existing database signature, it is automatically fetched, parsed, and routed directly into the security validation queue.</p>
+
+                <h3>F-Droid Repository Sync</h3>
+                <p>The server queries the official F-Droid repository index on a structured schedule. The ingestion engine explicitly filters for application packages that have been updated or created within a rolling 12-month window. If an application meets this criteria and does not conflict with an existing verified developer signature in the database, it is safely pulled into the submission pipeline.</p>
+            </section>
+
+            <section id="lifecycle">
+                <div class="eyebrow">Section 3</div>
+                <h2>Submission Lifecycle and Access Tiers</h2>
+                
+                <h3>Lifecycle States</h3>
+                <p>Every application update must pass through a strict sequence of transactional gates before reaching production mirrors:</p>
+                
+                <pre class="state-tree">pending_upload -> pending_scan -> scanning -> pending_review -> live
+                                                             -> rejected</pre>
+
+                <ul>
+                    <li><strong>pending_upload:</strong> The database record is created, and the system waits for the file to arrive. This state locks version parameters and names before file storage interactions start.</li>
+                    <li><strong>pending_scan:</strong> The application binary has successfully landed in temporary staging storage and is appended to the scanner queue. This stage completely decouples network upload times from processing cycles.</li>
+                    <li><strong>scanning:</strong> The background service pulls the specific binary block to compute checksums and run behavioral engine analysis. The file is marked as scanning so separate worker instances do not pick up duplicate jobs.</li>
+                    <li><strong>pending_review:</strong> The application successfully clears all automated validation rules and waits for a manual check or a background timeout script to execute. This step acts as a safety buffer period.</li>
+                    <li><strong>live:</strong> The application is moved to production storage, and the global file index updates. It is now immediately visible to all connected devices.</li>
+                    <li><strong>rejected:</strong> The application triggered a known threat signature, mismatched developer credentials, or failed structural validation. The package is blocked and cannot enter the catalog.</li>
+                </ul>
+
+                <h3>Staging and Storage Allocation</h3>
+                <p>To maximize security, developers never upload files directly to the database or the live production directory. Instead, the backend generates an AWS Signature Version 4 presigned PUT URL that expires exactly 15 minutes after generation. The developer pushes the binary to this isolated staging directory. Once the file is verified and approved, the server uses a fast bucket-level copy command to promote the asset into production space.</p>
+
+                <h3>Automated Approvals</h3>
+                <p>A scheduled cron service runs inside the background architecture to look for items flagged as pending_review. If an item remains in the review state past a set duration without generating errors, the task bypasses manual backlogs and promotes the clean asset to the live public catalog automatically.</p>
+
+<h3>Access Control Tiers</h3>
+                <p>The HTTP routing architecture protects endpoint logic by separating API paths into six explicit authority groups:</p>
+                <ul>
+                    <li><strong>Public:</strong> Open endpoints requiring no credential tokens, such as pulling the public index or looking up a public catalog entry.</li>
+                    <li><strong>User:</strong> Authenticated accounts capable of viewing standard account configurations or historical actions.</li>
+                    <li><strong>Developer:</strong> Authenticated accounts flagged with active developer privileges, allowing package registration and listing creation.</li>
+                    <li><strong>Owner:</strong> The specific developer account matching the unique identification field of the registered application, granting release controls.</li>
+                    <li><strong>Admin:</strong> Administrative accounts with complete access to overwrite status indicators, manually adjust trust flags, or force approvals.</li>
+                    <li><strong>Scanner Secret:</strong> Validation tokens matching a shared background secret header, allowing the VPS scanner to fetch files and commit scan reports.</li>
+                </ul>
+            </section>
+
+            <section id="sync">
+                <div class="eyebrow">Section 4</div>
+                <h2>Background Incremental Transfer System (BITS)</h2>
+                
+                <h3>Dynamic Delta Queries</h3>
+                <p>To minimize mobile data overhead and prevent slow load speeds, the server avoids sending a monolithic json file when checking for updates. Instead, the server tracks updates through a rolling timestamp window to determine if the client needs to receive the full JSON index or an up-to-date patched JSON based on what they may have missed.</p>
+
+                <h3>Data Payload Operations</h3>
+                <p>When processing incremental modifications within the rolling window, the server returns a lightweight tracking document containing two distinct array sets: updates and removes.</p>
+
+<pre><code class="language-json">{
+  "action": "patch",
+  "timestamp": 1715850000,
+  "removes": [
+    "com.example.oldapp"
+  ],
+  "updates": [
+    {
+      "packageName": "com.example.updatedapp",
+      "name": "Updated App Name",
+      "versionCode": 42
+    }
+  ]
+}</code></pre>
+            </section>
+
+            <section id="scanner">
+                <div class="eyebrow">Section 5</div>
+                <h2>Scanner Architecture and Modular Design</h2>
+                
+                <h3>System Topology</h3>
+                <p>The scanning deployment on the Linux VPS operates through three separated systemd background services to guarantee that tasks run independently without blocking one another:</p>
+                <ul>
+                    <li><strong>safehaven-scanner:</strong> The main engine running on port 8080 that polls the server for jobs, fetches staging binaries, extracts file metadata, and submits results.</li>
+                    <li><strong>safehaven-hash:</strong> A local intelligence database service running on port 8081 that stores known malicious checksum structures.</li>
+                    <li><strong>safehaven-defs:</strong> An automated update utility that tracks definition updates every 24 hours, pulling fresh signatures and restarting the scanner smoothly when modifications land.</li>
+                </ul>
+
+                <h3>FOSS Defaults</h3>
+                <p>The scanning infrastructure is designed to remain completely open-source and modular. It does not force hard dependencies on closed-source analysis layers. If a community fork scrubs the proprietary public keys or completely deletes the optionally compiled '.so' engine libraries, the scanner continues running without errors. It automatically scales back its functionality to act as a robust hash and certificate extraction check engine.</p>
+
+                <h3>Local Threat Database</h3>
+                <p>To preserve client environment privacy and cut down network dependencies, the safehaven-hash service pulls recent malware definitions from open threat feeds every two hours. It writes these rules into an isolated, local SQLite database file. The scanner processes all signature evaluations against this local database resource, completely removing the need to leak file hashes to external third-party lookup APIs.</p>
+
+                <h3>VX-TITANIUM Engine Plugins</h3>
+                <p>When the optional 'libcolourswift_av.so' and machine learning definition packages are detected in the file directory, the scanner automatically mounts the full VX-TITANIUM validation engine. Every incoming package then undergoes comprehensive byte-structure parsing, YARA pattern verification, and automated classifier evaluations to detect obfuscated malicious payloads before they can infect user hardware.</p>
+            </section>
+
+            <section id="ranking">
+                <div class="eyebrow">Section 6</div>
+                <h2>Ranking Logic and Storage Layout</h2>
+                
+                <h3>Top Charts Ranking</h3>
+                <p>To maintain strict transparency, SafeHaven removes developer verification bias from its discovery algorithms. The platform's Top Charts section is calculated on-device by the client application.</p>
+                <p>Instead of a raw mathematical average, the ranking algorithm evaluates every application by balancing its average rating score against its total review count, while adjusting for a baseline minimum review threshold and the global average rating of the entire catalog.</p>
+                <p>This approach ensures a fair ranking system by preventing two common structural issues:</p>
+                <ul>
+                    <li>An application with a single 5-star review cannot instantly jump to the top of the charts over heavily tested software.</li>
+                    <li>Massive, established applications cannot permanently lock down top positions using historical, stagnant review totals.</li>
+                </ul>
+                <p>This local balancing system allows newly launched applications with a small but highly rated user base to climb the charts organically based entirely on pure metrics.</p>
+
+                <h3>Object Storage Schema</h3>
+                <p>The directory design within the S3 storage bucket keeps public document access completely separated from staging validation environments:</p>
+
+<pre class="storage-tree">index.json
+apps/
+  └── com.example.app/
+        └── 104/
+              └── app.apk
+staging/
+  └── com.example.app/
+        └── 105/
+              └── app.apk</pre>
+
+                <ul>
+                    <li><strong>index.json:</strong> The global, public-facing index file that contains the complete catalog, available categories, and version metadata.</li>
+                    <li><strong>apps/:</strong> The production directory path, organized cleanly by package name strings and corresponding version code integers, containing only approved live binaries.</li>
+                    <li><strong>staging/:</strong> A secured directory block containing temporary pre-review uploads that are hidden from the public index until they successfully clear the scanner service.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>&copy; 2026 ColourSwift Technologies</div>
+                <div>
+                    <a href="https://api.colourswift.com/health">Status</a>
+                    <span> | </span>
+                    <a href="/Policies/Private-Policy">Privacy</a>
+                    <span> | </span>
+                    <a href="/Policies/Terms-Of-Use">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

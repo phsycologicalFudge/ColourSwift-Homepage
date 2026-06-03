@@ -1,0 +1,55 @@
+pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  overflow-x: auto;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.state-tree, .storage-tree {
+  white-space: pre;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.safehaven-content h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 32px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.safehaven-content ul {
+  margin-left: 20px;
+  margin-bottom: 24px;
+}
+
+.safehaven-content li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+code {
+  background: var(--surface);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}

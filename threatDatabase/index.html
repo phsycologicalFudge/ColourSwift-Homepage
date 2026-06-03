@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threat Database | ColourSwift</title>
+  <meta name="description" content="Family-level descriptions of Android threats detected by AVarionX.">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="brand-wordmark">ColourSwift</a>
+        <div class="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </div>
+        <nav id="main-nav">
+          <a href="/docs">Docs</a>
+          <a href="/submissions">Submissions</a>
+          <a href="https://api.colourswift.com/account">Account</a>
+          <a href="https://github.com/phsycologicalFudge/ColourSwift_AV" class="nav-cta">Download</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="page-header">
+        <h1>Threat Database</h1>
+        <p>Descriptions of Android threats detected by AvarionX.</p>
+      </div>
+
+      <div class="controls">
+        <input
+          type="search"
+          id="search"
+          class="search-input"
+          placeholder="Search family name..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <select id="category-filter" class="category-select">
+          <option value="">All categories</option>
+        </select>
+      </div>
+
+      <div class="results-meta">
+        <span id="count-label"></span>
+      </div>
+
+      <div id="threat-list" class="threat-list">
+        <div class="loading-state">Loading...</div>
+      </div>
+
+      <div id="show-more-wrap" class="show-more-wrap" hidden>
+        <button id="show-more" class="show-more-btn">Show more</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>&copy; 2026 ColourSwift Technologies</div>
+        <div>
+          <a href="https://api.colourswift.com/health">Status</a>
+          <span> | </span>
+          <a href="/Policies/Private-Policy">Privacy</a>
+          <span> | </span>
+          <a href="/Policies/Terms-Of-Use">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PAGE_SIZE = 25;
+    let all = [], filtered = [], shown = 0;
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = splitLine(lines[0]);
+      return lines.slice(1)
+        .map(line => {
+          const vals = splitLine(line);
+          const obj = {};
+          headers.forEach((h, i) => obj[h.trim()] = (vals[i] || '').trim());
+          return obj;
+        })
+        .filter(r => r.slug);
+    }
+
+    function splitLine(line) {
+      const out = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') {
+          if (inQ && line[i + 1] === '"') { cur += '"'; i++; }
+          else inQ = !inQ;
+        } else if (c === ',' && !inQ) {
+          out.push(cur); cur = '';
+        } else {
+          cur += c;
+        }
+      }
+      out.push(cur);
+      return out;
+    }
+
+    async function load() {
+      try {
+        const res = await fetch('/threatDatabase/families.csv');
+        if (!res.ok) throw new Error();
+        all = parseCSV(await res.text());
+        populateCategories();
+        applyFilters();
+      } catch {
+        document.getElementById('threat-list').innerHTML =
+          '<div class="error-state">Failed to load threat data.</div>';
+      }
+    }
+
+    function populateCategories() {
+      const cats = [...new Set(all.map(t => t.category).filter(Boolean))].sort();
+      const sel = document.getElementById('category-filter');
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c; opt.textContent = c;
+        sel.appendChild(opt);
+      });
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const cat = document.getElementById('category-filter').value;
+      filtered = all.filter(t =>
+        (!q || t.display_name.toLowerCase().includes(q) || t.slug.includes(q)) &&
+        (!cat || t.category === cat)
+      );
+      shown = 0;
+      renderList(true);
+    }
+
+    function renderList(reset) {
+      const list = document.getElementById('threat-list');
+      if (reset) list.innerHTML = '';
+
+      if (!filtered.length) {
+        list.innerHTML = '<div class="empty-state">No threats match your search.</div>';
+        document.getElementById('show-more-wrap').hidden = true;
+        document.getElementById('count-label').textContent = '0 threats';
+        return;
+      }
+
+      const total = filtered.length;
+      document.getElementById('count-label').textContent =
+        total === 1 ? '1 threat' : `${total} threats`;
+
+      filtered.slice(shown, shown + PAGE_SIZE).forEach(t => {
+        const a = document.createElement('a');
+        a.href = `/threatDatabase/${t.slug}`;
+        a.className = 'threat-row';
+        a.innerHTML = `
+          <div class="threat-main">
+            <div class="threat-top">
+              <span class="threat-name">${esc(t.display_name)}</span>
+              <span class="threat-category">${esc(t.category)}</span>
+            </div>
+            <p class="threat-desc">${esc(t.description)}</p>
+          </div>
+          <svg class="threat-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+        list.appendChild(a);
+      });
+
+      shown += Math.min(PAGE_SIZE, filtered.length - shown);
+      document.getElementById('show-more-wrap').hidden = shown >= filtered.length;
+    }
+
+    function esc(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    let debounce;
+    document.getElementById('search').addEventListener('input', () => {
+      clearTimeout(debounce);
+      debounce = setTimeout(applyFilters, 180);
+    });
+    document.getElementById('category-filter').addEventListener('change', applyFilters);
+    document.getElementById('show-more').addEventListener('click', () => renderList(false));
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.getElementById('main-nav').classList.toggle('active');
+    });
+
+    load();
+  </script>
+</body>
+</html>
